@@ -4,6 +4,7 @@
 # This is free software, licensed under the GNU General Public License v2.
 # See /LICENSE for more information.
 #
+# XXX BROKEN: new mbedtls API
 
 include $(TOPDIR)/rules.mk
 
@@ -14,7 +15,7 @@ include $(TOPDIR)/rules.mk
 #
 PKG_NAME:=shadowsocks-libev
 PKG_VERSION:=3.3.5
-PKG_RELEASE:=10a
+PKG_RELEASE:=11
 
 PKG_SOURCE:=$(PKG_NAME)-$(PKG_VERSION).tar.gz
 PKG_SOURCE_URL:=https://github.com/shadowsocks/shadowsocks-libev/releases/download/v$(PKG_VERSION)
@@ -63,6 +64,7 @@ define Package/shadowsocks-libev/Default
     TITLE:=shadowsocks-libev $(1)
     URL:=https://github.com/shadowsocks/shadowsocks-libev
     DEPENDS:=+libev +libmbedtls +libpthread +libsodium +shadowsocks-libev-config $(DEPENDS_$(1)) +zlib
+    DEPENDS+=@BROKEN
   endef
 
   define Package/shadowsocks-libev-$(1)/install
@@ -121,8 +123,8 @@ CONFIGURE_ARGS += \
 
 TARGET_LDFLAGS += -Wl,--gc-sections,--as-needed
 
-$(eval $(call BuildPackage,shadowsocks-libev-config))
-$(eval $(call BuildPackage,shadowsocks-libev-ss-rules))
-$(foreach component,$(SHADOWSOCKS_COMPONENTS), \
-  $(eval $(call BuildPackage,shadowsocks-libev-$(component))) \
-)
+#$(eval $(call BuildPackage,shadowsocks-libev-config))
+#$(eval $(call BuildPackage,shadowsocks-libev-ss-rules))
+#$(foreach component,$(SHADOWSOCKS_COMPONENTS), \
+#  $(eval $(call BuildPackage,shadowsocks-libev-$(component))) \
+#)
