@@ -54,11 +54,6 @@ CONFIGURE_ARGS += \
 	--without-optimizecpu \
 	CFLAGS='$(TARGET_CFLAGS) $(TARGET_CPPFLAGS)'
 
-ifeq ($(CONFIG_LINUX_2_6_36),y)
-CONFIGURE_ARGS+= \
-	--without-v4l2
-endif
-
 define Package/motion/install
 	$(INSTALL_DIR) $(1)/opt/etc/init.d
 	$(INSTALL_DIR) $(1)/opt/etc/motion
