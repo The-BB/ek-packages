@@ -1,10 +1,12 @@
-commit fabbbdbbc29c09a287e6c1a024f3be668b1162ba (HEAD -> master, origin/master, origin/HEAD)
-Author: krant <aleksey.vasilenko@gmail.com>
-Date:   Mon Feb 5 17:38:42 2024 +0200
+commit 3ff411fe021cd2b0944ca1aea48a0dbb81c6baf4 (HEAD -> master, origin/master, origin/HEAD)
+Author: Jonas Jelonek <jelonek.jonas@gmail.com>
+Date:   Thu Jul 4 00:14:02 2024 +0200
 
-    mpg123: update to 1.32.4
+    eza: update to 0.18.21
     
-    - Use package official URL
-    - Fix license name
+    Release notes:
+    0.18.19: https://github.com/eza-community/eza/releases/tag/v0.18.19
+    0.18.20: https://github.com/eza-community/eza/releases/tag/v0.18.20
+    0.18.21: https://github.com/eza-community/eza/releases/tag/v0.18.21
     
-    Signed-off-by: krant <aleksey.vasilenko@gmail.com>
+    Signed-off-by: Jonas Jelonek <jelonek.jonas@gmail.com>
