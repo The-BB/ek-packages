@@ -167,7 +167,11 @@ define Package/node-npm/install
 endef
 
 define Host/Install
-	$(RM) -rf $(1)/lib/node_modules/npm
+	rm -f $(1)/bin/npm
+	rm -f $(1)/bin/npx
+	rm -rf $(1)/lib/node_modules/npm
+	rm -f $(1)/bin/corepack
+	rm -rf $(1)/lib/node_modules/corepack
 	$(call Host/Install/Default)
 endef
 
