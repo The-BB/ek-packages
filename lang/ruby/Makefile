@@ -15,7 +15,7 @@
 include $(TOPDIR)/rules.mk
 
 PKG_NAME:=ruby
-PKG_VERSION:=3.3.3
+PKG_VERSION:=3.3.4
 PKG_RELEASE:=1
 
 # First two numbes
@@ -23,7 +23,7 @@ PKG_ABI_VERSION:=$(subst $(space),.,$(wordlist 1, 2, $(subst .,$(space),$(PKG_VE
 
 PKG_SOURCE:=$(PKG_NAME)-$(PKG_VERSION).tar.gz
 PKG_SOURCE_URL:=https://cache.ruby-lang.org/pub/ruby/$(PKG_ABI_VERSION)/
-PKG_HASH:=83c05b2177ee9c335b631b29b8c077b4770166d02fa527f3a9f6a40d13f3cce2
+PKG_HASH:=fe6a30f97d54e029768f2ddf4923699c416cdbc3a6e96db3e2d5716c7db96a34
 PKG_MAINTAINER:=Luiz Angelo Daros de Luca <luizluca@gmail.com>
 PKG_LICENSE:=BSD-2-Clause
 PKG_LICENSE_FILES:=COPYING
@@ -209,7 +209,7 @@ define Package/ruby-dev/install
 	$(CP) $(PKG_INSTALL_DIR)/opt/include/ruby-$(PKG_ABI_VERSION) $(1)/opt/include/
 	$(CP) $(PKG_INSTALL_DIR)/opt/lib/libruby.so $(1)/opt/lib/
 	$(CP) $(PKG_INSTALL_DIR)/opt/lib/pkgconfig/ruby-$(PKG_ABI_VERSION).pc $(1)/opt/lib/pkgconfig/
-	# Entware specific: fix path
+	# Entware specific: fix paths
 	$(SED) 's,$(TOOLCHAIN_DIR),/opt,g; \
 		s,$(ICONV_PREFIX),/opt,g; \
 		s,$(INTL_PREFIX),/opt,g; \
@@ -550,6 +550,11 @@ define Package/ruby-minitest/files-excluded
 /opt/lib/ruby/gems/$(PKG_ABI_VERSION)/gems/minitest-*/*.txt
 endef
 
+# drop
+#define Package/ruby-mjit/files
+#/usr/lib/ruby/$(PKG_ABI_VERSION)/ruby_vm/mjit/
+#endef
+
 define Package/ruby-mkmf/files
 /opt/lib/ruby/$(PKG_ABI_VERSION)/mkmf.rb
 endef
@@ -796,6 +801,13 @@ define Package/ruby-readline/files
 /opt/lib/ruby/gems/$(PKG_ABI_VERSION)/gems/readline-0*
 /opt/lib/ruby/gems/$(PKG_ABI_VERSION)/specifications/default/readline-0*.gemspec
 endef
+
+# drop
+#define Package/ruby-readline-ext/files
+#/usr/lib/ruby/$(PKG_ABI_VERSION)/*/readline.so
+#/usr/lib/ruby/gems/$(PKG_ABI_VERSION)/gems/readline-ext-*
+#/usr/lib/ruby/gems/$(PKG_ABI_VERSION)/specifications/default/readline-ext-*.gemspec
+#endef
 
 define Package/ruby-reline/files
 /opt/lib/ruby/$(PKG_ABI_VERSION)/reline.rb
@@ -1136,6 +1148,7 @@ $(eval $(call RubyBuildPackage,json,JSON Implementation for Ruby,+ruby-bigdecima
 $(eval $(call RubyBuildPackage,logger,logger and syslog library,+ruby-monitor +ruby-rbconfig))
 $(eval $(call RubyBuildPackage,matrix,implementation of Matrix and Vector classes,))
 $(eval $(call RubyBuildPackage,minitest,Gem minitest,+ruby-gems +ruby-mutex_m))
+#drop#$(eval $(call RubyBuildPackage,mjit,Method Based Just-in-Time Compiler,+ruby-fiddle))
 $(eval $(call RubyBuildPackage,mkmf,makefile library,+ruby-shellwords +ruby-tmpdir))
 $(eval $(call RubyBuildPackage,monitor,Object or module methods are executed with mutual exclusion,))
 $(eval $(call RubyBuildPackage,mutex_m,extend objects to be handled like a Mutex,))
@@ -1168,6 +1181,7 @@ $(eval $(call RubyBuildPackage,random_formatter,Formats generated random numbers
 $(eval $(call RubyBuildPackage,rbconfig,RbConfig,))
 $(eval $(call RubyBuildPackage,rbs,RBS provides syntax and semantics definition for the Ruby Signature language,+ruby-abbrev +ruby-logger +ruby-rdoc))
 $(eval $(call RubyBuildPackage,rdoc,RDoc produces HTML and command-line documentation for Ruby projects,+ruby-did-you-mean +ruby-erb +ruby-racc +ruby-ripper +ruby-yaml))
+#drop#$(eval $(call RubyBuildPackage,readline-ext,support for native GNU readline,+libncurses +libreadline))
 $(eval $(call RubyBuildPackage,readline,loads readline-ext(native) or reline(ruby),+ruby-reline))
 $(eval $(call RubyBuildPackage,reline,alternative to readline-ext in pure ruby,+ruby-fiddle +ruby-forwardable +ruby-io-console +ruby-tempfile))
 $(eval $(call RubyBuildPackage,resolv,DNS resolver library,+ruby-securerandom +ruby-timeout))
