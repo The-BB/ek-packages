@@ -1,12 +1,10 @@
-commit 3ff411fe021cd2b0944ca1aea48a0dbb81c6baf4 (HEAD -> master, origin/master, origin/HEAD)
-Author: Jonas Jelonek <jelonek.jonas@gmail.com>
-Date:   Thu Jul 4 00:14:02 2024 +0200
+commit b806d77578bf958471373aec26c92bd41caa3b73 (HEAD -> master, origin/master, origin/HEAD)
+Author: Tianling Shen <cnsztl@immortalwrt.org>
+Date:   Sat Aug 3 15:18:53 2024 +0800
 
-    eza: update to 0.18.21
+    clamav: add missing dependency
     
-    Release notes:
-    0.18.19: https://github.com/eza-community/eza/releases/tag/v0.18.19
-    0.18.20: https://github.com/eza-community/eza/releases/tag/v0.18.20
-    0.18.21: https://github.com/eza-community/eza/releases/tag/v0.18.21
+    clamav needs rust toolchain to build, add $(RUST_ARCH_DEPENDS) to
+    dependencies to avoid building on unsupported architectures.
     
-    Signed-off-by: Jonas Jelonek <jelonek.jonas@gmail.com>
+    Signed-off-by: Tianling Shen <cnsztl@immortalwrt.org>
