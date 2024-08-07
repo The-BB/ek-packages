@@ -5,7 +5,7 @@
             * or, on systems where /run is the same as /var/run, runstatedir:
             * https://gitlab.freedesktop.org/dbus/dbus/-/merge_requests/209 */
 -          ret = g_strdup ("unix:path=" GLIB_RUNSTATEDIR "/dbus/system_bus_socket");
-+          ret = g_strdup ("unix:path="/opt/var/run/dbus/system_bus_socket");
++          ret = g_strdup ("unix:path=/opt/var/run/dbus/system_bus_socket");
          }
        break;
  
