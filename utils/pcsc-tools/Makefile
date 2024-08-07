@@ -37,7 +37,7 @@ define Package/pcsc-tools/description
   Only includes pcsc_scan without ATR analysis for now.
 endef
 
-# Entware spesific:
+# Entware specific:
 TARGET_LDFLAGS += $(if $(CONFIG_USE_GLIBC),-lpthread)
  
 define Package/pcsc-tools/install
