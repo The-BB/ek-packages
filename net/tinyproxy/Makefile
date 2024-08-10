@@ -41,7 +41,8 @@ CONFIGURE_VARS += ac_cv_path_A2X=no
 
 # Entware specific:
 MAKE_FLAGS += \
-	LIBS="$(if $(CONFIG_USE_GLIBC),-lnsl -lresolv)"
+	LIBS="$(if $(CONFIG_USE_MUSL),,-lresolv \
+	$(if $(or $(CONFIG_GLIBC_USE_VERSION_2_33),$(CONFIG_GLIBC_USE_VERSION_2_34)),,-lnsl))"
 
 define Package/tinyproxy/install
 	$(INSTALL_DIR) $(1)/opt/bin
