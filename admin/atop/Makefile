@@ -45,7 +45,9 @@ define Package/atop/description
 endef
 
 # Entware specific: PERF_FLAG_FD_CLOEXEC since kernel Linux-3.14.0
+ifeq ($(or $(CONFIG_LINUX_3_2),$(CONFIG_LINUX_3_4),$(CONFIG_LINUX_3_10)),y)
 TARGET_CFLAGS += -DNOPERFEVENT
+endif
 
 MAKE_FLAGS += \
 	CFLAGS+="-Wno-misleading-indentation -Wno-unused-const-variable -Wno-format-truncation"
