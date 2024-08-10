@@ -15,7 +15,11 @@ PKG_LICENSE:=GPL-2.0-only
 # Since kernel 2.6.39.1 userspace tools are inside the kernel tree
 # Package Automatic match version in kernel
 # HASH is not useful kernel package already check it
+ifneq ($(or $(CONFIG_LINUX_3_2),$(CONFIG_LINUX_3_4),$(CONFIG_LINUX_3_10)),y)
+PKG_VERSION:=$(shell  sed -n -e '/^AC_INIT/s/.*\[\([[:digit:]\.]*\)\].*/\1/gp' $(LINUX_DIR)/tools/usb/usbip/configure.ac)
+else
 PKG_VERSION:=$(shell  sed -n -e '/^AC_INIT/s/.*\[\([[:digit:]\.]*\)\].*/\1/gp' $(LINUX_DIR)/drivers/staging/usbip/userspace/configure.ac)
+endif
 PKG_SOURCE:=
 PKG_SOURCE_URL:=
 PKG_HASH:=unknown
@@ -26,7 +30,11 @@ PATCH_DIR:=./patches-$(PKG_VERSION)
 
 define prepare_source_directory
 	rm -rf $(PKG_BUILD_DIR)
+  ifneq ($(or $(CONFIG_LINUX_3_2),$(CONFIG_LINUX_3_4),$(CONFIG_LINUX_3_10)),y)
+	$(CP) $(LINUX_DIR)/tools/usb/usbip $(PKG_BUILD_DIR)
+  else
 	$(CP) $(LINUX_DIR)/drivers/staging/usbip/userspace $(PKG_BUILD_DIR)
+  endif
 endef
 Hooks/Prepare/Pre += prepare_source_directory
 
