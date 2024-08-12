@@ -23,7 +23,7 @@ define Package/btop
   CATEGORY:=Administration
   TITLE:=A monitor of resources
   URL:=https://github.com/aristocratos/btop
-  DEPENDS:=+libstdcpp
+  DEPENDS:=+libstdcpp @!GCC_USE_VERSION_8
 endef
 
 define Package/btop/description
@@ -37,16 +37,17 @@ BTOP_LDFLAGS:=-pthread -DFMT_HEADER_ONLY -D_FILE_OFFSET_BITS=64
 MAKE_FLAGS+= \
 	PLATFORM=Linux \
 	OPTFLAGS="$(TARGET_CXXFLAGS)" \
-	LDCXXFLAGS="$(TARGET_LDFLAGS) $(BTOP_LDFLAGS)"
+	LDCXXFLAGS="$(TARGET_LDFLAGS) $(BTOP_LDFLAGS)" \
+	PREFIX=/opt
 
 define Package/btop/install
-	$(INSTALL_DIR) $(1)/usr/bin
-	$(INSTALL_BIN) $(PKG_INSTALL_DIR)/usr/local/bin/btop $(1)/usr/bin/
-	$(INSTALL_DIR) $(1)/usr/share
-	$(CP) $(PKG_INSTALL_DIR)/usr/local/share/btop $(1)/usr/share/
+	$(INSTALL_DIR) $(1)/opt/bin
+	$(INSTALL_BIN) $(PKG_INSTALL_DIR)/opt/bin/btop $(1)/opt/bin/
+	$(INSTALL_DIR) $(1)/opt/share
+	$(CP) $(PKG_INSTALL_DIR)/opt/share/btop $(1)/opt/share/
 
-	$(INSTALL_DIR) $(1)/etc/profile.d
-	$(CP) $(CURDIR)/files/btop.sh $(1)/etc/profile.d/
+	$(INSTALL_DIR) $(1)/opt/etc/profile.d
+	$(CP) $(CURDIR)/files/btop.sh $(1)/opt/etc/profile.d/
 endef
 
 $(eval $(call BuildPackage,btop))
