@@ -74,10 +74,10 @@ endef
 
 
 define Package/hwinfo/install
-	$(INSTALL_DIR) $(1)/usr/bin
-	$(CP) $(PKG_BUILD_DIR)/hwinfo $(1)/usr/bin/
-	$(INSTALL_DIR) $(1)/usr/lib
-	$(CP) $(PKG_BUILD_DIR)/src/libhd.so* $(1)/usr/lib/
+	$(INSTALL_DIR) $(1)/opt/bin
+	$(CP) $(PKG_BUILD_DIR)/hwinfo $(1)/opt/bin/
+	$(INSTALL_DIR) $(1)/opt/lib
+	$(CP) $(PKG_BUILD_DIR)/src/libhd.so* $(1)/opt/lib/
 endef
 
 $(eval $(call BuildPackage,hwinfo))
