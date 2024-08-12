@@ -28,7 +28,7 @@ define Package/pax-utils
   CATEGORY:=Utilities
   TITLE:=ELF utils for security relevant property checking
   URL:=https://wiki.gentoo.org/wiki/Hardened/PaX_Utilities
-  DEPENDS:=+libcap
+  DEPENDS:=+bash +coreutils-realpath +libcap
 endef
 
 define Package/pax-utils/description
@@ -46,8 +46,8 @@ MESON_ARGS += \
 	-Duse_seccomp=$(if $(CONFIG_PAX_UTILS_SECCOMP),true,false)
 
 define Package/pax-utils/install
-	$(INSTALL_DIR) $(1)/usr/bin/
-	$(INSTALL_BIN) $(PKG_INSTALL_DIR)/usr/bin/{dumpelf,lddtree,pspax,scanelf,scanmacho,symtree} $(1)/usr/bin/
+	$(INSTALL_DIR) $(1)/opt/bin/
+	$(INSTALL_BIN) $(PKG_INSTALL_DIR)/opt/bin/{dumpelf,lddtree,pspax,scanelf,scanmacho,symtree} $(1)/opt/bin/
 endef
 
 $(eval $(call BuildPackage,pax-utils))
