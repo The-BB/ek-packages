@@ -339,7 +339,7 @@ endef
 $(eval $(call DefineBoostLibrary,atomic,system))
 $(eval $(call DefineBoostLibrary,charconv,,,,libquadmath))
 $(eval $(call DefineBoostLibrary,chrono,system))
-#$(eval $(call DefineBoostLibrary,cobalt,system container)) # cxx_std_20; Entware specific: GCC-8.x
+$(eval $(call DefineBoostLibrary,cobalt,system container))
 $(eval $(call DefineBoostLibrary,container))
 $(eval $(call DefineBoostLibrary,context,chrono system,,!boost-context-exclude))
 $(eval $(call DefineBoostLibrary,contract,system))
