@@ -46,7 +46,9 @@ CMAKE_OPTIONS += \
 	-DEXPAT_DEV_URANDOM=OFF
 
 # XXX * Linux (including <3.17) / BSD / macOS (including <10.7) (/dev/urandom): XML_DEV_URANDOM
+ifeq ($(or $(CONFIG_LINUX_3_2),$(CONFIG_LINUX_3_4),$(CONFIG_LINUX_3_10)),y)
 TARGET_CFLAGS += -DXML_DEV_URANDOM
+endif
 
 define Package/libexpat/install
 	$(INSTALL_DIR) $(1)/opt/lib
