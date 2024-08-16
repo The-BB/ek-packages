@@ -9,7 +9,7 @@ include $(TOPDIR)/rules.mk
 
 PKG_NAME:=unbound
 PKG_VERSION:=1.20.0
-PKG_RELEASE:=1
+PKG_RELEASE:=2
 
 PKG_SOURCE:=$(PKG_NAME)-$(PKG_VERSION).tar.gz
 PKG_SOURCE_URL:=https://nlnetlabs.nl/downloads/unbound
@@ -186,8 +186,6 @@ CONFIGURE_ARGS += \
     $(if $(CONFIG_PACKAGE_libunbound_python),--with-pythonmodule,) \
     $(if $(CONFIG_PACKAGE_libunbound_subnet),--enable-subnet,) \
     $(if $(CONFIG_PACKAGE_libunbound_dnstap),--enable-dnstap,)
-
-CONFIGURE_VARS += ac_cv_func_getentropy=no
 
 define Package/unbound-daemon/conffiles
 /opt/etc/unbound/unbound.conf
