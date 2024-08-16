@@ -27,7 +27,7 @@ PKG_NAME:=gcc
 GCC_VERSION:=$(call qstrip,$(CONFIG_GCC_VERSION))
 PKG_VERSION:=$(firstword $(subst +, ,$(GCC_VERSION)))
 GCC_MAJOR_VERSION:=$(word 1,$(subst ., ,$(PKG_VERSION)))
-PKG_RELEASE:=6
+PKG_RELEASE:=7
 GCC_DIR:=$(PKG_NAME)-$(PKG_VERSION)
 
 PKG_SOURCE_URL:=@GNU/gcc/gcc-$(PKG_VERSION)
@@ -52,6 +52,10 @@ endif
 
 ifeq ($(PKG_VERSION),13.3.0)
 	PKG_HASH:=0845e9621c9543a13f484e94584a49ffc0129970e9914624235fc1d061a0c083
+endif
+
+ifeq ($(PKG_VERSION),14.2.0)
+	PKG_HASH:=a7b39bc69cbf9e25826c5a60ab26477001f7c08d85cec04bc0e29cabed6f3cc9
 endif
 
 PATCH_DIR:=patches-$(GCC_MAJOR_VERSION).x
@@ -177,7 +181,6 @@ define Build/Configure
 			--with-default-libstdcxx-abi=gcc4-compatible \
 			--enable-target-optspace \
 			--with-gnu-ld \
-			--with-boot-ldflags="-static-libstdc++ -static-libgcc -Wl,-rpath=/opt/lib -Wl,--dynamic-linker=/opt/lib/$(DYNLINKER)" \
 			--disable-nls \
 			--disable-libsanitizer \
 			--disable-libvtv \
@@ -244,7 +247,6 @@ define Package/gcc/install
 	$(COPY_STATIC_LIBSTDC)
 	rm -f $(1)/opt/lib/$(PKG_NAME)/$(REAL_GNU_TARGET_NAME)/$(PKG_VERSION)/libgo*
 	rm -f $(1)/opt/lib/$(PKG_NAME)/$(REAL_GNU_TARGET_NAME)/$(PKG_VERSION)/libcc1*
-	rm -f $(1)/opt/lib/$(PKG_NAME)/$(REAL_GNU_TARGET_NAME)/$(PKG_VERSION)/libQt5* || true
 	echo '#!/bin/sh' > $(1)/opt/bin/gcc_env.sh
 	echo 'export LDFLAGS=$(ENVLDFLAGS)' >> $(1)/opt/bin/gcc_env.sh
 	echo 'export CFLAGS=$(ENVCFLAGS)' >> $(1)/opt/bin/gcc_env.sh
