@@ -1,10 +1,11 @@
-commit cbedce3ee269998eb63e27178f4066ece039ea56 (HEAD -> master, origin/master, origin/HEAD)
-Author: Kel Modderman <kelvmod@gmail.com>
-Date:   Sat Aug 17 21:43:20 2024 +1000
+commit 34db79bcd584f2da9a64dd4c1e84f138e3e4f70b (HEAD -> master, origin/master, origin/HEAD)
+Author: Dirk Brenken <dev@brenken.org>
+Date:   Sun Aug 18 10:43:03 2024 +0200
 
-    squeezelite: handle option to unmute ALSA control
+    adblock: update to 4.2.2
     
-    Add logic in squeezelite.init to handle -U <control> cmdline option and
-    squeezelite.options.unmute=<control> uci option.
+    * get rid of the opkg dependency
+    * fixed remaining hagezi category issues
+    * adblock still depends on 'gawk', but also accepts busybox awk. The readme describes two officially unsupported installation variants.
     
-    Signed-off-by: Kel Modderman <kelvmod@gmail.com>
+    Signed-off-by: Dirk Brenken <dev@brenken.org>
