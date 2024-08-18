@@ -1,14 +1,10 @@
-commit 1019631a5a81a4b44035133364de2293bcc75d9d (HEAD -> master, origin/master, origin/HEAD)
-Author: Paul Spooren <mail@aparcar.org>
-Date:   Fri Aug 16 10:33:18 2024 +0200
+commit cbedce3ee269998eb63e27178f4066ece039ea56 (HEAD -> master, origin/master, origin/HEAD)
+Author: Kel Modderman <kelvmod@gmail.com>
+Date:   Sat Aug 17 21:43:20 2024 +1000
 
-    ci: fix APK version detection
+    squeezelite: handle option to unmute ALSA control
     
-    This action was mostly based on the autorelease CI job and somehow there
-    is an error that if multiple packages are affected, the path is
-    concatenated instead of adding a space.
+    Add logic in squeezelite.init to handle -U <control> cmdline option and
+    squeezelite.options.unmute=<control> uci option.
     
-    Secondly the APK return code 0 wasn't good enough for the if condition
-    and caused it to trigger even on valid versions.
-    
-    Signed-off-by: Paul Spooren <mail@aparcar.org>
+    Signed-off-by: Kel Modderman <kelvmod@gmail.com>
