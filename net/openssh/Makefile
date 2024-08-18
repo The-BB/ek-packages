@@ -9,7 +9,7 @@ include $(TOPDIR)/rules.mk
 
 PKG_NAME:=openssh
 PKG_VERSION:=9.8p1
-PKG_RELEASE:=2
+PKG_RELEASE:=3
 
 PKG_SOURCE:=$(PKG_NAME)-$(PKG_VERSION).tar.gz
 PKG_SOURCE_URL:=https://cdn.openbsd.org/pub/OpenBSD/OpenSSH/portable/ \
@@ -194,10 +194,6 @@ endif
 
 CONFIGURE_VARS += LD="$(TARGET_CC)" PATH_PASSWD_PROG="/bin/passwd"
 
-CONFIGURE_VARS += \
-	ac_cv_func_getentropy=no \
-	ac_cv_func_getrandom=no
-
 ifeq ($(BUILD_VARIANT),with-pam)
 TARGET_LDFLAGS += -lpthread
 endif
@@ -236,6 +232,7 @@ define Package/openssh-server/install
 	install -d -m0700 $(1)/opt/etc/ssh $(1)/opt/etc/ssh/sshd_config.d
 	$(INSTALL_DATA) $(PKG_INSTALL_DIR)/opt/etc/ssh/sshd_config $(1)/opt/etc/ssh/
 	sed -r -i 's,^#(HostKey /opt/etc/ssh/ssh_host_(rsa|ed25519)_key)$$$$,\1,' $(1)/opt/etc/ssh/sshd_config
+	sed -i 's,#Port 22,Port 22222,' $(1)/opt/etc/ssh/sshd_config
 	$(INSTALL_DIR) $(1)/opt/etc/init.d
 	$(INSTALL_BIN) ./files/S40sshd $(1)/opt/etc/init.d/
 #	$(INSTALL_DIR) $(1)/lib/preinit
@@ -272,6 +269,27 @@ endef
 define Package/openssh-sftp-avahi-service/install
 	$(INSTALL_DIR) $(1)/opt/etc/avahi/services
 	$(INSTALL_DATA) ./files/sftp-ssh.service $(1)/opt/etc/avahi/services/
+endef
+
+define Package/openssh-keygen/postinst
+#!/bin/sh
+
+### colors
+ansi_blue="\033[1;34m"
+ansi_white="\033[1;37m"
+ansi_white_cur="\033[1;3;37m"
+ansi_std="\033[0m"
+
+[ -d "/opt/etc/ssh" ] || mkdir -m 700 /opt/etc/ssh
+
+for type in rsa ed25519; do
+  key=/opt/etc/ssh/ssh_host_$${type}_key
+  [ ! -s $$key ] && {
+    printf "\n$$ansi_blue %s $$ansi_white %s $$ansi_white_cur %s $$ansi_std" "Info:" "generating $$key ..."
+    /opt/libexec/ssh-keygen-openssh -N '' -t $$type -f $$key > /dev/null 2>&1
+    printf "$$ansi_white %s $$ansi_std\n\n" "done"
+  }
+done
 endef
 
 $(eval $(call BuildPackage,openssh-client))
