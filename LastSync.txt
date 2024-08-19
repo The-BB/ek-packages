@@ -1,11 +1,9 @@
-commit 34db79bcd584f2da9a64dd4c1e84f138e3e4f70b (HEAD -> master, origin/master, origin/HEAD)
-Author: Dirk Brenken <dev@brenken.org>
-Date:   Sun Aug 18 10:43:03 2024 +0200
+commit c4ed78f0f3e1fcd3134a5d26d1bb3c3b605bbb48 (HEAD -> master, origin/master, origin/HEAD)
+Author: Rosen Penev <rosenp@gmail.com>
+Date:   Fri Aug 16 19:51:15 2024 -0700
 
-    adblock: update to 4.2.2
+    libradiotap: update to latest master
     
-    * get rid of the opkg dependency
-    * fixed remaining hagezi category issues
-    * adblock still depends on 'gawk', but also accepts busybox awk. The readme describes two officially unsupported installation variants.
+    Use PKG_SOURCE_DATE for compatibility with apk.
     
-    Signed-off-by: Dirk Brenken <dev@brenken.org>
+    Signed-off-by: Rosen Penev <rosenp@gmail.com>
