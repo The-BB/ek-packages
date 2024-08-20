@@ -1,0 +1,50 @@
+--- a/pathnames.h.in
++++ b/pathnames.h.in
+@@ -46,16 +46,16 @@
+ #endif /* _PATH_DEVNULL */
+ 
+ #ifndef _PATH_DEFPATH
+-# define _PATH_DEFPATH		"/usr/bin:/bin"
++# define _PATH_DEFPATH		"/opt/usr/bin:/opt/bin:/usr/bin:/bin"
+ #endif /* _PATH_DEFPATH */
+ 
+ #ifndef _PATH_STDPATH
+-# define _PATH_STDPATH		"/usr/bin:/bin:/usr/sbin:/sbin"
++# define _PATH_STDPATH		"/opt/usr/bin:/opt/bin:/opt/usr/sbin:/opt/sbin:/usr/bin:/bin:/usr/sbin:/sbin"
+ #endif /* _PATH_STDPATH */
+ 
+ /* Use /etc/environment on AIX or Linux w/o PAM (where pam_env handles it). */
+ #if defined(_AIX) || (defined(__linux__) && !defined(HAVE_PAM))
+-# define _PATH_ENVIRONMENT	"/etc/environment"
++# define _PATH_ENVIRONMENT	"/opt/etc/environment"
+ #endif /* _PATH_ENVIRONMENT */
+ 
+ /*
+@@ -204,15 +204,15 @@
+ #endif /* _PATH_BSHELL */
+ 
+ #ifndef _PATH_TMP
+-# define _PATH_TMP	"/tmp/"
++# define _PATH_TMP	"/opt/tmp/"
+ #endif /* _PATH_TMP */
+ 
+ #ifndef _PATH_VARTMP
+-# define _PATH_VARTMP	"/var/tmp/"
++# define _PATH_VARTMP	"/opt/var/tmp/"
+ #endif /* _PATH_VARTMP */
+ 
+ #ifndef _PATH_USRTMP
+-# define _PATH_USRTMP	"/usr/tmp/"
++# define _PATH_USRTMP	"/opt/tmp/"
+ #endif /* _PATH_USRTMP */
+ 
+ #ifndef _PATH_MAILDIR
+@@ -258,7 +258,7 @@
+ /* On AIX, _PATH_BSHELL in paths.h is /usr/bin/bsh but we want /usr/bin/sh */
+ #ifndef _PATH_SUDO_BSHELL
+ # if defined(_AIX) && defined(HAVE_PATHS_H)
+-#  define _PATH_SUDO_BSHELL "/usr/bin/sh"
++#  define _PATH_SUDO_BSHELL "/opt/bin/sh"
+ # else
+ #  define _PATH_SUDO_BSHELL _PATH_BSHELL
+ # endif

@@ -4,31 +4,30 @@
 # This is free software, licensed under the GNU General Public License v2.
 # See /LICENSE for more information.
 #
-# Entware specific: the newer versions throws 'you do not exist in the passwd database`
-# exception, see https://github.com/Entware/Entware/issues/626
 
 include $(TOPDIR)/rules.mk
 
 PKG_NAME:=sudo
-PKG_VERSION:=1.8.31
+PKG_REALVERSION:=1.9.15p5
+PKG_VERSION:=$(subst p,_p,$(PKG_REALVERSION))
 PKG_RELEASE:=1
 
-PKG_SOURCE:=$(PKG_NAME)-$(PKG_VERSION).tar.gz
+PKG_SOURCE:=$(PKG_NAME)-$(PKG_REALVERSION).tar.gz
 PKG_SOURCE_URL:=https://www.sudo.ws/dist
-PKG_HASH:=7ea8d97a3cee4c844e0887ea7a1bd80eb54cc98fd77966776cb1a80653ad454f
+PKG_HASH:=558d10b9a1991fb3b9fa7fa7b07ec4405b7aefb5b3cb0b0871dbc81e3a88e558
+PKG_BUILD_DIR:=$(BUILD_DIR)/$(PKG_NAME)-$(PKG_REALVERSION)
 
-PKG_MAINTAINER:=
+PKG_MAINTAINER:=Alexandru Ardelean <ardeleanalex@gmail.com>
 
 PKG_LICENSE:=ISC
 PKG_LICENSE_FILES:=doc/LICENSE
-PKG_CPE_ID:=cpe:/a:todd_miller:sudo
+PKG_CPE_ID:=cpe:/a:sudo_project:sudo
 
 PKG_INSTALL:=1
 PKG_BUILD_PARALLEL:=1
-PKG_BUILD_DEPENDS:=sudo/host
+PKG_BUILD_FLAGS:=no-mips16
 
 include $(INCLUDE_DIR)/package.mk
-include $(INCLUDE_DIR)/host-build.mk
 
 define Package/sudo
   SECTION:=admin
@@ -54,29 +53,33 @@ TARGET_LDFLAGS += $(if $(CONFIG_GCC_LIBSSP),-lssp)
 CONFIGURE_ARGS += \
 	--without-pam \
 	--disable-pam-session \
-	--with-editor=/bin/vi \
+	--with-editor=/opt/bin/vi \
 	--without-lecture \
 	--disable-zlib \
-	--with-rundir=/opt/var/lib/sudo \
-	--with-vardir=/opt/var/lib/sudo
+	--disable-openssl \
+	--with-rundir=/opt/var/run/sudo \
+	--with-vardir=/opt/var/lib/sudo \
+	--with-iologdir=/opt/var/log/sudo-io \
+	--with-ldap-conf-file=/opt/etc/ldap.conf \
+	--with-ldap-secret-file=/opt/etc/ldap.secret \
+	--with-logpath=/opt/var/log/sudo.log \
+	--with-netsvc=/opt/etc/netsvc.conf \
+	--with-nsswitch=/opt/etc/nsswitch.conf \
+	--with-relaydir=/opt/var/log/sudo_logsrvd \
+	--with-sssd-conf=/opt/etc/sssd/sssd.conf \
+	--with-tzdir=/opt/share/zoneinfo
 
 CONFIGURE_VARS += \
 	sudo_cv_uid_t_len=10 \
-	sudo_cv_func_unsetenv_void=no
-
-define Host/Compile
-	cd $(HOST_BUILD_DIR)/lib/util; \
-	    $(MAKE) mksiglist; $(MAKE) mksigname
-endef
-
-define Host/Install
-	$(INSTALL_DIR) $(STAGING_DIR_HOSTPKG)/bin
-	$(CP) $(HOST_BUILD_DIR)/lib/util/mksig{list,name} $(STAGING_DIR_HOSTPKG)/bin/
-endef
+	sudo_cv_func_unsetenv_void=no \
+	sudo_cv_log_dir=/opt/var/log \
+	ac_cv_path_BSHELLPROG=/opt/bin/sh \
+	ac_cv_path_MVPROG=/opt/bin/mv \
+	ac_cv_path_VIPROG=/opt/bin/vi
 
 define Package/sudo/install
 	$(INSTALL_DIR) \
-		$(1)/opt/etc/{init.d,sudoers.d} \
+		$(1)/opt/etc/{init.d,ld.so.conf.d,sudoers.d} \
 		$(1)/opt/{bin,sbin} \
 		$(1)/opt/lib/sudo
 
@@ -87,6 +90,7 @@ define Package/sudo/install
 	chmod 0440 $(1)/opt/etc/sudoers
 	$(CP) $(PKG_INSTALL_DIR)/opt/lib/sudo/*.so* $(1)/opt/lib/sudo/
 #	$(INSTALL_BIN) ./files/sudo.init $(1)/etc/init.d/sudo
+	$(INSTALL_DATA) ./files/sudo.conf $(1)/opt/etc/ld.so.conf.d
 endef
 
 #define Package/sudo/postinst
@@ -98,5 +102,4 @@ endef
 #}
 #endef
 
-$(eval $(call HostBuild))
 $(eval $(call BuildPackage,sudo))
