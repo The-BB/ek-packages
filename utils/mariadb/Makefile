@@ -11,7 +11,7 @@ include $(TOPDIR)/rules.mk
 
 PKG_NAME:=mariadb
 PKG_VERSION:=10.9.8
-PKG_RELEASE:=4
+PKG_RELEASE:=5
 
 PKG_SOURCE:=$(PKG_NAME)-$(PKG_VERSION).tar.gz
 PKG_SOURCE_URL := https://archive.mariadb.org/$(PKG_NAME)-$(PKG_VERSION)/source
@@ -177,10 +177,10 @@ MARIADB_COMMON_DEPENDS := \
 
 # Pass CPPFLAGS in the CFLAGS as otherwise the build system will
 # ignore them.
-TARGET_CFLAGS+=$(TARGET_CPPFLAGS)
+TARGET_CXXFLAGS += $(TARGET_CPPFLAGS)
 
 ifneq ($(CONFIG_USE_MUSL),)
-  TARGET_CFLAGS += -D_LARGEFILE64_SOURCE
+  TARGET_CXXFLAGS += -D_LARGEFILE64_SOURCE
 endif
 
 TARGET_LDFLAGS += $(if $(CONFIG_USE_GLIBC),-lm)
@@ -360,7 +360,7 @@ CMAKE_OPTIONS += \
 	-DINSTALL_SQLBENCHDIR="" \
 	-DINSTALL_SUPPORTFILESDIR=share/mariadb \
 	-DINSTALL_UNIX_ADDRDIR=$(MARIADB_SOCKET) \
-	-DMYSQL_DATADIR=/opt/var/lib/mysql \
+	-DMYSQL_DATADIR=/opt/srv/mysql \
 	-DMYSQL_UNIX_ADDR=$(MARIADB_SOCKET) \
 	-DSKIP_TESTS=ON \
 	-DWITH_DEBUG=OFF \
@@ -548,6 +548,25 @@ ifeq ($(1),auth_pam)
 endif
   endef
   $$(eval $$(call BuildPackage,mariadb-server-plugin-$(subst _,-,$(1))))
+endef
+
+define Package/mariadb-server-base/postinst
+#!/bin/sh
+
+### colors
+ansi_red="\033[1;31m"
+ansi_blue="\033[1;34m"
+ansi_white="\033[1;37m"
+ansi_std="\033[0m"
+
+[ -d "/opt/srv/mysql" ] && exit 0
+
+printf "\n$$ansi_blue %s $$ansi_white %s $$ansi_std" "Info:" "creating mysql database ..."
+if ! mysql_install_db --skip-test-db > /dev/null 2>&1 ; then
+  printf "$$ansi_red %s $$ansi_std\n\n" "faild"
+else
+  printf "$$ansi_white %s $$ansi_std\n\n" "done"
+fi
 endef
 
 $(eval $(call HostBuild))
