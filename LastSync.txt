@@ -1,9 +1,9 @@
-commit c4ed78f0f3e1fcd3134a5d26d1bb3c3b605bbb48 (HEAD -> master, origin/master, origin/HEAD)
-Author: Rosen Penev <rosenp@gmail.com>
-Date:   Fri Aug 16 19:51:15 2024 -0700
+commit fd26ec1b677fde6edde578f23c6ed202085471e3 (HEAD -> master, origin/master, origin/HEAD)
+Author: Florian Eckert <fe@dev.tdt.de>
+Date:   Wed Aug 14 12:06:02 2024 +0200
 
-    libradiotap: update to latest master
+    bonding: fix apk version
     
-    Use PKG_SOURCE_DATE for compatibility with apk.
+    Fix apk version schema by changing the 'PKG_VERSION'.
     
-    Signed-off-by: Rosen Penev <rosenp@gmail.com>
+    Signed-off-by: Florian Eckert <fe@dev.tdt.de>
