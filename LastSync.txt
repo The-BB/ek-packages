@@ -1,9 +1,10 @@
-commit fd26ec1b677fde6edde578f23c6ed202085471e3 (HEAD -> master, origin/master, origin/HEAD)
-Author: Florian Eckert <fe@dev.tdt.de>
-Date:   Wed Aug 14 12:06:02 2024 +0200
+commit 4803143a91a9d7d80e4ba584dbb4a5e5d4c4567f (HEAD -> master, origin/master, origin/HEAD)
+Author: Dirk Brenken <dev@brenken.org>
+Date:   Tue Aug 20 23:05:59 2024 +0200
 
-    bonding: fix apk version
+    adblock: update to 4.2.2-3
     
-    Fix apk version schema by changing the 'PKG_VERSION'.
+    * bugfix: users reported unexpected side effects with  the newly introduced rpc-sys ubus service, reverted that part
+    *bugfix: made "tcpdump" optional
     
-    Signed-off-by: Florian Eckert <fe@dev.tdt.de>
+    Signed-off-by: Dirk Brenken <dev@brenken.org>
