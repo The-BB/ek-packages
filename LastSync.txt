@@ -1,10 +1,10 @@
-commit 4803143a91a9d7d80e4ba584dbb4a5e5d4c4567f (HEAD -> master, origin/master, origin/HEAD)
-Author: Dirk Brenken <dev@brenken.org>
-Date:   Tue Aug 20 23:05:59 2024 +0200
+commit e0bb219f3811044c1c5ffaef41f5c5eb8b4849c6 (HEAD -> master, origin/master, origin/HEAD)
+Author: Oliver Kraitschy <ok@dev.tdt.de>
+Date:   Wed Aug 14 17:04:56 2024 +0200
 
-    adblock: update to 4.2.2-3
+    openwisp-monitoring: add missing PKG_VERSION for APK
     
-    * bugfix: users reported unexpected side effects with  the newly introduced rpc-sys ubus service, reverted that part
-    *bugfix: made "tcpdump" optional
+    The 'PKG_VERSION' string was missing and only 'PKG_SOURCE_VERSION' string
+    was used.
     
-    Signed-off-by: Dirk Brenken <dev@brenken.org>
+    Signed-off-by: Oliver Kraitschy <ok@dev.tdt.de>
