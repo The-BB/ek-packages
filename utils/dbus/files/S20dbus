@@ -1,15 +1,12 @@
 #!/bin/sh
 
 ENABLED=yes
-PROCS=dbus-daemon
+PROCS="dbus-daemon"
+PROG="/opt/bin/$PROCS"
 ARGS="--system"
 PREARGS=""
-DESC=$PROCS
-PATH=/opt/sbin:/opt/bin:/opt/usr/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+DESC="D-Bus daemon"
 
-# check and remove stale pid
-if ! pidof dbus-daemon 1>/dev/null 2>&1; then
-	rm -f /opt/var/run/dbus/dbus.pid
-fi
+PID_FILE="/opt/var/run/dbus/dbus.pid"
 
 . /opt/etc/init.d/rc.func
