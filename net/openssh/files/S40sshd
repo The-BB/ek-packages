@@ -2,10 +2,11 @@
 
 ENABLED=yes
 PROCS="sshd"
+PROG="/opt/sbin/$PROCS"
 ARGS="-D"
 PREARGS=""
 DESC="OpenSSH"
-PROG="/opt/sbin/$PROCS"
-PATH=/opt/sbin:/opt/bin:/opt/usr/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+
+PID_FILE="/opt/var/run/$PROCS.pid"
 
 . /opt/etc/init.d/rc.func
