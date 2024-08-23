@@ -1,18 +1,13 @@
-commit 5f5e6cd179e06758401d7ff09a5bf36cabe3d246 (HEAD -> master, origin/master, origin/HEAD)
-Author: Ansel Horn <dev@cahorn.net>
-Date:   Wed Jul 17 15:12:35 2024 -0400
+commit e7badaa6cb0c42c76605029689453cfc2eaa8edf (HEAD -> master, origin/master, origin/HEAD)
+Author: Rosen Penev <rosenp@gmail.com>
+Date:   Sun Aug 18 11:41:26 2024 -0700
 
-    ddns-scripts: add support for Porkbun
+    db47: replace with db
     
-    Extends DDNS support for the Porkbun v3 JSON API with a custom update
-    script and service configuration.
+    There's no need to maintain an old version.
     
-    See: https://porkbun.com/api/json/v3/documentation
+    Removed all patches as they are all upstream.
     
-    Depends on cURL (with SSL) for transport. Porkbun authentication API keys
-    and secret keys are passed through the ddns-scripts "username" and
-    "password" variables, respectively. As Porkbun DNS is currently backed by
-    Cloudflare, also support ddns-scripts "rec_id" variable for specific
-    record targeting.
+    Import new ones from Arch, Debian, and OpenEmbedded.
     
-    Signed-off-by: Ansel Horn <dev@cahorn.net>
+    Signed-off-by: Rosen Penev <rosenp@gmail.com>
