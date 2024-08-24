@@ -1,13 +1,7 @@
-commit e7badaa6cb0c42c76605029689453cfc2eaa8edf (HEAD -> master, origin/master, origin/HEAD)
-Author: Rosen Penev <rosenp@gmail.com>
-Date:   Sun Aug 18 11:41:26 2024 -0700
+commit a58474e8381d405357247b20e944f3a3318ea173 (HEAD -> master, origin/master, origin/HEAD)
+Author: Milinda Brantini <C_A_T_T_E_R_Y@outlook.com>
+Date:   Fri Aug 16 23:21:20 2024 +0800
 
-    db47: replace with db
+    dockerd: Update to 27.1.2
     
-    There's no need to maintain an old version.
-    
-    Removed all patches as they are all upstream.
-    
-    Import new ones from Arch, Debian, and OpenEmbedded.
-    
-    Signed-off-by: Rosen Penev <rosenp@gmail.com>
+    Signed-off-by: Milinda Brantini <C_A_T_T_E_R_Y@outlook.com>
