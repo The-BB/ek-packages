@@ -52,7 +52,7 @@ define Package/znc/config
 endef
 
 define Package/znc/conffiles
-/opt/etc/config/znc
+/opt/share/znc/configs/znc.conf
 endef
 
 
@@ -63,11 +63,11 @@ define Package/znc/install
 	$(INSTALL_BIN) $(PKG_INSTALL_DIR)/opt/lib/znc/corecaps.so $(1)/opt/lib/znc/
 	$(INSTALL_DIR) $(1)/opt/etc/init.d
 	$(INSTALL_BIN) ./files/S99znc $(1)/opt/etc/init.d/
-#	$(INSTALL_DIR) $(1)/etc/config
-#	$(INSTALL_DATA) ./files/znc.conf $(1)/etc/config/znc
+	$(INSTALL_DIR) $(1)/opt/share/znc/configs
+	$(INSTALL_DATA) ./files/znc.config $(1)/opt/share/znc/configs/znc.conf
 	$(INSTALL_BIN) $(PKG_BUILD_DIR)/modules/droproot.so $(1)/opt/lib/znc/
+	$(INSTALL_DIR) $(1)/opt/var/run/znc
 endef
-
 
 ZNC_MODULES :=
 ZNC_MODULE_TARGETS := droproot.so
