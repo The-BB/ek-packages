@@ -1,7 +1,9 @@
-commit a58474e8381d405357247b20e944f3a3318ea173 (HEAD -> master, origin/master, origin/HEAD)
-Author: Milinda Brantini <C_A_T_T_E_R_Y@outlook.com>
-Date:   Fri Aug 16 23:21:20 2024 +0800
+commit ecdf98767e03757f98f59abf63f189b7cf990835 (HEAD -> master, origin/master, origin/HEAD)
+Author: Tianling Shen <cnsztl@immortalwrt.org>
+Date:   Sat Aug 24 18:04:42 2024 +0800
 
-    dockerd: Update to 27.1.2
+    dnsproxy: add hosts configurations
     
-    Signed-off-by: Milinda Brantini <C_A_T_T_E_R_Y@outlook.com>
+    trim whitespaces while at it.
+    
+    Signed-off-by: Tianling Shen <cnsztl@immortalwrt.org>
