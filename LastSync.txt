@@ -1,9 +1,13 @@
-commit ecdf98767e03757f98f59abf63f189b7cf990835 (HEAD -> master, origin/master, origin/HEAD)
-Author: Tianling Shen <cnsztl@immortalwrt.org>
-Date:   Sat Aug 24 18:04:42 2024 +0800
+commit 0b656baa403fad74c68c8368bea2251a57b55aef (HEAD -> master, origin/master, origin/HEAD)
+Author: Petr Štetiar <ynezz@true.cz>
+Date:   Mon Aug 26 06:17:33 2024 +0000
 
-    dnsproxy: add hosts configurations
+    Revert "qfirehose: new package"
     
-    trim whitespaces while at it.
+    This reverts commit df1cd5792a9b2e8514d7a34857a0369ee78b0ceb as the
+    current licensing terms prevents use in FOSS projects:
     
-    Signed-off-by: Tianling Shen <cnsztl@immortalwrt.org>
+      Under no circumstances may customers modify, demonstrate, use, deliver
+      or disclose any portion of the Software in source code form.
+    
+    Signed-off-by: Petr Štetiar <ynezz@true.cz>
