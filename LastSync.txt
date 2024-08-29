@@ -1,10 +1,7 @@
-commit fe23f07b5712e492588fe83ad21a958ad37665b7 (HEAD -> master, origin/master, origin/HEAD)
-Author: Eneas U de Queiroz <cotequeiroz@gmail.com>
-Date:   Tue Aug 27 14:46:01 2024 -0300
+commit 1a986441d4cf14bbe9bfa3f6917434db072ca0ad (HEAD -> master, origin/master, origin/HEAD)
+Author: David Bauer <david.bauer@uniberg.com>
+Date:   Wed Aug 28 23:49:13 2024 +0200
 
-    afalg_engine: bump to 1.2.1
+    lpac: update maintainer E-Mail address
     
-    This adapts the package to semantic versioning.
-    Added a simple Ci test script.
-    
-    Signed-off-by: Eneas U de Queiroz <cotequeiroz@gmail.com>
+    Signed-off-by: David Bauer <david.bauer@uniberg.com>
