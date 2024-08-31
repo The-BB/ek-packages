@@ -1,7 +1,7 @@
-commit a2d87d2658161d0fd265986a0bc9922fe908f3dc (HEAD -> master, origin/master, origin/HEAD)
-Author: Tianling Shen <cnsztl@immortalwrt.org>
-Date:   Sat Aug 31 11:08:25 2024 +0800
+commit a788688055c17e96b978be9795ef9fd82243d55f (HEAD -> master, origin/master, origin/HEAD)
+Author: David Yang <mmyangfl@gmail.com>
+Date:   Wed Aug 28 13:38:13 2024 +0800
 
-    v2ray-core: Update to 5.17.1
+    i2pd: Update to 2.53.1
     
-    Signed-off-by: Tianling Shen <cnsztl@immortalwrt.org>
+    Signed-off-by: David Yang <mmyangfl@gmail.com>
