@@ -1,9 +1,7 @@
-commit 632d4ea93d2a3e9dd5c842bbbf1ffa7290987a5f (HEAD -> master, origin/master, origin/HEAD)
-Author: Dengfeng Liu <liudf0716@gmail.com>
-Date:   Tue Aug 27 19:09:58 2024 +0800
+commit a2d87d2658161d0fd265986a0bc9922fe908f3dc (HEAD -> master, origin/master, origin/HEAD)
+Author: Tianling Shen <cnsztl@immortalwrt.org>
+Date:   Sat Aug 31 11:08:25 2024 +0800
 
-    apfree-wifidog: update to 7.08.2035
+    v2ray-core: Update to 5.17.1
     
-    https://github.com/liudf0716/apfree-wifidog/releases/tag/7.08.2035
-    
-    Signed-off-by: Dengfeng Liu <liudf0716@gmail.com>
+    Signed-off-by: Tianling Shen <cnsztl@immortalwrt.org>
