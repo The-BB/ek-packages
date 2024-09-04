@@ -1,7 +1,21 @@
-commit 928ad5766ea856948bd3b63d32a9b14f56b06976 (HEAD -> master, origin/master, origin/HEAD)
-Author: Aleksey Vasilenko <aleksey.vasilenko@gmail.com>
-Date:   Mon Aug 26 07:43:13 2024 +0300
+commit 8cc9191c7f063a38ffa8a531275a34c239c21f55 (HEAD -> master, origin/master, origin/HEAD)
+Author: Hung-I Wang <whygowe@gmail.com>
+Date:   Tue Sep 3 00:08:22 2024 +0800
 
-    bash: update to 5.2.32
+    tayga: add options for static mapping
     
-    Signed-off-by: Aleksey Vasilenko <aleksey.vasilenko@gmail.com>
+    The commit adds options for static mapping, which is essential for
+    464xlat(clat) usage. But be noted that routes and firewall rules have
+    to be configured manually, for now.
+    
+    To use tayga as clat/nat46:
+    0. specify $ipv4_addr, $prefix, $map_{ipv4,ipv6} properly, and
+       set $noroutes to 1 to prevent creating routes for nat64
+    1. add custom IPv4 routes to tayga, possibly with a reasonable metric
+       for default route
+    2. add a SNAT firewall rule for processing IPv4 traffic destined for
+       tayga
+    3. add firewall rules to allow FORWARD traffic between tayga and WAN6
+    4. add a $map_ipv6 route to tayga for guiding return traffic
+    
+    Signed-off-by: Hung-I Wang <whygowe@gmail.com>
