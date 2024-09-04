@@ -42,21 +42,21 @@ define Package/libucontext/description
 endef
 
 define Build/InstallDev
-	$(INSTALL_DIR) $(1)/usr/include $(1)/usr/lib/pkgconfig
-	$(CP) $(PKG_INSTALL_DIR)/usr/include/libucontext $(1)/usr/include/
-	$(CP) $(PKG_INSTALL_DIR)/usr/lib/libucontext* $(1)/usr/lib/
-	$(CP) $(PKG_INSTALL_DIR)/usr/lib/pkgconfig/libucontext.pc $(1)/usr/lib/pkgconfig/
+	$(INSTALL_DIR) $(1)/opt/include $(1)/opt/lib/pkgconfig
+	$(CP) $(PKG_INSTALL_DIR)/opt/include/libucontext $(1)/opt/include/
+	$(CP) $(PKG_INSTALL_DIR)/opt/lib/libucontext* $(1)/opt/lib/
+	$(CP) $(PKG_INSTALL_DIR)/opt/lib/pkgconfig/libucontext.pc $(1)/opt/lib/pkgconfig/
 endef
 
 define Package/libucontext/install
-	$(INSTALL_DIR) $(1)/usr/lib
-	$(CP) $(PKG_INSTALL_DIR)/usr/lib/libucontext*.so.* $(1)/usr/lib/
+	$(INSTALL_DIR) $(1)/opt/lib
+	$(CP) $(PKG_INSTALL_DIR)/opt/lib/libucontext*.so.* $(1)/opt/lib/
 endef
 
 define Package/libucontext-tests/install
-	$(INSTALL_DIR) $(1)/usr/bin
-	$(INSTALL_BIN) $(MESON_BUILD_DIR)/test_libucontext_posix $(1)/usr/bin/
-	$(INSTALL_BIN) $(MESON_BUILD_DIR)/test_libucontext $(1)/usr/bin/
+	$(INSTALL_DIR) $(1)/opt/bin
+	$(INSTALL_BIN) $(MESON_BUILD_DIR)/test_libucontext_posix $(1)/opt/bin/
+	$(INSTALL_BIN) $(MESON_BUILD_DIR)/test_libucontext $(1)/opt/bin/
 endef
 
 $(eval $(call BuildPackage,libucontext))
