@@ -16,6 +16,8 @@ PKG_SOURCE:=nfs-utils-$(PKG_VERSION).tar.xz
 
 HOST_BUILD_DIR:=$(BUILD_DIR_HOST)/nfs-utils-$(PKG_VERSION)
 PKG_BUILD_DIR:=$(BUILD_DIR)/nfs-utils-$(PKG_VERSION)
+# XXX musl: error: format not a string literal, argument types not checked [-Werror=format-nonliteral]
+PKG_FORTIFY_SOURCE:=0
 PKG_INSTALL:=1
 PKG_BUILD_PARALLEL:=1
 PKG_BUILD_DEPENDS:=$(PKG_NAME)/host libevent2
