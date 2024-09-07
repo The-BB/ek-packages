@@ -14,6 +14,8 @@ PKG_LICENSE_FILES:=COPYING.LIB
 
 PKG_INSTALL:=1
 PKG_BUILD_PARALLEL:=1
+# XXX musl: error: format not a string literal, argument types not checked [-Werror=format-nonliteral]
+PKG_FORTIFY_SOURCE:=0
 
 include $(INCLUDE_DIR)/package.mk
 
