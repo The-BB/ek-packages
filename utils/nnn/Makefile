@@ -21,7 +21,7 @@ define Package/nnn
   CATEGORY:=Utilities
   TITLE:=Full-featured terminal file manager
   URL:=https://github.com/jarun/nnn
-  DEPENDS:=+libncurses +libreadline
+  DEPENDS:=+libncurses +libreadline +USE_MUSL:musl-fts
 endef
 
 define Package/nnn/description
@@ -29,6 +29,10 @@ define Package/nnn/description
   disk usage analyzer, fuzzy app launcher, batch file renamer
   and file picker.
 endef
+
+ifeq ($(CONFIG_USE_MUSL),y)
+TARGET_LDFLAGS += -lfts
+endif
 
 define Package/nnn/install
 	$(INSTALL_DIR) $(1)/opt/bin
