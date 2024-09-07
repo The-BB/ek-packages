@@ -61,6 +61,11 @@ CONFIGURE_ARGS = \
 	--extra-cflags="$(TARGET_CFLAGS)" \
 	--prefix="$(CONFIGURE_PREFIX)"
 
+ifeq ($(CONFIG_USE_MUSL),y)
+CONFIGURE_ARGS += \
+	--disable-libnfs
+endif
+
 define Package/fio/install
 	$(INSTALL_DIR) $(1)/opt/bin
 	$(INSTALL_BIN) $(PKG_INSTALL_DIR)/opt/bin/fio $(1)/opt/bin/
