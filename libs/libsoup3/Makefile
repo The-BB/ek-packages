@@ -19,6 +19,9 @@ PKG_LICENSE:=LGPL-2.1-or-later
 PKG_LICENSE_FILES:=COPYING
 PKG_CPE_ID:=cpe:/a:gnome:libsoup
 
+# XXX musl: error: format not a string literal, argument types not checked [-Werror=format-nonliteral]
+PKG_FORTIFY_SOURCE:=0
+
 PKG_BUILD_DEPENDS:=glib2/host
 
 include $(INCLUDE_DIR)/package.mk
