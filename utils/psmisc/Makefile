@@ -39,6 +39,9 @@ CONFIGURE_ARGS += \
 	--disable-statx \
 	--localedir=/opt/share/locale
 
+CONFIGURE_VARS += \
+	ac_cv_have_decl_SYS_statx=no
+
 ifeq ($(ARCH),mips)
 CONFIGURE_VARS += \
 	ac_cv_member_struct_pt_regs_regs=no

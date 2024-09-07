@@ -1,11 +1,11 @@
---- a/Makefile.am
-+++ b/Makefile.am
-@@ -82,7 +82,7 @@ src_fuser_SOURCES = \
- 		    src/lists.h
+--- a/configure.ac
++++ b/configure.ac
+@@ -71,7 +71,7 @@ AC_CHECK_DECLS([SYS_statx],
+ # Check for linux specific statx(2) system call
+ AC_CHECK_HEADERS([sys/syscall.h])
+ AC_CHECK_FUNCS([statx])
+-AC_CHECK_DECLS([STATX_TYPE])
++dnl AC_CHECK_DECLS([STATX_TYPE])
  
- #if HAVE_SYSCALL_STATX
--src_fuser_SOURCES += src/statx.c src/statx.h
-+#src_fuser_SOURCES += src/statx.c src/statx.h
- #endif
- src_fuser_LDADD = @LIBINTL@
- src_killall_SOURCES = src/killall.c src/comm.h src/signals.c src/signals.h src/i18n.h
+ AC_SUBST([WITH_STATX])
+ AC_ARG_ENABLE([statx],
