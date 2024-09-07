@@ -27,7 +27,7 @@ define Package/autossh
   SUBMENU:=SSH
 endef
 
-TARGET_LDFLAGS += $(if $(or $(CONFIG_GLIBC_USE_VERSION_2_33),$(CONFIG_GLIBC_USE_VERSION_2_34)),,-lnsl)
+TARGET_LDFLAGS += $(if $(or $(CONFIG_GLIBC_USE_VERSION_2_33),$(CONFIG_GLIBC_USE_VERSION_2_34),$(CONFIG_USE_MUSL)),,-lnsl)
 
 CONFIGURE_VARS += \
 	ac_cv_path_ssh=/opt/bin/ssh
