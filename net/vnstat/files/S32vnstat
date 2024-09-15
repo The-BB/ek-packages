@@ -1,13 +1,29 @@
 #!/bin/sh
 
-# Point right interfaces to monitor. Remove -i ppp0 to monitor all of them.
-[ -f "/opt/var/lib/vnstat/*" ] || vnstat -u -i ppp0
-
 ENABLED=yes
-PROCS=vnstatd
-ARGS="-d"
+
+DESC="vnStat daemon"
+PROCS="vnstatd"
+PROG="/opt/sbin/$PROCS"
+
+PID_FILE="/opt/var/run/$PROCS.pid"
+
+pre_cmd() {
+  rm -f "$PID_FILE"
+  [ -d "/opt/var/lib/vnstat" ] || {
+  mkdir -pm 0750 /opt/var/lib/vnstat
+  for i in $(ls -1 /sys/class/net)
+  do
+    [ -f "/opt/var/lib/vnstat/$i" ] || {
+    /opt/bin/vnstat --create -i "$i" > /dev/null
+    }
+  done
+  }
+  /opt/bin/vnstat -u > /dev/null
+}
+
+PRECMD="pre_cmd"
+ARGS="-d -p $PID_FILE"
 PREARGS=""
-DESC=$PROCS
-PATH=/opt/sbin:/opt/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
 
 . /opt/etc/init.d/rc.func
