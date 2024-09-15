@@ -1,11 +1,12 @@
 #!/bin/sh
 
-if [ -d /dev/snd ]; then
-	ENABLED=yes
-else
-	ENABLED=no
-fi
-PROCS=shairport-sync
+{ [ -d "/dev/snd" ] && ENABLED=yes ; } || ENABLED=no
+
+
+DESC="Shairport Sync audio player"
+PROCS="shairport-sync"
+PROG="/opt/bin/$PROCS"
+
 # software volume control
 # output to: audio card 0 device 0
 ARGS="-d  -- -d hw:0,0"
@@ -22,7 +23,5 @@ ARGS="-d  -- -d hw:0,0"
 # --verbose : print debug information; -vv more; -vvv lots
 
 PREARGS=""
-DESC=$PROCS
-PATH=/opt/sbin://opt/bin://opt/usr/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
 
 . /opt/etc/init.d/rc.func
