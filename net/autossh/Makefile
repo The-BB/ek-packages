@@ -37,14 +37,14 @@ define Package/autossh/install
 	$(INSTALL_BIN) $(PKG_BUILD_DIR)/autossh $(1)/opt/sbin/
 	$(INSTALL_DIR) $(1)/opt/etc/init.d
 	$(INSTALL_BIN) ./files/S41autossh $(1)/opt/etc/init.d/
-#	$(INSTALL_DIR) $(1)/etc/config
-#	$(INSTALL_DATA) ./files/autossh.config $(1)/etc/config/autossh
+	$(INSTALL_DIR) $(1)/opt/etc/config
+	$(INSTALL_DATA) ./files/autossh.conf $(1)/opt/etc/config
 #	$(INSTALL_DIR) $(1)/etc/hotplug.d/iface
 #	$(INSTALL_DATA) ./files/autossh.hotplug $(1)/etc/hotplug.d/iface/20-autossh
 endef
 
-#define Package/autossh/conffiles
-#/etc/config/autossh
-#endef
+define Package/autossh/conffiles
+/opt/etc/config/autossh.conf
+endef
 
 $(eval $(call BuildPackage,autossh))

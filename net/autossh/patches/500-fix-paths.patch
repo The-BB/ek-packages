@@ -1,0 +1,11 @@
+--- a/autossh.c
++++ b/autossh.c
+@@ -86,7 +86,7 @@ char *__progname;
+ const char *rcsid = "$Id: autossh.c,v 1.91 2019/01/05 01:23:39 harding Exp $";
+ 
+ #ifndef SSH_PATH
+-#  define SSH_PATH "/usr/bin/ssh"
++#  define SSH_PATH "/opt/bin/ssh"
+ #endif
+ 
+ #define POLL_TIME	600	/* 10 minutes default */
