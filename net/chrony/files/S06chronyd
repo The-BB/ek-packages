@@ -1,12 +1,29 @@
 #!/bin/sh
 
 ENABLED=yes
-PROCS=chronyd
+
+DESC="NTP client and server"
+PROCS="chronyd"
+PROG="/opt/sbin/$PROCS"
+
+PID_FILE="/opt/var/run/chrony/$PROCS.pid"
+
+pre_cmd() {
+  rm -f "$PIF_FILE"
+  for i in \
+    /opt/var/lib/chrony \
+    /opt/var/log/chrony \
+    /opt/var/run/chrony
+  do
+    [ -d "$i" ] || {
+      mkdir -pm 0750 "$i"
+      chgrp chrony "$i"
+    }
+  done
+}
+
+PRECMD="pre_cmd"
 ARGS=""
 PREARGS=""
-DESC=$PROCS
-PATH=/opt/sbin:/opt/bin:/opt/usr/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
-
-chmod 750 /opt/var/run/chrony
 
 . /opt/etc/init.d/rc.func

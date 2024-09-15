@@ -85,8 +85,8 @@ CONFIGURE_ARGS+= \
 	--disable-sechash \
 	--with-hwclockfile=/opt/sbin/hwclock \
 	--with-pidfile=/opt/var/run/chrony/chronyd.pid \
-	--with-sendmail=/opt/sbin/sendmail
-#	--with-user=chrony
+	--with-sendmail=/opt/sbin/sendmail \
+	--with-user=chrony
 
 CONFIGURE_VARS+=CPPFLAGS="-DNDEBUG -I$(STAGING_DIR)/opt/include"
 
@@ -105,7 +105,6 @@ define Package/chrony/install
 #	$(INSTALL_CONF) ./files/chrony.config $(1)/etc/config/chrony
 #	$(INSTALL_CONF) ./files/chrony.conf $(1)/etc/chrony/chrony.conf
 	$(INSTALL_CONF) $(PKG_BUILD_DIR)/examples/chrony.conf.* $(1)/opt/etc/chrony/
-	$(INSTALL_DIR) $(1)/opt/var/{lib,log,run}/chrony
 endef
 
 Package/chrony-nts/install= $(Package/chrony/install)
