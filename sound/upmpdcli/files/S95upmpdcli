@@ -1,10 +1,19 @@
 #!/bin/sh
 
 ENABLED=yes
-PROCS=upmpdcli
-ARGS="-c /opt/etc/upmpdcli.conf"
+
+DESC="UPnP front-end to Music Player Daemon"
+PROCS="upmpdcli"
+PROG="/opt/bin/$PROCS"
+
+PID_FILE="/opt/var/run/$PROCS.pid"
+
+pre_cmd() {
+  rm -f "$PID_FILE"
+}
+
+PRECMD="pre_cmd"
+ARGS="-c /opt/etc/$PROCS.conf"
 PREARGS=""
-DESC=$PROCS
-PATH=/opt/sbin:/opt/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
 
 . /opt/etc/init.d/rc.func
