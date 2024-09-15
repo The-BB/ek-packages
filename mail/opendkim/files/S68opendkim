@@ -1,10 +1,12 @@
 #!/bin/sh
 
 ENABLED=yes
-PROCS=opendkim
-ARGS="-x /opt/etc/opendkim/opendkim.conf"
+
+DESC="Open DKIM service"
+PROCS="opendkim"
+PROG="/opt/sbin/$PROCS"
+
+ARGS="-x /opt/etc/$PROCS/$PROCS.conf"
 PREARGS=""
-DESC=$PROCS
-PATH=/opt/sbin:/opt/bin:/opt/usr/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
 
 . /opt/etc/init.d/rc.func
