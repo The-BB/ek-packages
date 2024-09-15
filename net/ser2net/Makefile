@@ -43,15 +43,15 @@ define Package/ser2net/description
 endef
 
 define Package/ser2net/conffiles
-/opt/etc/ser2net.yaml
+/opt/etc/ser2net/ser2net.yaml
 endef
 
 define Package/ser2net/install
 	$(INSTALL_DIR) $(1)/opt/sbin
 	$(INSTALL_BIN) $(PKG_INSTALL_DIR)/opt/sbin/ser2net $(1)/opt/sbin/
 
-	$(INSTALL_DIR) $(1)/opt/etc
-	$(INSTALL_CONF) $(PKG_BUILD_DIR)/ser2net.yaml $(1)/opt/etc/
+	$(INSTALL_DIR) $(1)/opt/etc/ser2net
+	$(INSTALL_CONF) $(PKG_BUILD_DIR)/ser2net.yaml $(1)/opt/etc/ser2net
 
 #	$(INSTALL_DIR) $(1)/etc/config
 #	$(INSTALL_CONF) ./files/ser2net.config $(1)/etc/config/ser2net
