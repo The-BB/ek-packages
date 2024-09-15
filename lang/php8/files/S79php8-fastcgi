@@ -1,12 +1,16 @@
 #!/bin/sh
 
-. /opt/etc/php8/php8-fastcgi
-
 ENABLED=yes
-PROCS=php8-fcgi
+
+DESC="PHP FastCGI"
+PROCS="php8-fcgi"
+PROG="/opt/bin/$PROCS"
+
+{ [ -f "/opt/etc/php8/php8-fastcgi" ] && \
+. /opt/etc/php8/php8-fastcgi ; } || \
+{ printf "\033[1;31m %s \033[0m\n" "Abort: conf file not found." && exit 1 ; }
+
 ARGS="-b $BIND"
 PREARGS=""
-DESC=$PROCS
-PATH=/opt/sbin:/opt/bin:/opt/usr/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
 
 . /opt/etc/init.d/rc.func
