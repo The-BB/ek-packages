@@ -149,8 +149,6 @@ define Package/nginx-ssl/install
 	$(INSTALL_BIN) ./files/S80nginx $(1)/opt/etc/init.d
 	$(INSTALL_DIR) $(1)/opt/share/nginx/html
 	$(INSTALL_DATA) $(PKG_INSTALL_DIR)/opt/html/{index,50x}.html $(1)/opt/share/nginx/html
-	$(INSTALL_DIR) $(1)/opt/var/{run,lock} $(1)/opt/var/log/nginx $(1)/opt/lib/nginx
-	$(INSTALL_DIR) $(1)/opt/var/lib/nginx/{body,proxy,fastcgi}
 endef
 
 

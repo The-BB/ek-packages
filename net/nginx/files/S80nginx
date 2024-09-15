@@ -1,27 +1,31 @@
 #!/bin/sh
 
-PATH=/opt/sbin:/opt/bin:/opt/usr/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+ENABLED=yes
 
-case $1 in
-	start)
-	nginx && echo 'Nginx started.'
-	;;
-	stop)
-	nginx -s quit && echo 'Nginx gracefully stopped.'
-	;;
-	restart)
-	nginx -s stop && nginx && echo 'Nginx restarted.'
-	;;
-	reload)
-	nginx -s reload && echo 'Nginx configuration reload.'
-	;;
-	reopen)
-	nginx -s reopen && echo 'Nginx log files reopened.'
-	;;
-	test)
-	nginx -t
-	;;
-	*)
-	echo "Usage: $0 {start|stop|restart|reload|reopen|test}"
-	;;
-esac
+DESC="Nginx server"
+PROCS="nginx"
+PROG="/opt/sbin/$PROCS"
+
+PID_FILE="/opt/var/run/$PROCS.pid"
+
+pre_cmd() {
+  rm -f "$PID_FILE"
+  . /opt/lib/functions.sh
+  group_exists www-data || group_add www-data 33
+  for i in \
+    /opt/var/cache/$PROCS \
+    /opt/var/lib/$PROCS \
+    /opt/var/log/$PROCS
+  do
+    [ -d "$i" ] || {
+      mkdir -pm 0775 "$i"
+      chgrp www-data "$i"
+    }
+  done
+}
+
+PRECMD="pre_cmd"
+ARGS=""
+PREARGS=""
+
+. /opt/etc/init.d/rc.func
