@@ -1014,7 +1014,26 @@ define Package/freeradius3-common/install
 		$(CP) $(PKG_INSTALL_DIR)/opt/share/freeradius3/dictionary.$$$${f} $(1)/opt/share/freeradius3/ ; \
 		$(SED) "s,^#\(\$$$$INCLUDE dictionary\.$$$${f}\)$$$$,\1,g" $(1)/opt/share/freeradius3/dictionary ; \
 	done
+  ifneq ($(CONFIG_USE_MUSL),y)
+	$(INSTALL_DIR) $(1)/opt/etc/ld.so.conf.d
+	$(INSTALL_DATA) ./files/freeradius3.conf $(1)/opt/etc/ld.so.conf.d
+  endif
 endef
+
+ifeq ($(CONFIG_USE_MUSL),y)
+define Package/freeradius3-common/postinst
+#!/bin/sh
+
+ld_conf="
+# path to freeradius3 libs
+/opt/lib/freeradius3
+"
+
+if ! grep -q 'freeradius3' /opt/etc/ld-musl-$(ARCH)$(if $(or $(CONFIG_mips),$(CONFIG_mipsel)),-sf).path; then
+  printf "$$ld_conf" >> /opt/etc/ld-musl-$(ARCH)$(if $(or $(CONFIG_mips),$(CONFIG_mipsel)),-sf).path
+fi
+endef
+endif
 
 define Package/freeradius3/install
 	$(INSTALL_DIR) $(1)/opt/etc/freeradius3
