@@ -1,10 +1,24 @@
 #!/bin/sh
 
 ENABLED=yes
-PROCS=cupsd
+
+DESC="CUPS daemon"
+PROCS="cupsd"
+PROG="/opt/sbin/$PROCS"
+
+PID_FILE="/opt/var/run/cups/$PROCS.pid"
+
+pre_cmd() {
+  rm -f "$PID_FILE"
+  . /opt/lib/functions.sh
+  group_exists lpadmin || group_add lpadmin 115
+  group_exists sys || group_add sys 3
+  user_exists lpadmin || user_add lpadmin 115
+  user_exists sys || user_add sys 3
+}
+
+PRECMD="pre_cmd"
 ARGS=""
 PREARGS=""
-DESC=$PROCS
-PATH=/opt/sbin:/opt/bin:/opt/usr/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
 
 . /opt/etc/init.d/rc.func
