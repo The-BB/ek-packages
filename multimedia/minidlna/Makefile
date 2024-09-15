@@ -73,7 +73,7 @@ CONFIGURE_ARGS += \
 	--with-os-name="OpenWrt Linux" \
 	--with-os-version="$(LINUX_VERSION)" \
 	--with-os-url="https://openwrt.org/" \
-	--with-db-path="/opt/var/minidlna" \
+	--with-db-path="/opt/var/lib/minidlna" \
 	--with-log-path="/opt/var/log" \
 	--enable-thumbnail
 
@@ -86,7 +86,7 @@ define Package/minidlna/install
 	$(INSTALL_CONF) ./files/minidlna.conf $(1)/opt/etc
 #	$(INSTALL_DIR) $(1)/etc/sysctl.d
 #	$(INSTALL_CONF) ./files/minidlna.sysctl $(1)/etc/sysctl.d/30-minidlna.conf
-	$(INSTALL_DIR) $(1)/opt/var/minidlna
+	$(INSTALL_DIR) $(1)/opt/var/lib/minidlna
 endef
 
 $(eval $(call BuildPackage,minidlna))
