@@ -26,7 +26,7 @@ PKG_HASH:=unknown
 
 PKG_MAINTAINER:=Nuno Goncalves <nunojpg@gmail.com>
 
-PATCH_DIR:=./patches-$(PKG_VERSION)
+#PATCH_DIR:=./patches-$(PKG_VERSION)
 
 define prepare_source_directory
 	rm -rf $(PKG_BUILD_DIR)
