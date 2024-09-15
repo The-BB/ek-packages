@@ -228,7 +228,6 @@ define Package/unbound-daemon/install
 #	$(INSTALL_DATA) ./files/odhcpd.awk $(1)/usr/lib/unbound/odhcpd.awk
 #	$(INSTALL_DATA) ./files/stopping.sh $(1)/usr/lib/unbound/stopping.sh
 #	$(INSTALL_DATA) ./files/unbound.sh $(1)/usr/lib/unbound/unbound.sh
-	$(INSTALL_DIR) $(1)/opt/var/lib/unbound
 endef
 
 define Package/libunbound/install

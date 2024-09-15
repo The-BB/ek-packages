@@ -18,7 +18,7 @@ starting point for embedded routers if one is not going to use UCI.
 +
 +	# Self jail Unbound with user "unbound" to /var/lib/unbound
 +	# The script /etc/init.d/unbound will setup the location
-+	username: ""
++	username: "unbound"
 +	directory: "/opt/var/lib/unbound"
 +	chroot: "/opt/var/lib/unbound"
 +
@@ -68,7 +68,7 @@ starting point for embedded routers if one is not going to use UCI.
 +	# -anchor-file:" The init script will copy root key to /var/lib/unbound.
 +	# See package documentation for crontab entry to copy RFC5011 results back.
 +	#module-config: "validator iterator"
-+	#auto-trust-anchor-file: "/var/lib/unbound/root.key"
++	#auto-trust-anchor-file: "/opt/var/lib/unbound/root.key"
 +
 +	# DNSSEC needs real time to validate signatures. If your device does not
 +	# have power off clock (reboot), then you may need this work around.
