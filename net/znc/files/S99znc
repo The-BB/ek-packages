@@ -1,14 +1,23 @@
 #!/bin/sh
 
 ENABLED=yes
+
+DESC="ZNC"
 PROCS="znc"
 PROG="/opt/bin/$PROCS"
-ARGS="-d /opt/share/$PROCS -r"
-PREARGS=""
-PRECMD="chown -Rh $PROCS:$PROCS /opt/share/$PROCS /opt/var/run/$PROCS"
-DESC="ZNC"
 
 PID_FILE="/opt/var/run/$PROCS/$PROCS.pid"
-SIGNAL="USR1"
+
+pre_cmd() {
+  rm -f "$PID_FILE"
+  [ -d "/opt/var/run/$PROCS" ] || {
+    mkdir -pm 0750 /opt/var/run/"$PROCS"
+    chown -Rh "$PROCS":"$PROCS" /opt/share/"$PROCS" /opt/var/run/"$PROCS"
+  }
+}
+
+PRECMD="pre_cmd"
+ARGS="-d /opt/share/$PROCS -r"
+PREARGS=""
 
 . /opt/etc/init.d/rc.func
