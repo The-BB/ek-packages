@@ -131,7 +131,7 @@ do
     then
         echo "$$i) $$serv ($$fullname)"
     fi
-    i=`expr $$i + 1`
+    i=(( $$i + 1 ))
 done
 read -p "Choose server from list or hit Enter to continue [1-`expr $$i - 1`]: " OPTION
 [ -z "$$OPTION" ] && exit 0
@@ -144,7 +144,7 @@ do
         srv=$$serv
         break
     fi
-    i=`expr $$i + 1`
+    i=(( $$i + 1 ))
 done
 [ "$$srv" == "none" ] && exit 0
 SCRIPT=/opt/etc/init.d/S09dnscrypt-proxy
@@ -152,14 +152,22 @@ cat > $$SCRIPT << EOF
 #!/bin/sh
 
 ENABLED=yes
-PROCS=dnscrypt-proxy
-ARGS="--local-address=127.0.0.1:65053 --daemonize -R $$srv"
+
+DESC="DNSCrypt Proxy"
+PROCS="dnscrypt-proxy"
+PROG="/opt/sbin/$$PROCS"
+
+PID_FILE="/opt/var/run/$$PROCS.pid"
+
+pre_cmd() {
+  rm -f "$$PID_FILE"
+}
+
+PRECMD="pre_cmd"
+ARGS="-a 127.0.0.1:65053 -p $$PID_FILE -d -R $$srv"
 PREARGS=""
-DESC=$$PROCS
-PATH=/opt/sbin:/opt/bin:/opt/usr/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
 
 . /opt/etc/init.d/rc.func
-
 EOF
 chmod +x $$SCRIPT
 endef
