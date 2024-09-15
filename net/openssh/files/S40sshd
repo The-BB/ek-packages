@@ -1,12 +1,19 @@
 #!/bin/sh
 
 ENABLED=yes
+
+DESC="OpenSSH"
 PROCS="sshd"
 PROG="/opt/sbin/$PROCS"
-ARGS="-D"
-PREARGS=""
-DESC="OpenSSH"
 
 PID_FILE="/opt/var/run/$PROCS.pid"
+
+pre_cmd() {
+  rm -f "$PID_FILE"
+}
+
+PRECMD="pre_cmd"
+ARGS="-D"
+PREARGS=""
 
 . /opt/etc/init.d/rc.func
