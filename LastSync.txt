@@ -1,21 +1,9 @@
-commit 8cc9191c7f063a38ffa8a531275a34c239c21f55 (HEAD -> master, origin/master, origin/HEAD)
-Author: Hung-I Wang <whygowe@gmail.com>
-Date:   Tue Sep 3 00:08:22 2024 +0800
+commit f73bf31744702b50b213c4f863885aac919beb57 (HEAD -> master, origin/master, origin/HEAD)
+Author: Aleksey Vasilenko <aleksey.vasilenko@gmail.com>
+Date:   Thu Sep 12 17:25:09 2024 +0300
 
-    tayga: add options for static mapping
+    ripgrep: update to 4.1.1
     
-    The commit adds options for static mapping, which is essential for
-    464xlat(clat) usage. But be noted that routes and firewall rules have
-    to be configured manually, for now.
+    - Add patch to fix build on riscv64
     
-    To use tayga as clat/nat46:
-    0. specify $ipv4_addr, $prefix, $map_{ipv4,ipv6} properly, and
-       set $noroutes to 1 to prevent creating routes for nat64
-    1. add custom IPv4 routes to tayga, possibly with a reasonable metric
-       for default route
-    2. add a SNAT firewall rule for processing IPv4 traffic destined for
-       tayga
-    3. add firewall rules to allow FORWARD traffic between tayga and WAN6
-    4. add a $map_ipv6 route to tayga for guiding return traffic
-    
-    Signed-off-by: Hung-I Wang <whygowe@gmail.com>
+    Signed-off-by: Aleksey Vasilenko <aleksey.vasilenko@gmail.com>
