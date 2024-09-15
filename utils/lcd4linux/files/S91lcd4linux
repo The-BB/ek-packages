@@ -1,10 +1,12 @@
 #!/bin/sh
 
 ENABLED=yes
-PROCS=lcd4linux
-ARGS="-f /opt/etc/lcd4linux.conf"
+
+DESC="LCD4Linux utility"
+PROCS="lcd4linux"
+PROG="/opt/bin/$PROCS"
+
+ARGS="-f /opt/etc/$PROCS.conf"
 PREARGS=""
-DESC=$PROCS
-PATH=/opt/sbin:/opt/bin:/opt/usr/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
 
 . /opt/etc/init.d/rc.func
