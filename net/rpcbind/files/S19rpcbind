@@ -1,10 +1,12 @@
 #!/bin/sh
 
 ENABLED=yes
-PROCS=rpcbind
-ARGS="-f -w"
+
+DESC="RPC Bind server"
+PROCS="rpcbind"
+PROG="/opt/sbin/$PROCS"
+
+ARGS="-w"
 PREARGS=""
-DESC=$PROCS
-PATH=/opt/sbin:/opt/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
 
 . /opt/etc/init.d/rc.func

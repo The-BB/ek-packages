@@ -5,7 +5,7 @@
  #define RUN_AS  "daemon"
  
 -#define RPCBINDDLOCK "/var/run/rpcbind.lock"
-+#define RPCBINDDLOCK "/opt/var/run/rpcbind.lock"
++#define RPCBINDDLOCK "/opt/var/lock/rpcbind.lock"
  
  int runasdaemon = 0;
  int insecure = 0;
