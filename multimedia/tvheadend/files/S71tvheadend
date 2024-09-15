@@ -1,10 +1,12 @@
 #!/bin/sh
 
 ENABLED=yes
-PROCS=tvheadend
-ARGS="-C -f -u admin -g root -c /opt/etc/tvheadend"
+
+DESC="TV streaming server"
+PROCS="tvheadend"
+PROG="/opt/bin/$PROCS"
+
+ARGS="-C -f -u admin -g root -c /opt/etc/$PROCS"
 PREARGS=""
-DESC=$PROCS
-PATH=/opt/sbin:/opt/bin:/opt/usr/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
 
 . /opt/etc/init.d/rc.func
