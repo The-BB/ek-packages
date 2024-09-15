@@ -32,7 +32,7 @@ define Package/xfsprogs/default
   SECTION:=utils
   CATEGORY:=Utilities
   SUBMENU:=Filesystem
-  DEPENDS:=+liburcu +libuuid +libpthread
+  DEPENDS:=+liburcu +libuuid +libpthread +libblkid
   URL:=https://xfs.wiki.kernel.org/
 endef
 
@@ -58,18 +58,17 @@ $(call Package/xfsprogs/default)
 endef
 
 CONFIGURE_ARGS += \
+	--enable-lto \
 	--disable-gettext \
-	--disable-blkid \
 	--disable-lib64 \
-	--disable-ubisan \
-	--disable-addrsan \
-	--disable-threadsan \
 	--disable-scrub \
 	--disable-libicu
 
-TARGET_CFLAGS += -DHAVE_MAP_SYNC $(if $(CONFIG_USE_MUSL),-D_LARGEFILE64_SOURCE)
-TARGET_CFLAGS += -I$(STAGING_DIR)/opt/include
+CONFIGURE_VARS += \
+	DEBUG=-DNDEBUG \
+	OPTIMIZER="$(TARGET_OPTIMIZATION)"
 
+TARGET_CFLAGS += -DHAVE_MAP_SYNC $(if $(CONFIG_USE_MUSL),-D_LARGEFILE64_SOURCE)
 TARGET_LDFLAGS += $(if $(CONFIG_USE_GLIBC),-lrt)
 
 define Package/xfs-admin/install
