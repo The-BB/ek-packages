@@ -1,0 +1,28 @@
+#!/bin/sh
+
+ENABLED=yes
+
+DESC="Apache server"
+PROCS="apache2"
+PROG="/opt/sbin/$PROCS"
+
+PID_FILE="/opt/var/run/$PROCS/httpd.pid"
+
+pre_cmd() {
+  rm -f "$PID_FILE"
+  for i in \
+    /opt/var/log/"$PROCS" \
+    /opt/var/run/"$PROCS"
+  do
+    [ -d "$i" ] || {
+      mkdir -pm 0750 "$i"
+      chown -R apache:apache "$i"
+    }
+  done
+}
+
+PRECMD="pre_cmd"
+ARGS=""
+PREARGS=""
+
+. /opt/etc/init.d/rc.func

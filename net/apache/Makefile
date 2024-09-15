@@ -300,7 +300,7 @@ define Package/apache/install
 		$(PKG_INSTALL_DIR)/opt/etc/apache2/{apache2.conf,magic,mime.types} \
 								$(1)/opt/etc/apache2
 	$(INSTALL_DIR) $(1)/opt/etc/init.d
-#	$(INSTALL_BIN) ./files/apache2.init $(1)/etc/init.d/apache2
+	$(INSTALL_BIN) ./files/S80apache2 $(1)/opt/etc/init.d
 	$(INSTALL_DIR) $(1)/opt/lib/apache2
 	$(INSTALL_BIN) $(PKG_INSTALL_DIR)/opt/lib/apache2/*.so \
 					$(1)/opt/lib/apache2
@@ -316,10 +316,8 @@ define Package/apache/install
 											$(1)/opt/bin
 	$(INSTALL_BIN) $(PKG_INSTALL_DIR)/opt/sbin/{apachectl,apache2} \
 							$(1)/opt/sbin
-	$(LN) -s /opt/sbin/apachectl $(1)/opt/etc/init.d/S80apache
 	# Entware specific: fix exec path in scripts
 	$(SED) 's,^#!.*perl,#!/opt/bin/perl,' $(1)/opt/bin/dbmmanage
-	$(INSTALL_DIR) $(1)/opt/var/{log,run}/apache2
 endef
 
 define Package/apache-ab/install
