@@ -1,10 +1,19 @@
 #!/bin/sh
 
 ENABLED=yes
-PROCS=fail2ban-server
+
+DESC="Fail2Ban server"
+PROCS="fail2ban-server"
+PROG="/opt/bin/$PROCS"
+
+PID_FILE="/opt/var/run/fail2ban/fail2ban.pid"
+
+pre_cmd() {
+  rm -f "$PID_FILE"
+}
+
+PRECMD="pre_cmd"
 ARGS="-xf start"
 PREARGS=""
-DESC=$PROCS
-PATH=/opt/sbin:/opt/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
 
 . /opt/etc/init.d/rc.func
