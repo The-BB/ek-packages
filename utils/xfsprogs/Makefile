@@ -9,19 +9,19 @@
 include $(TOPDIR)/rules.mk
 
 PKG_NAME:=xfsprogs
-PKG_VERSION:=6.2.0
+PKG_VERSION:=6.10.1
 PKG_RELEASE:=1
 
 PKG_SOURCE:=$(PKG_NAME)-$(PKG_VERSION).tar.xz
 PKG_SOURCE_URL:=@KERNEL/linux/utils/fs/xfs/xfsprogs
-PKG_HASH:=d67dcba5a28e0904b60886b6e5f752bc7c9c3a5c7096153855b5adca9db86c51
+PKG_HASH:=6cb839be1a9535f8352441b3f6eea521ead5c5c7c913e8106cdfac96aa117041
 
 PKG_MAINTAINER:=
 PKG_LICENSE:=GPL-2.0-only
 PKG_LICENSE_FILES:=LICENSES/GPL-2.0
 PKG_CPE_ID:=cpe:/a:sgi:xfsprogs
 
-PKG_BUILD_DEPENDS:=inih
+PKG_BUILD_DEPENDS:=inih attr
 PKG_BUILD_FLAGS:=no-mips16
 PKG_BUILD_PARALLEL:=1
 PKG_INSTALL:=1
@@ -33,7 +33,7 @@ define Package/xfsprogs/default
   CATEGORY:=Utilities
   SUBMENU:=Filesystem
   DEPENDS:=+liburcu +libuuid +libpthread
-  URL:=https://xfs.org/
+  URL:=https://xfs.wiki.kernel.org/
 endef
 
 define Package/xfs-admin
@@ -60,9 +60,6 @@ endef
 CONFIGURE_ARGS += \
 	--disable-gettext \
 	--disable-blkid \
-	--disable-readline \
-	--disable-editline \
-	--disable-termcap \
 	--disable-lib64 \
 	--disable-ubisan \
 	--disable-addrsan \
