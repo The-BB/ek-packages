@@ -1,13 +1,25 @@
 #!/bin/sh
 
 ENABLED=yes
+
+DESC="MariaDB server"
 PROCS="mysqld"
 PROG="/opt/bin/$PROCS"
-ARGS=""
-PREARGS=""
-DESC="MariaDB"
-LIMIT="20"
 
 PID_FILE="/opt/var/run/$PROCS/$PROCS.pid"
+LIMIT="20"
+
+pre_cmd() {
+  rm -f "$PID_FILE"
+  [ -d "/opt/var/run/$PROCS" ] || \
+  mkdir -pm 0750 /opt/var/run/"$PROCS"
+  [ -d "/opt/srv/mysql" ] || \
+  mysql_install_db --force --basedir=/opt --skip-test-db \
+  --datadir=/opt/srv/mysql > /dev/null 2>&1
+}
+
+PRECMD="pre_cmd"
+ARGS=""
+PREARGS=""
 
 . /opt/etc/init.d/rc.func

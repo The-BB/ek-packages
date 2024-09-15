@@ -497,7 +497,6 @@ define Package/mariadb-server-base/install
 	$(INSTALL_DATA) $(PKG_INSTALL_DIR)$(SHARE_DIR)/charsets/* $(1)$(SHARE_DIR)/charsets
 	$(INSTALL_DATA) $(PKG_INSTALL_DIR)$(SHARE_DIR)/english/errmsg.sys $(1)$(SHARE_DIR)/english
 	$(INSTALL_DATA) $(PKG_INSTALL_DIR)$(SHARE_DIR)/*.sql $(1)$(SHARE_DIR)
-	$(INSTALL_DIR) $(1)/opt/var/run/mysqld
 endef
 
 define Package/mariadb-server-extra/install
@@ -548,25 +547,6 @@ ifeq ($(1),auth_pam)
 endif
   endef
   $$(eval $$(call BuildPackage,mariadb-server-plugin-$(subst _,-,$(1))))
-endef
-
-define Package/mariadb-server-base/postinst
-#!/bin/sh
-
-### colors
-ansi_red="\033[1;31m"
-ansi_blue="\033[1;34m"
-ansi_white="\033[1;37m"
-ansi_std="\033[0m"
-
-[ -d "/opt/srv/mysql" ] && exit 0
-
-printf "\n$$ansi_blue %s $$ansi_white %s $$ansi_std" "Info:" "creating mysql database ..."
-if ! mysql_install_db --skip-test-db > /dev/null 2>&1 ; then
-  printf "$$ansi_red %s $$ansi_std\n\n" "faild"
-else
-  printf "$$ansi_white %s $$ansi_std\n\n" "done"
-fi
 endef
 
 $(eval $(call HostBuild))
