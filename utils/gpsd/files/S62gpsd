@@ -1,10 +1,19 @@
 #!/bin/sh
 
 ENABLED=yes
-PROCS=gpsd
-ARGS="-n -P /opt/var/run/gpsd.pid -S 2947 /dev/ttyUSB0"
+
+DESC="GPS daemon"
+PROCS="gpsd"
+PROG="/opt/sbin/$PROCS"
+
+PID_FILE="/opt/var/run/$PROCS.pid"
+
+pre_cmd() {
+  rm -f "$PID_FILE"
+}
+
+PRECMD="pre_cmd"
+ARGS="-n -P $PID_FILE -S 2947 /dev/ttyUSB0"
 PREARGS=""
-DESC=$PROCS
-PATH=/opt/sbin:/opt/bin:/opt/usr/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
 
 . /opt/etc/init.d/rc.func
