@@ -1,10 +1,19 @@
 #!/bin/sh
 
 ENABLED=yes
-PROCS=rsync
+
+DESC="Rsync daemon"
+PROCS="rsync"
+PROG="/opt/bin/$PROCS"
+
+PID_FILE="/opt/var/run/$PROCS.pid"
+
+pre_cmd() {
+  rm -f "$PID_FILE"
+}
+
+PRECMD="pre_cmd"
 ARGS="--daemon --config=/opt/etc/rsyncd.conf"
 PREARGS=""
-DESC=$PROCS
-PATH=/opt/sbin:/opt/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
 
 . /opt/etc/init.d/rc.func
