@@ -96,7 +96,6 @@ define Package/aria2/install
 	$(INSTALL_BIN) ./files/S81aria2 $(1)/opt/etc/init.d
 
 	$(INSTALL_CONF) ./files/aria2.conf $(1)/opt/etc
-	$(INSTALL_DIR) $(1)/opt/var/aria2/downloads
 endef
 
 $(eval $(call BuildPackage,aria2))

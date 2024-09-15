@@ -1,12 +1,28 @@
 #!/bin/sh
 
-[ -e /opt/var/aria2/session.dat ] || touch /opt/var/aria2/session.dat
-
 ENABLED=yes
-PROCS=aria2c
+
+DESC="Aria2 service"
+PROCS="aria2c"
+PROG="/opt/bin/$PROCS"
+
+pre_cmd() {
+  for i in \
+    /opt/downloads/aria2 \
+    /opt/var/lib/aria2
+  do
+    [ -d "$i" ] || {
+      mkdir -pm 0750 "$i"
+      chown -R aria2:aria2 "$i"
+    }
+  done
+  [ -e /opt/var/lib/aria2/session.dat ] || \
+  touch /opt/var/lib/aria2/session.dat
+  chown -R aria2:aria2 /opt/var/lib/aria2/session.dat
+}
+
+PRECMD="pre_cmd"
 ARGS="--conf-path=/opt/etc/aria2.conf"
 PREARGS=""
-DESC=$PROCS
-PATH=/opt/sbin:/opt/bin:/opt/usr/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
 
 . /opt/etc/init.d/rc.func
