@@ -1,12 +1,21 @@
 #!/bin/sh
 
 ENABLED=yes
+
+DESC="D-Bus daemon"
 PROCS="dbus-daemon"
 PROG="/opt/bin/$PROCS"
-ARGS="--system"
-PREARGS=""
-DESC="D-Bus daemon"
 
 PID_FILE="/opt/var/run/dbus/dbus.pid"
+
+pre_cmd() {
+  rm -f "$PID_FILE"
+  [ -d "/opt/var/run/dbus" ] || \
+  mkdir -pm 0750 /opt/var/run/dbus
+}
+
+PRECMD="pre_cmd"
+ARGS="--system"
+PREARGS=""
 
 . /opt/etc/init.d/rc.func

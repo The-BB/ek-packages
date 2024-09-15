@@ -147,7 +147,6 @@ define Package/dbus/install
 	$(INSTALL_BIN) ./files/S20dbus $(1)/opt/etc/init.d/
 	$(INSTALL_DIR) $(1)/opt/share/dbus-1
 	$(CP) $(PKG_INSTALL_DIR)/opt/share/dbus-1 $(1)/opt/share/
-	$(INSTALL_DIR) $(1)/opt/var/run/dbus
 endef
 
 define Package/dbus-utils/install
