@@ -132,6 +132,8 @@ CONFIGURE_ARGS += \
 	--disable-unittests \
 	--disable-lzma \
 	--disable-zstd \
+	--with-tor-user=tor \
+	--with-tor-group=tor \
 	--enable-pic
 
 ifeq ($(BUILD_VARIANT),basic)
@@ -152,7 +154,8 @@ define Package/tor/install
 	$(INSTALL_BIN) ./files/S35tor $(1)/opt/etc/init.d
 	$(INSTALL_DIR) $(1)/opt/etc/tor
 	$(INSTALL_CONF) $(PKG_INSTALL_DIR)/opt/etc/tor/torrc.sample $(1)/opt/etc/tor/torrc
-	$(INSTALL_DIR) $(1)/opt/var/lib/tor
+#	$(INSTALL_DIR) $(1)/etc/config
+#	$(INSTALL_CONF) ./files/tor.conf $(1)/etc/config/tor
 endef
 
 Package/tor-basic/install = $(Package/tor/install)

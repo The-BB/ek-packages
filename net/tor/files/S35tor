@@ -1,10 +1,25 @@
 #!/bin/sh
 
 ENABLED=yes
-PROCS=tor
-ARGS="-f /opt/etc/tor/torrc"
+
+DESC="Tor daemon"
+PROCS="tor"
+PROG="/opt/bin/$PROCS"
+
+pre_cmd() {
+  [ -d "/opt/var/lib/$PROCS" ] || {
+    mkdir -pm 0700 /opt/var/lib/"$PROCS"
+    chown -R "$PROCS":"$PROCS" /opt/var/lib/"$PROCS"
+  }
+
+  [ -d "/opt/var/log/$PROCS" ] || {
+    mkdir -pm 0755  /opt/var/log/"$PROCS"
+    chown -R "$PROCS":"$PROCS" /opt/var/log/"$PROCS"
+  }
+}
+
+PRECMD="pre_cmd"
+ARGS="-f /opt/etc/$PROCS/torrc"
 PREARGS=""
-DESC=$PROCS
-PATH=/opt/sbin:/opt/bin:/opt/usr/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
 
 . /opt/etc/init.d/rc.func
