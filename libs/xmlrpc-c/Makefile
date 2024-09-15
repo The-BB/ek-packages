@@ -52,7 +52,7 @@ define Package/xmlrpc-c-libxml2
   $(call Package/xmlrpc-c/Default)
   TITLE+= (uses libxml2)
   DEPENDS:=+xmlrpc-c-common +libxml2
-  PROVIDES:=xmlrpc-c
+  PROVIDES:=xmlrpc-c-internal
   VARIANT:=libxml2
 endef
 
