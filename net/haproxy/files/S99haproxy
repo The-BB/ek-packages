@@ -1,10 +1,14 @@
 #!/bin/sh
 
 ENABLED=yes
-PROCS=haproxy
-ARGS="-f /opt/etc/haproxy.cfg"
+
+DESC="HAProxy server"
+PROCS="haproxy"
+PROG="/opt/sbin/$PROCS"
+
+SIGNAL="USR2"
+
+ARGS="-f /opt/etc/$PROCS.cfg"
 PREARGS=""
-DESC=$PROCS
-PATH=/opt/sbin:/opt/bin:/opt/usr/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
 
 . /opt/etc/init.d/rc.func
