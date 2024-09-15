@@ -1,10 +1,29 @@
 #!/bin/sh
 
 ENABLED=yes
-PROCS=smsd
-ARGS=""
+
+DESC="SMS Server Tools daemon"
+PROCS="smsd"
+PROG="/opt/bin/$PROCS"
+
+PID_FILE="/opt/var/run/$PROCS.pid"
+
+pre_cmd() {
+  rm -f "$PID_FILE"
+  for i in \
+    /opt/var/spool/sms \
+    /opt/var/spool/sms/checked \
+    /opt/var/spool/sms/failed \
+    /opt/var/spool/sms/incoming \
+    /opt/var/spool/sms/outgoing \
+    /opt/var/spool/sms/sent
+  do
+    [ -d "$i" ] || mkdir -pm 0750 "$i"
+  done
+}
+
+PRECMD="pre_cmd"
+ARGS="-p$PID_FILE -i/opt/var/run/$PROCS.working"
 PREARGS=""
-DESC=$PROCS
-PATH=/opt/sbin:/opt/bin:/opt/usr/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
 
 . /opt/etc/init.d/rc.func
