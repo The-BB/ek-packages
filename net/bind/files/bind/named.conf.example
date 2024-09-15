@@ -1,7 +1,7 @@
 // This is the primary configuration file for the BIND DNS server named.
 
 options {
-	directory "/opt/tmp";
+	directory "/opt/var/lib/bind";
 
 	// If your ISP provided one or more IP addresses for stable 
 	// nameservers, you probably want to use them as forwarders.  
@@ -15,9 +15,9 @@ options {
 	auth-nxdomain no;    # conform to RFC1035
 };
 
-include "/opt/etc/bind/named-rndc.conf";
+//include "/opt/etc/bind/named-rndc.conf";
 
-include "/opt/tmp/bind/named.conf.local";
+//include "/opt/var/lib/bind/named.conf.local";
 
 // prime the server with knowledge of the root servers
 zone "." {

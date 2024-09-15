@@ -1,10 +1,29 @@
 #!/bin/sh
 
 ENABLED=yes
-PROCS=named
-ARGS="-c /opt/etc/bind/named.conf"
+
+DESC="DNS server"
+PROCS="named"
+PROG="/opt/sbin/$PROCS"
+
+PID_FILE="/opt/var/run/$PROCS/$PROCS.pid"
+
+pre_cmd() {
+  for i in \
+    /opt/var/cache/bind \
+    /opt/var/lib/bind \
+    /opt/var/log/$PROCS \
+    /opt/var/run/$PROCS
+  do
+    [ -d "$i" ] || {
+      mkdir -pm 0750 "$i"
+      chown bind:bind "$i"
+    }
+  done
+}
+
+PRECMD="pre_cmd"
+ARGS="-u bind -c /opt/etc/bind/$PROCS.conf"
 PREARGS=""
-DESC=$PROCS
-PATH=/opt/sbin:/opt/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
 
 . /opt/etc/init.d/rc.func
