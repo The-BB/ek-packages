@@ -1,15 +1,28 @@
 #!/bin/sh
 
-if [ ! -f "/opt/var/lib/vnstat/*" ]; then
-    echo 'Point right interface(s) to monitor, like `vnstat -u -i ppp0`.'
-    echo 'Remove -i ppp0 to monitor all of them.'
-fi
-
 ENABLED=yes
-PROCS=vnstatd
-ARGS="-d"
+
+DESC="vnStat (2) daemon"
+PROCS="vnstatd"
+PROG="/opt/sbin/$PROCS"
+
+PID_FILE="/opt/var/run/$PROCS.pid"
+
+pre_cmd() {
+  rm -f "$PID_FILE"
+  [ -f "/opt/var/lib/vnstat/vnstat.db" ] || {
+  "$PROG" --initdb
+  for i in $(ls -1 /sys/class/net)
+  do
+    [ -n "$(vnstat --dbiflist | grep -q $i)" ] || {
+      /opt/bin/vnstat --add --force -i "$i" > /dev/null
+    }
+  done
+  }
+}
+
+PRECMD="pre_cmd"
+ARGS="-d -p $PID_FILE --noadd --startempty --noremove"
 PREARGS=""
-DESC=$PROCS
-PATH=/opt/sbin:/opt/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
 
 . /opt/etc/init.d/rc.func
