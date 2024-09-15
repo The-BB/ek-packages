@@ -88,7 +88,6 @@ define Package/xl2tpd/install
 	$(INSTALL_CONF) ./files/chap-secrets $(1)/opt/etc/ppp/chap-secrets
 	$(INSTALL_BIN) ./files/ip-up.sh $(1)/opt/etc/ppp/
 	$(INSTALL_BIN) ./files/ip-down.sh $(1)/opt/etc/ppp/
-	$(INSTALL_DIR) $(1)/opt/var/run/xl2tpd
 endef
 
 $(eval $(call BuildPackage,xl2tpd))
