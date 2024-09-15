@@ -217,7 +217,7 @@ ifneq ($(strip $(CONFIG_LIGHTTPD_LOGROTATE)),)
 	$(INSTALL_DIR) $(1)/opt/etc/logrotate.d
 	$(CP) ./files/lighttpd.logrotate $(1)/opt/etc/logrotate.d/lighttpd.conf
 endif
-	$(INSTALL_DIR) $(1)/opt/share/www $(1)/opt/var/log/lighttpd
+	$(INSTALL_DIR) $(1)/opt/share/www
 endef
 
 define BuildPlugin

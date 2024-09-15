@@ -1,10 +1,31 @@
 #!/bin/sh
 
 ENABLED=yes
-PROCS=lighttpd
-ARGS="-f /opt/etc/lighttpd/lighttpd.conf"
+
+DESC="Ligttpd server"
+PROCS="lighttpd"
+PROG="/opt/sbin/$PROCS"
+
+PID_FILE="/opt/var/run/$PROCS.pid"
+
+pre_cmd() {
+  rm -f "$PID_FILE"
+  . /opt/lib/functions.sh
+  group_exists www-data || group_add www-data 33
+  for i in \
+    /opt/var/cache/"$PROCS" \
+    /opt/var/lib/"$PROCS" \
+    /opt/var/log/"$PROCS"
+  do
+    [ -d "$i" ] || {
+      mkdir -pm 0775 "$i"
+      chgrp www-data "$i"
+    }
+  done
+}
+
+PRECMD="pre_cmd"
+ARGS="-f /opt/etc/$PROCS/$PROCS.conf"
 PREARGS=""
-DESC=$PROCS
-PATH=/opt/sbin:/opt/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
 
 . /opt/etc/init.d/rc.func
