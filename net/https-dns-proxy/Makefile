@@ -44,7 +44,7 @@ Please see https://docs.openwrt.melmac.net/https-dns-proxy/ for more information
 endef
 
 define Package/https-dns-proxy/conffiles
-/opt/etc/config/https-dns-proxy
+/opt/etc/config/https-dns-proxy.conf
 endef
 
 define Package/https-dns-proxy/install
@@ -54,7 +54,7 @@ define Package/https-dns-proxy/install
 	$(INSTALL_BIN) ./files/S09https-dns-proxy $(1)/opt/etc/init.d/
 #	$(SED) "s|^\(readonly PKG_VERSION\).*|\1='$(PKG_VERSION)-$(PKG_RELEASE)'|" $(1)/etc/init.d/https-dns-proxy
 	$(INSTALL_DIR) $(1)/opt/etc/config
-	$(INSTALL_CONF) ./files/https-dns-proxy.conf $(1)/opt/etc/config/https-dns-proxy
+	$(INSTALL_CONF) ./files/https-dns-proxy.conf $(1)/opt/etc/config
 #	$(INSTALL_DIR) $(1)/etc/uci-defaults/
 #	$(INSTALL_BIN) ./files/etc/uci-defaults/50-https-dns-proxy-migrate-options.sh $(1)/etc/uci-defaults/50-https-dns-proxy-migrate-options.sh
 endef
