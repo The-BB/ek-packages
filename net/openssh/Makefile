@@ -8,13 +8,15 @@
 include $(TOPDIR)/rules.mk
 
 PKG_NAME:=openssh
-PKG_VERSION:=9.8p1
-PKG_RELEASE:=4
+PKG_REALVERSION:=9.8p1
+PKG_VERSION:=9.8_p1
+PKG_RELEASE:=2
 
-PKG_SOURCE:=$(PKG_NAME)-$(PKG_VERSION).tar.gz
+PKG_SOURCE:=$(PKG_NAME)-$(PKG_REALVERSION).tar.gz
 PKG_SOURCE_URL:=https://cdn.openbsd.org/pub/OpenBSD/OpenSSH/portable/ \
 		https://ftp.openbsd.org/pub/OpenBSD/OpenSSH/portable/
 PKG_HASH:=dd8bd002a379b5d499dfb050dd1fa9af8029e80461f4bb6c523c49973f5a39f3
+PKG_BUILD_DIR:=$(BUILD_DIR)/$(if $(BUILD_VARIANT),$(PKG_NAME)-$(BUILD_VARIANT)/)$(PKG_NAME)-$(PKG_REALVERSION)
 
 PKG_LICENSE:=BSD ISC
 PKG_LICENSE_FILES:=LICENCE
@@ -232,7 +234,6 @@ define Package/openssh-server/install
 	install -d -m0700 $(1)/opt/etc/ssh $(1)/opt/etc/ssh/sshd_config.d
 	$(INSTALL_DATA) $(PKG_INSTALL_DIR)/opt/etc/ssh/sshd_config $(1)/opt/etc/ssh/
 	sed -r -i 's,^#(HostKey /opt/etc/ssh/ssh_host_(rsa|ed25519)_key)$$$$,\1,' $(1)/opt/etc/ssh/sshd_config
-	sed -i 's,#Port 22,Port 22222,' $(1)/opt/etc/ssh/sshd_config
 	$(INSTALL_DIR) $(1)/opt/etc/init.d
 	$(INSTALL_BIN) ./files/S40sshd $(1)/opt/etc/init.d/
 #	$(INSTALL_DIR) $(1)/lib/preinit
