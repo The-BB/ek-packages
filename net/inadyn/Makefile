@@ -52,7 +52,7 @@ define Package/inadyn/install
 	$(INSTALL_BIN) $(PKG_INSTALL_DIR)/opt/sbin/inadyn $(1)/opt/sbin/
 	$(INSTALL_DIR) $(1)/opt/etc/init.d
 	$(INSTALL_BIN) ./files/S52inadyn $(1)/opt/etc/init.d
-	$(INSTALL_DIR) $(1)/opt/var/cache/inadyn
+	$(INSTALL_DATA) $(PKG_BUILD_DIR)/examples/inadyn.conf $(1)/opt/etc
 endef
 
 $(eval $(call BuildPackage,inadyn))
