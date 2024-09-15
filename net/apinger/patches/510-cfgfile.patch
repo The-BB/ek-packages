@@ -1,14 +1,16 @@
 --- a/src/apinger.conf
 +++ b/src/apinger.conf
-@@ -13,7 +13,7 @@ group "nogroup"
+@@ -13,8 +13,8 @@ group "nogroup"
  ## Mailer to use (default: "/usr/lib/sendmail -t")
  #mailer "/var/qmail/bin/qmail-inject" 
  
 -## Location of the pid-file (default: "/var/run/apinger.pid")
+-#pid_file "/tmp/apinger.pid"
 +## Location of the pid-file (default: "/opt/var/run/apinger.pid")
- #pid_file "/tmp/apinger.pid"
++#pid_file "/opt/var/run/apinger.pid"
  
  ## Format of timestamp (%s macro) (default: "%b %d %H:%M:%S")
+ #timestamp_format "%Y%m%d%H%M%S"
 @@ -76,8 +76,8 @@ alarm default {
  	#mailsubject "%s %r: %a: %T"
  
