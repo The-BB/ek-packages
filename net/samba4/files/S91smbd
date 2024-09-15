@@ -1,0 +1,30 @@
+#!/bin/sh
+
+ENABLED=yes
+
+DESC="SMB (fileserver) daemon"
+PROCS="smbd"
+PROG="/opt/sbin/$PROCS"
+
+PID_FILE="/opt/var/run/samba/$PROCS.pid"
+
+pre_cmd() {
+  rm -f "$PID_FILE"
+  for i in \
+    /opt/var/cache/samba \
+    /opt/var/lib/samba \
+    /opt/var/lock/samba \
+    /opt/var/log/samba \
+    /opt/var/run/samba
+  do
+    [ -d "$i" ] || {
+      mkdir -pm 0755 "$i"
+    }
+  done
+}
+
+PRECMD="pre_cmd"
+ARGS="-D"
+PREARGS=""
+
+. /opt/etc/init.d/rc.func

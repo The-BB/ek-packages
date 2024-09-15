@@ -431,6 +431,11 @@ define Package/samba4-server/install
 ifeq ($(CONFIG_SAMBA4_SERVER_NETBIOS),y)
 	$(INSTALL_BIN) $(PKG_INSTALL_DIR)/opt/sbin/nmbd $(1)/opt/sbin/
 	$(INSTALL_BIN) $(PKG_INSTALL_DIR)/opt/bin/nmblookup $(1)/opt/bin/
+# XXX NMB (netbios) daemon
+ifeq ($(CONFIG_SAMBA4_SERVER_AD_DC),)
+	$(INSTALL_DIR) $(1)/opt/etc/init.d
+	$(INSTALL_BIN) ./files/S92nmbd $(1)/opt/etc/init.d
+endif
 endif
 ifeq ($(CONFIG_SAMBA4_SERVER_AD_DC),y)
 	$(INSTALL_DIR) $(1)/opt/lib
@@ -443,12 +448,19 @@ ifeq ($(CONFIG_SAMBA4_SERVER_AD_DC),y)
 	$(INSTALL_BIN) $(PKG_INSTALL_DIR)/opt/bin/{samba-tool,ntlm_auth,oLschema2ldif} $(1)/opt/bin/
 	$(INSTALL_BIN) $(PKG_INSTALL_DIR)/opt/bin/{sharesec,smbcacls} $(1)/opt/bin/
 	$(INSTALL_BIN) $(PKG_INSTALL_DIR)/opt/sbin/{samba,samba-gpupdate,samba_dnsupdate,samba_kcc,samba_spnupdate,samba_upgradedns,samba_downgrade_db} $(1)/opt/sbin/
+# XXX SMB (main AD-DC) daemon
+	$(INSTALL_DIR) $(1)/opt/etc/init.d
+	$(INSTALL_BIN) ./files/S90samba4 $(1)/opt/etc/init.d
 endif
 	$(INSTALL_DIR) $(1)/opt/etc/samba $(1)/opt/etc/init.d
 #	$(INSTALL_CONF) ./files/samba.config $(1)/etc/config/samba4
 	$(INSTALL_CONF) ./files/smb.conf $(1)/opt/etc/samba
 	$(INSTALL_DATA) ./files/smb.conf.template $(1)/opt/etc/samba
-	$(INSTALL_BIN) ./files/S91smb $(1)/opt/etc/init.d
+# XXX SMB (fileserver) daemon
+ifeq ($(CONFIG_SAMBA4_SERVER_AD_DC),)
+	$(INSTALL_DIR) $(1)/opt/etc/init.d
+	$(INSTALL_BIN) ./files/S91smbd $(1)/opt/etc/init.d
+endif
 endef
 
 define Package/samba4-server/conffiles
