@@ -93,7 +93,7 @@ endef
 
 define Package/ntpd/conffiles
 /opt/etc/ntp.conf
-/opt/etc/config/ntpd
+/opt/etc/config/ntpd.conf
 endef
 
 CONFIGURE_VARS += \
@@ -124,12 +124,11 @@ define Package/ntpd/install
 	$(INSTALL_BIN) $(PKG_BUILD_DIR)/ntpd/ntpd $(1)/opt/libexec/
 	$(INSTALL_DIR) $(1)/opt/etc $(1)/opt/etc/config
 	$(INSTALL_CONF) ./files/ntp.conf $(1)/opt/etc/
-	$(INSTALL_CONF) ./files/ntpd.config $(1)/opt/etc/config/ntpd
+	$(INSTALL_CONF) ./files/ntpd.conf $(1)/opt/etc/config/
 	$(INSTALL_DIR) $(1)/opt/etc/init.d
 	$(INSTALL_BIN) ./files/S77ntpd $(1)/opt/etc/init.d/
 	$(INSTALL_DIR) $(1)/opt/etc/hotplug.d/iface
 	$(INSTALL_BIN) ./files/ntpd.hotplug $(1)/opt/etc/hotplug.d/iface/20-ntpd
-	$(INSTALL_DIR) $(1)/opt/var/spool/ntp
 endef
 
 

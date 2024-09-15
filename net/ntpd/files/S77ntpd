@@ -1,12 +1,37 @@
 #!/bin/sh
 
-[ -f /opt/etc/config/ntpd ] && . /opt/etc/config/ntpd
-
 ENABLED=yes
-PROCS=ntpd
-ARGS="-c /opt/etc/ntp.conf -p /opt/var/run/ntpd.pid -f /opt/var/spool/ntp/ntp.drift -s /opt/var/spool/ntp -k /opt/etc/ntp -g $OPTIONS"
+
+DESC="ISC NTP daemon"
+PROCS="ntpd"
+PROG="/opt/sbin/$PROCS"
+
+{ [ -f "/opt/etc/config/$PROCS.conf" ] && . /opt/etc/config/"$PROCS".conf ; } || \
+{ printf "\033[1;31m %s \033[0m\n" "Abort: conf file not found." && exit 1 ; }
+
+PID_FILE="/opt/var/run/$PROCS.pid"
+
+pre_cmd() {
+  rm -f "$PID_FILE"
+  for i in \
+    /opt/var/lib/ntp \
+    /opt/var/spool/ntp
+  do
+    [ -d "$i" ] || {
+      mkdir -pm 0750 "$i"
+      chown ntp:ntp "$i"
+    }
+  done
+}
+
+PRECMD="pre_cmd"
+ARGS="\
+-c /opt/etc/ntp.conf \
+-f /opt/var/lib/ntp/ntp.drift \
+-p $PID_FILE \
+-s /opt/var/spool/ntp \
+-k /opt/etc/ntp \
+-g $OPTIONS"
 PREARGS=""
-DESC=$PROCS
-PATH=/opt/sbin:/opt/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
 
 . /opt/etc/init.d/rc.func
