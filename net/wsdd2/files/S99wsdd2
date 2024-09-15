@@ -1,10 +1,12 @@
 #!/bin/sh
 
 ENABLED=yes
-PROCS=wsdd2
+
+DESC="Web Services for Devices (WSD) Deaemon"
+PROCS="wsdd2"
+PROG="/opt/bin/$PROCS"
+
 ARGS="-w"
 PREARGS=""
-DESC=$PROCS
-PATH=/opt/sbin:/opt/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
 
 . /opt/etc/init.d/rc.func
