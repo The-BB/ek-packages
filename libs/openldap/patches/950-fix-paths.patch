@@ -1,0 +1,55 @@
+--- a/contrib/slapd-modules/nssov/nssov.h
++++ b/contrib/slapd-modules/nssov/nssov.h
+@@ -20,7 +20,7 @@
+ #define NSSOV_H
+ 
+ #ifndef NSLCD_PATH
+-#define	NSLCD_PATH	"/var/run/nslcd"
++#define	NSLCD_PATH	"/opt/var/run/nslcd"
+ #endif
+ 
+ #ifndef NSLCD_SOCKET
+--- a/contrib/slapd-modules/ppm/ppm.c
++++ b/contrib/slapd-modules/ppm/ppm.c
+@@ -623,7 +623,7 @@ check_password(char *pPasswd, struct ber
+         {"useCracklib", typeInt, {.iVal = 0}, 0, 0, 0
+          }
+         ,
+-        {"cracklibDict", typeStr, {.sVal = "/var/cache/cracklib/cracklib_dict"}, 0, 0, 0
++        {"cracklibDict", typeStr, {.sVal = "/opt/var/cache/cracklib/cracklib_dict"}, 0, 0, 0
+          }
+         ,
+         {"class-upperCase", typeStr, {.sVal = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"}, 0, 1, 0
+--- a/contrib/slapd-modules/ppm/ppm.h
++++ b/contrib/slapd-modules/ppm/ppm.h
+@@ -30,7 +30,7 @@
+ 
+ /* config file parameters (DEPRECATED) */
+ #ifndef CONFIG_FILE
+-#define CONFIG_FILE                       "/etc/openldap/ppm.example"
++#define CONFIG_FILE                       "/opt/etc/openldap/ppm.example"
+ #endif
+ #define FILENAME_MAX_LEN                  512
+ 
+--- a/servers/slapd/slapd.conf
++++ b/servers/slapd/slapd.conf
+@@ -69,7 +69,7 @@ rootpw		secret
+ # The database directory MUST exist prior to running slapd AND 
+ # should only be accessible by the slapd and slap tools.
+ # Mode 700 recommended.
+-directory	%LOCALSTATEDIR%/openldap-data
++directory	%LOCALSTATEDIR%/lib/openldap-data
+ # Indices to maintain
+ index	objectClass	eq
+ 
+--- a/servers/slapd/slapd.ldif
++++ b/servers/slapd/slapd.ldif
+@@ -88,7 +88,7 @@ olcRootPW: secret
+ # The database directory MUST exist prior to running slapd AND 
+ # should only be accessible by the slapd and slap tools.
+ # Mode 700 recommended.
+-olcDbDirectory:	%LOCALSTATEDIR%/openldap-data
++olcDbDirectory:	%LOCALSTATEDIR%/lib/openldap-data
+ # Indices to maintain
+ olcDbIndex: objectClass eq
+ 
