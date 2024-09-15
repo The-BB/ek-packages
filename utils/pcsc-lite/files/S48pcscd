@@ -1,13 +1,19 @@
 #!/bin/sh
 
-mkdir -m 0700 -p /opt/var/racoon
-[ -f /opt/etc/ipsec.conf ] && /opt/sbin/setkey -f /opt/etc/ipsec.conf
-
 ENABLED=yes
-PROCS=pcscd
+
+DESC="PC/SC daemon"
+PROCS="pcscd"
+PROG="/opt/sbin/$PROCS"
+
+PID_FILE="/opt/var/run/$PROCS/$PROCS.pid"
+
+pre_cmd() {
+  rm -f "$PID_FILE"
+}
+
+PRECMD="pre_cmd"
 ARGS=""
 PREARGS=""
-DESC=$PROCS
-PATH=/opt/sbin:/opt/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
 
 . /opt/etc/init.d/rc.func
