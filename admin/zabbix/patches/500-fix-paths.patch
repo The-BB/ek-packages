@@ -22,7 +22,7 @@
  # Default:
  # LogFile=
  
-+LogFile=/opt/var/log/zabbix_agentd.log
++LogFile=/opt/var/log/zabbix/zabbix_agentd.log
 +
  ### Option: LogFileSize
  #	Maximum size of log file in MB.

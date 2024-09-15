@@ -1,10 +1,24 @@
 #!/bin/sh
 
 ENABLED=yes
-PROCS=zabbix_agentd
+
+DESC="Zabbix agent daemon"
+PROCS="zabbix_agentd"
+PROG="/opt/sbin/$PROCS"
+
+pre_cmd() {
+  . /opt/lib/functions.sh
+  user_exists zabbix || user_add zabbix 53
+  group_exists zabbix || group_add zabbix 53
+  {
+    { [ -d "/opt/var/log/zabbix" ] || \
+    mkdir -pm 0750 /opt/var/log/zabbix ; }
+    chown -R zabbix:zabbix /opt/var/log/zabbix ;
+  }
+}
+
+PRECMD="pre_cmd"
 ARGS="-c /opt/etc/$PROCS.conf"
 PREARGS=""
-DESC=$PROCS
-PATH=/opt/sbin:/opt/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
 
 . /opt/etc/init.d/rc.func
