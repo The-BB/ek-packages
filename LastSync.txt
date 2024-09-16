@@ -1,9 +1,9 @@
-commit f73bf31744702b50b213c4f863885aac919beb57 (HEAD -> master, origin/master, origin/HEAD)
-Author: Aleksey Vasilenko <aleksey.vasilenko@gmail.com>
-Date:   Thu Sep 12 17:25:09 2024 +0300
+commit 5542a1011c6aa8d1e262fc846439af43f4961ce8 (HEAD -> master, origin/master, origin/HEAD)
+Author: Yanase Yuki <dev@zpc.st>
+Date:   Tue Sep 10 18:26:46 2024 +0900
 
-    ripgrep: update to 4.1.1
+    vncrepeater: remove package
     
-    - Add patch to fix build on riscv64
+    Upstream seems dead. NXDOMAIN.
     
-    Signed-off-by: Aleksey Vasilenko <aleksey.vasilenko@gmail.com>
+    Signed-off-by: Yanase Yuki <dev@zpc.st>
