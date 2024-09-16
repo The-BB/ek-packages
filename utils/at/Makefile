@@ -42,7 +42,7 @@ CONFIGURE_ARGS += \
 	--prefix=/opt \
 	--without-selinux \
 	--with-daemon_username=nobody \
-	--with-daemon_groupname=nobody \
+	--with-daemon_groupname=nogroup \
 	--with-etcdir=/opt/etc \
 	--with-jobdir=/opt/var/spool/cron/atjobs \
 	--with-atspool=/opt/var/spool/cron/atspool
@@ -51,22 +51,14 @@ CONFIGURE_VARS += \
 	ac_cv_header_security_pam_appl_h=no
 
 define Package/at/install
-	$(INSTALL_DIR) $(1)/opt/bin $(1)/opt/sbin $(1)/opt/etc/init.d/ $(1)/opt/var/run
+	$(INSTALL_DIR) $(1)/opt/bin $(1)/opt/sbin $(1)/opt/etc/init.d/
 	$(INSTALL_BIN) ./files/S50atd $(1)/opt/etc/init.d
 	$(INSTALL_BIN) $(PKG_BUILD_DIR)/at $(1)/opt/bin
 	ln -sf at $(1)/opt/bin/atq
 	ln -sf at $(1)/opt/bin/atrm
 	$(INSTALL_BIN) $(PKG_BUILD_DIR)/atd $(1)/opt/sbin
 	$(INSTALL_BIN) $(PKG_BUILD_DIR)/batch $(1)/opt/bin
-endef
-
-define Package/at/postinst
-#!/bin/sh
-mkdir -m 0755 -p /opt/var/spool/cron/atjobs
-touch /opt/var/spool/cron/atjobs/.SEQ
-chown -R nobody:nobody /opt/var/spool/cron/atjobs || echo 'check owner of /opt/var/spool/cron/atjobs'
-mkdir -m 0755 -p /opt/var/spool/cron/atspool
-chown -R nobody:nobody /opt/var/spool/cron/atspool || echo 'check owner of /opt/var/spool/cron/atspool'
+	$(SED) 's,^#!.*$$$$,#!/bin/sh,' $(1)/opt/bin/batch
 endef
 
 $(eval $(call BuildPackage,at))

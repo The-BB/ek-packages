@@ -6,6 +6,23 @@ DESC="atd daemon"
 PROCS="atd"
 PROG="/opt/bin/$PROCS"
 
+pre_cmd() {
+  for i in \
+    /opt/var/spool/cron/atjobs \
+    /opt/var/spool/cron/atspool
+  do
+    [ -d "$i" ] || {
+      mkdir -pm 0755 "$i"
+      chown -R nobody:nogroup "$i"
+    }
+  done
+  [ -f "/opt/var/spool/cron/atjobs/.SEQ" ] || {
+    touch /opt/var/spool/cron/atjobs/.SEQ
+    chown -R nobody:nogroup /opt/var/spool/cron/atjobs/.SEQ
+  }
+}
+
+PRECMD="pre_cmd"
 ARGS=""
 PREARGS=""
 
