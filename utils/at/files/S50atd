@@ -4,9 +4,12 @@ ENABLED=yes
 
 DESC="atd daemon"
 PROCS="atd"
-PROG="/opt/bin/$PROCS"
+PROG="/opt/sbin/$PROCS"
+
+PID_FILE="/opt/var/run/$PROCS.pid"
 
 pre_cmd() {
+  rm -f "$PID_FILE"
   for i in \
     /opt/var/spool/cron/atjobs \
     /opt/var/spool/cron/atspool
