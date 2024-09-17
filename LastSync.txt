@@ -1,12 +1,15 @@
-commit 7f29b5b7a17b61d0dda8659a1fe8b1bbc5716364 (HEAD -> master, origin/master, origin/HEAD)
-Author: Goetz Goerisch <ggoerisch@gmail.com>
-Date:   Thu Sep 5 13:11:00 2024 +0200
+commit 30a3ec3191fd28db2988cb486c9599d23c1666b7 (HEAD -> master, origin/master, origin/HEAD)
+Author: Carlos Miguel Ferreira <carlosmf.pt@gmail.com>
+Date:   Mon Sep 16 17:34:17 2024 +0100
 
-    jool: update to 4.1.13
+    boost: Updates package to version 1.86.0
     
-    * update jool to 4.1.13
-    * refresh patch
+    This commit updates boost to version 1.86.0
     
-    Changelog: https://github.com/NICMx/Jool/releases/tag/v4.1.13
+    This update does not bring new libraries.
     
-    Signed-off-by: Goetz Goerisch <ggoerisch@gmail.com>
+    More info about Boost 1.86.0 can be found at the usual place [1].
+    
+    [1]: https://www.boost.org/users/history/version_1_86_0.html
+    
+    Signed-off-by: Carlos Miguel Ferreira <carlosmf.pt@gmail.com>
