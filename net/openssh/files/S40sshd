@@ -10,6 +10,7 @@ PID_FILE="/opt/var/run/$PROCS.pid"
 
 pre_cmd() {
   rm -f "$PID_FILE"
+  [ -d "/opt/var/empty" ] || mkdir -pm 0700 /opt/var/empty
 }
 
 PRECMD="pre_cmd"
