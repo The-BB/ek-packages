@@ -114,4 +114,4 @@ define Package/mwan3/install
 		$(1)/etc/uci-defaults/
 endef
 
-$(eval $(call BuildPackage,mwan3))
+#$(eval $(call BuildPackage,mwan3))
