@@ -1,0 +1,22 @@
+--- a/src/log/access_log.cc
++++ b/src/log/access_log.cc
+@@ -403,7 +403,7 @@ accessLogInit(void)
+ 
+ #if HEADERS_LOG
+ 
+-    headerslog = logfileOpen("/usr/local/squid/logs/headers.log", 512);
++    headerslog = logfileOpen("/opt/var/log/squid/headers.log", 512);
+ 
+     assert(NULL != headerslog);
+ 
+--- a/tools/cachemgr.cc
++++ b/tools/cachemgr.cc
+@@ -85,7 +85,7 @@ extern "C" {
+ #endif
+ 
+ #ifndef DEFAULT_CACHEMGR_CONFIG
+-#define DEFAULT_CACHEMGR_CONFIG "/etc/squid/cachemgr.conf"
++#define DEFAULT_CACHEMGR_CONFIG "/opt/etc/squid/cachemgr.conf"
+ #endif
+ 
+ typedef struct {

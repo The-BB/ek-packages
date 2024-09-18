@@ -73,6 +73,8 @@ CONFIGURE_ARGS += \
 	--datadir=/opt/share/squid \
 	--libexecdir=/opt/lib/squid \
 	--sysconfdir=/opt/etc/squid \
+	--with-logdir=/opt/var/log/squid \
+	--with-pidfile=/opt/var/run/squid.pid \
 	--disable-static \
 	--enable-delay-pools \
 	--enable-cache-digests \

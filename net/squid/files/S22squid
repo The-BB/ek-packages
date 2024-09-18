@@ -6,6 +6,28 @@ DESC="Squid proxy"
 PROCS="squid"
 PROG="/opt/sbin/$PROCS"
 
+LIMIT="40"
+PID_FILE="/opt/var/run/$PROCS"
+
+pre_cmd() {
+  rm -f "$PID_FILE"
+  for i in \
+    /dev/shm \
+    /opt/var/cache/"$PROCS" \
+    /opt/var/log/"$PROCS"
+  do
+    [ -d "$i" ] || {
+    mkdir -pm 0750 "$i"
+    chown "$PROCS":"$PROCS" "$i"
+    }
+  done
+  "$PROG" -n $PROCS -z -N > /dev/null 2>&1
+  [ -f "/opt/var/cache/$PROCS/ssldb/size" ] || \
+  /opt/lib/"$PROCS"/security_file_certgen -c -s /opt/var/cache/"$PROCS"/ssldb -M 4MB 1>/dev/null
+  chown -R "$PROCS":"$PROCS" /opt/var/cache/"$PROCS"/ssldb
+}
+
+PRECMD="pre_cmd"
 ARGS=""
 PREARGS=""
 
