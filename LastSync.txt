@@ -1,11 +1,7 @@
-commit 180ee1321934cfd27d1245426f8fed3053a1cc66 (HEAD -> master, origin/master, origin/HEAD)
-Author: Dirk Brenken <dev@brenken.org>
-Date:   Tue Sep 17 21:31:46 2024 +0200
+commit 7cb9e4bbeaea1826115ded21ef6ce5df85d40c7f (HEAD -> master, origin/master, origin/HEAD)
+Author: Aleksey Vasilenko <aleksey.vasilenko@gmail.com>
+Date:   Wed Sep 18 12:42:02 2024 +0300
 
-    adblock: update to 4.2.2-4
+    curl: update to 8.10.1
     
-    * fixed wrongly detected NX domains in adblock reporting
-    * remove existing pcap files when restarting/stopping adblock
-       to prevent problems when changing tcpdump parameters
-    
-    Signed-off-by: Dirk Brenken <dev@brenken.org>
+    Signed-off-by: Aleksey Vasilenko <aleksey.vasilenko@gmail.com>
