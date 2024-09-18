@@ -1,15 +1,11 @@
-commit 30a3ec3191fd28db2988cb486c9599d23c1666b7 (HEAD -> master, origin/master, origin/HEAD)
-Author: Carlos Miguel Ferreira <carlosmf.pt@gmail.com>
-Date:   Mon Sep 16 17:34:17 2024 +0100
+commit 180ee1321934cfd27d1245426f8fed3053a1cc66 (HEAD -> master, origin/master, origin/HEAD)
+Author: Dirk Brenken <dev@brenken.org>
+Date:   Tue Sep 17 21:31:46 2024 +0200
 
-    boost: Updates package to version 1.86.0
+    adblock: update to 4.2.2-4
     
-    This commit updates boost to version 1.86.0
+    * fixed wrongly detected NX domains in adblock reporting
+    * remove existing pcap files when restarting/stopping adblock
+       to prevent problems when changing tcpdump parameters
     
-    This update does not bring new libraries.
-    
-    More info about Boost 1.86.0 can be found at the usual place [1].
-    
-    [1]: https://www.boost.org/users/history/version_1_86_0.html
-    
-    Signed-off-by: Carlos Miguel Ferreira <carlosmf.pt@gmail.com>
+    Signed-off-by: Dirk Brenken <dev@brenken.org>
