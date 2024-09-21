@@ -1,7 +1,7 @@
-commit 7cb9e4bbeaea1826115ded21ef6ce5df85d40c7f (HEAD -> master, origin/master, origin/HEAD)
+commit 446c9dd02acc68984a76c5053cdb54d96125f555 (HEAD -> master, origin/master, origin/HEAD)
 Author: Aleksey Vasilenko <aleksey.vasilenko@gmail.com>
-Date:   Wed Sep 18 12:42:02 2024 +0300
+Date:   Sun Sep 8 10:29:54 2024 +0300
 
-    curl: update to 8.10.1
+    exfatprogs: update to 1.2.5
     
     Signed-off-by: Aleksey Vasilenko <aleksey.vasilenko@gmail.com>
