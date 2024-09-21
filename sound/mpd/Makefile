@@ -3,12 +3,13 @@
 # See /LICENSE for more information.
 #
 # Entware specific: enable daemon mode
+# XXX boost bumped
 
 include $(TOPDIR)/rules.mk
 
 PKG_NAME:=mpd
 PKG_VERSION:=0.23.15
-PKG_RELEASE:=2
+PKG_RELEASE:=3
 
 PKG_SOURCE:=$(PKG_NAME)-$(PKG_VERSION).tar.xz
 PKG_SOURCE_URL:=https://www.musicpd.org/download/mpd/0.23
@@ -21,7 +22,7 @@ PKG_LICENSE_FILES:=COPYING
 PKG_CONFIG_DEPENDS:= \
 	CONFIG_AUDIO_SUPPORT \
 	CONFIG_BUILD_PATENTED \
-	CONFIG_IPV6 \
+	CONFIG_IPV6
 
 PKG_BUILD_FLAGS:=no-mips16 no-lto
 
