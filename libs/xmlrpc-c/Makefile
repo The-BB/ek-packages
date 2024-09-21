@@ -210,8 +210,8 @@ define Package/xmlrpc-c-common/install
 endef
 
 $(eval $(call BuildPackage,xmlrpc-c-common))
-$(eval $(call BuildPackage,xmlrpc-c-libxml2))
 $(eval $(call BuildPackage,xmlrpc-c-internal))
+$(eval $(call BuildPackage,xmlrpc-c-libxml2))
 $(eval $(call BuildPackage,xmlrpc-c-server))
 $(eval $(call BuildPackage,xmlrpc-c-abyss))
 $(eval $(call BuildPackage,xmlrpc-c-server-abyss))
