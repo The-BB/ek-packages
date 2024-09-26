@@ -1,9 +1,9 @@
-commit d9cc0e1cd42833f1e6adee7d7abf9b4101b9c1fb (HEAD -> master, origin/master, origin/HEAD)
-Author: Florian Eckert <fe@dev.tdt.de>
-Date:   Wed Sep 25 16:35:57 2024 +0200
+commit b1635b899da0481867b0d04df1b007285721357f (HEAD -> master, origin/master, origin/HEAD)
+Author: Noah Meyerhans <frodo@morgul.net>
+Date:   Mon Sep 9 09:06:29 2024 -0400
 
-    ddns-scripts: fix update_porkbun_v3 shell syntax
+    iputils: bump to 20240905
     
-    The closing bracket was forgotten in a function.
+    Refresh patches
     
-    Signed-off-by: Florian Eckert <fe@dev.tdt.de>
+    Signed-off-by: Noah Meyerhans <frodo@morgul.net>
