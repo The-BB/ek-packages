@@ -1,9 +1,14 @@
-commit b1635b899da0481867b0d04df1b007285721357f (HEAD -> master, origin/master, origin/HEAD)
-Author: Noah Meyerhans <frodo@morgul.net>
-Date:   Mon Sep 9 09:06:29 2024 -0400
+commit 1b9a6ae47a7a8280875dd20f28bda5cb83055522 (HEAD -> master, origin/master, origin/HEAD)
+Author: Florian Eckert <fe@dev.tdt.de>
+Date:   Fri Sep 27 15:19:05 2024 +0200
 
-    iputils: bump to 20240905
+    Revert "mwan3: use network_get_preferred_ipaddr6"
     
-    Refresh patches
+    This reverts commit fc3cc2fe5c33b36014178d3652785d00cae1c9eb.
     
-    Signed-off-by: Noah Meyerhans <frodo@morgul.net>
+    As long as the related pullrequest [1] is not merged, this change must be
+    revert.
+    
+    [1] https://github.com/openwrt/openwrt/pull/14333
+    
+    Signed-off-by: Florian Eckert <fe@dev.tdt.de>
