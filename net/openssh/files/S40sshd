@@ -10,7 +10,17 @@ PID_FILE="/opt/var/run/$PROCS.pid"
 
 pre_cmd() {
   rm -f "$PID_FILE"
+
   [ -d "/opt/var/empty" ] || mkdir -pm 0700 /opt/var/empty
+
+  [ -d "/opt/etc/ssh" ] || mkdir -pm 0700 /opt/etc/ssh
+  for type in rsa ed25519
+  do
+    key=/opt/etc/ssh/ssh_host_${type}_key
+    [ ! -s "$key" ] && {
+    /opt/libexec/ssh-keygen-openssh -N '' -t "$type" -f "$key" > /dev/null 2>&1
+    }
+  done
 }
 
 PRECMD="pre_cmd"

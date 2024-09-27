@@ -8,14 +8,14 @@
 include $(TOPDIR)/rules.mk
 
 PKG_NAME:=openssh
-PKG_REALVERSION:=9.8p1
-PKG_VERSION:=9.8_p1
-PKG_RELEASE:=2
+PKG_REALVERSION:=9.9p1
+PKG_VERSION:=9.9_p1
+PKG_RELEASE:=1
 
 PKG_SOURCE:=$(PKG_NAME)-$(PKG_REALVERSION).tar.gz
 PKG_SOURCE_URL:=https://cdn.openbsd.org/pub/OpenBSD/OpenSSH/portable/ \
 		https://ftp.openbsd.org/pub/OpenBSD/OpenSSH/portable/
-PKG_HASH:=dd8bd002a379b5d499dfb050dd1fa9af8029e80461f4bb6c523c49973f5a39f3
+PKG_HASH:=b343fbcdbff87f15b1986e6e15d6d4fc9a7d36066be6b7fb507087ba8f966c02
 PKG_BUILD_DIR:=$(BUILD_DIR)/$(if $(BUILD_VARIANT),$(PKG_NAME)-$(BUILD_VARIANT)/)$(PKG_NAME)-$(PKG_REALVERSION)
 
 PKG_LICENSE:=BSD ISC
@@ -269,27 +269,6 @@ endef
 define Package/openssh-sftp-avahi-service/install
 	$(INSTALL_DIR) $(1)/opt/etc/avahi/services
 	$(INSTALL_DATA) ./files/sftp-ssh.service $(1)/opt/etc/avahi/services/
-endef
-
-define Package/openssh-keygen/postinst
-#!/bin/sh
-
-### colors
-ansi_blue="\033[1;34m"
-ansi_white="\033[1;37m"
-ansi_white_cur="\033[1;3;37m"
-ansi_std="\033[0m"
-
-[ -d "/opt/etc/ssh" ] || mkdir -m 700 /opt/etc/ssh
-
-for type in rsa ed25519; do
-  key=/opt/etc/ssh/ssh_host_$${type}_key
-  [ ! -s $$key ] && {
-    printf "\n$$ansi_blue %s $$ansi_white %s $$ansi_white_cur %s $$ansi_std" "Info:" "generating $$key ..."
-    /opt/libexec/ssh-keygen-openssh -N '' -t $$type -f $$key > /dev/null 2>&1
-    printf "$$ansi_white %s $$ansi_std\n\n" "done"
-  }
-done
 endef
 
 $(eval $(call BuildPackage,openssh-client))
