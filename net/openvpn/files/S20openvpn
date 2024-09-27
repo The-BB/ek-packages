@@ -8,6 +8,7 @@ PROG="/opt/sbin/$PROCS"
 
 pre_cmd() {
 # Make sure IP forwarding is enabled
+  grep -q '1' /proc/sys/net/ipv4/ip_forward || \
   echo 1 > /proc/sys/net/ipv4/ip_forward
 
 # Make /dev/net directory if needed
