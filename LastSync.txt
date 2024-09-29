@@ -1,14 +1,7 @@
-commit 1b9a6ae47a7a8280875dd20f28bda5cb83055522 (HEAD -> master, origin/master, origin/HEAD)
-Author: Florian Eckert <fe@dev.tdt.de>
-Date:   Fri Sep 27 15:19:05 2024 +0200
+commit 77e9cd3989069e4f647b1d9d3df6f4bfe91c0b75 (HEAD -> master, origin/master, origin/HEAD)
+Author: hingbong lo <hingbonglo@gmail.com>
+Date:   Thu Sep 26 14:58:55 2024 +0000
 
-    Revert "mwan3: use network_get_preferred_ipaddr6"
+    rust: use `TARGET_LINKER` as linker
     
-    This reverts commit fc3cc2fe5c33b36014178d3652785d00cae1c9eb.
-    
-    As long as the related pullrequest [1] is not merged, this change must be
-    revert.
-    
-    [1] https://github.com/openwrt/openwrt/pull/14333
-    
-    Signed-off-by: Florian Eckert <fe@dev.tdt.de>
+    Signed-off-by: hingbong lo <hingbonglo@gmail.com>
