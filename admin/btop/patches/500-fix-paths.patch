@@ -1,6 +1,6 @@
 --- a/src/btop.cpp
 +++ b/src/btop.cpp
-@@ -917,7 +917,7 @@ int main(int argc, char **argv) {
+@@ -957,7 +957,7 @@ int main(int argc, char **argv) {
  	}
  	//? If relative path failed, check two most common absolute paths
  	if (Theme::theme_dir.empty()) {
@@ -22,7 +22,7 @@
  				"\"Default\" for builtin default theme.",
 --- a/src/linux/btop_collect.cpp
 +++ b/src/linux/btop_collect.cpp
-@@ -226,9 +226,9 @@ namespace Shared {
+@@ -250,9 +250,9 @@ namespace Shared {
  		if (procPath.empty())
  			throw std::runtime_error("Proc filesystem not found or no permission to read from it!");
  
