@@ -1,7 +1,10 @@
-commit 77e9cd3989069e4f647b1d9d3df6f4bfe91c0b75 (HEAD -> master, origin/master, origin/HEAD)
-Author: hingbong lo <hingbonglo@gmail.com>
-Date:   Thu Sep 26 14:58:55 2024 +0000
+commit 3724047164218a58948933bf61eb089d36b67074 (HEAD -> master, origin/master, origin/HEAD)
+Author: Eric Fahlgren <ericfahlgren@gmail.com>
+Date:   Sun Sep 29 19:46:58 2024 -0700
 
-    rust: use `TARGET_LINKER` as linker
+    owut: update to 2024.09.28
     
-    Signed-off-by: hingbong lo <hingbonglo@gmail.com>
+    Bug fixes:
+        efahl/owut@20d5afb owut: translate mapped names from platform 'supported_devices'
+    
+    Signed-off-by: Eric Fahlgren <ericfahlgren@gmail.com>
