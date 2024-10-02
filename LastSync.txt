@@ -1,10 +1,7 @@
-commit 3724047164218a58948933bf61eb089d36b67074 (HEAD -> master, origin/master, origin/HEAD)
-Author: Eric Fahlgren <ericfahlgren@gmail.com>
-Date:   Sun Sep 29 19:46:58 2024 -0700
+commit af4a89482cff4fbdcb1281b6677c7a74e51c95ec (HEAD -> master, origin/master, origin/HEAD)
+Author: Gagan Deep <pandafy.dev@gmail.com>
+Date:   Fri Sep 27 03:10:02 2024 +0530
 
-    owut: update to 2024.09.28
+    openwisp-config: update to 1.1.0
     
-    Bug fixes:
-        efahl/owut@20d5afb owut: translate mapped names from platform 'supported_devices'
-    
-    Signed-off-by: Eric Fahlgren <ericfahlgren@gmail.com>
+    Signed-off-by: Gagan Deep <pandafy.dev@gmail.com>
