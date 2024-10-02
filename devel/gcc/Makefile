@@ -27,7 +27,7 @@ PKG_NAME:=gcc
 GCC_VERSION:=$(call qstrip,$(CONFIG_GCC_VERSION))
 PKG_VERSION:=$(firstword $(subst +, ,$(GCC_VERSION)))
 GCC_MAJOR_VERSION:=$(word 1,$(subst ., ,$(PKG_VERSION)))
-PKG_RELEASE:=7
+PKG_RELEASE:=8
 GCC_DIR:=$(PKG_NAME)-$(PKG_VERSION)
 
 PKG_SOURCE_URL:=@GNU/gcc/gcc-$(PKG_VERSION)
@@ -247,10 +247,6 @@ define Package/gcc/install
 	$(COPY_STATIC_LIBSTDC)
 	rm -f $(1)/opt/lib/$(PKG_NAME)/$(REAL_GNU_TARGET_NAME)/$(PKG_VERSION)/libgo*
 	rm -f $(1)/opt/lib/$(PKG_NAME)/$(REAL_GNU_TARGET_NAME)/$(PKG_VERSION)/libcc1*
-	echo '#!/bin/sh' > $(1)/opt/bin/gcc_env.sh
-	echo 'export LDFLAGS=$(ENVLDFLAGS)' >> $(1)/opt/bin/gcc_env.sh
-	echo 'export CFLAGS=$(ENVCFLAGS)' >> $(1)/opt/bin/gcc_env.sh
-	chmod +x $(1)/opt/bin/gcc_env.sh
 	# XXX rm "..install.cmd" ".install"
 	$(FIND) $(1)/opt/include -type f -name '*install*' -delete
 	# XXX fix path
@@ -261,6 +257,10 @@ define Package/gcc/install
 		$(1)/opt/lib/$(PKG_NAME)/$(REAL_GNU_TARGET_NAME)/$(PKG_VERSION)/liblto_plugin.la
 	$(SED) 's,$(TOOLCHAIN_ROOT_DIR)/$(REAL_GNU_TARGET_NAME),/opt,;s,$(TOOLCHAIN_ROOT_DIR),/opt,' \
 			$(1)/opt/lib/$(PKG_NAME)/$(REAL_GNU_TARGET_NAME)/$(PKG_VERSION)/*.py
+	$(INSTALL_DIR) $(1)/opt/etc/profile.d
+	echo 'export CFLAGS=$(ENVCFLAGS)' > $(1)/opt/etc/profile.d/gcc.sh
+	echo 'export CXXFLAGS=$(ENVCFLAGS)' >> $(1)/opt/etc/profile.d/gcc.sh
+	echo 'export LDFLAGS=$(ENVLDFLAGS)' >> $(1)/opt/etc/profile.d/gcc.sh
 endef
 
 #ifeq ($(CONFIG_INCLUDE_STATIC_LINK_SPEC),y)
