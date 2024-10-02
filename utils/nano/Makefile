@@ -10,7 +10,7 @@ include $(TOPDIR)/rules.mk
 
 PKG_NAME:=nano
 PKG_VERSION:=8.2
-PKG_RELEASE:=1
+PKG_RELEASE:=2
 
 PKG_SOURCE:=$(PKG_NAME)-$(PKG_VERSION).tar.xz
 PKG_SOURCE_URL:=@GNU/nano
@@ -152,6 +152,8 @@ define Package/nano-full/install
 		$(SED) 's/\\</\\b/g' $$$$f; \
 		$(SED) 's/\\>/\\b/g' $$$$f; \
 	done;
+	$(INSTALL_DIR) $(1)/opt/etc/profile.d
+	echo "export EDITOR=\"/opt/bin/nano\"" > $(1)/opt/etc/profile.d/nano.sh
 endef
 
 $(eval $(call BuildPackage,nano))
