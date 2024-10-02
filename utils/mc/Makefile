@@ -8,7 +8,7 @@ include $(TOPDIR)/rules.mk
 
 PKG_NAME:=mc
 PKG_VERSION:=4.8.32
-PKG_RELEASE:=1
+PKG_RELEASE:=2
 PKG_MAINTAINER:=
 PKG_LICENSE:=GPL-3.0-or-later
 PKG_CPE_ID:=cpe:/a:midnight_commander:midnight_commander
@@ -124,6 +124,8 @@ endif
 	$(SED) 's,$(STAGING_DIR_HOST)/bin,/opt/bin,g' $(1)/opt/share/mc/syntax/Syntax
 	$(SED) 's,$(STAGING_DIR_HOSTPKG)/bin,/opt/bin,g' $(1)/opt/share/mc/syntax/Syntax
 	$(SED) 's,^#!.*python,#!/opt/bin/python,' $(1)/opt/lib/mc/extfs.d/uc1541
+	$(INSTALL_DIR) $(1)/opt/etc/profile.d
+	echo "alias mc=\"mc -c\"" > $(1)/opt/etc/profile.d/mc.sh
 endef
 
 define Package/mc/conffiles
