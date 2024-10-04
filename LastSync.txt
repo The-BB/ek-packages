@@ -1,7 +1,10 @@
-commit af4a89482cff4fbdcb1281b6677c7a74e51c95ec (HEAD -> master, origin/master, origin/HEAD)
-Author: Gagan Deep <pandafy.dev@gmail.com>
-Date:   Fri Sep 27 03:10:02 2024 +0530
+commit cd20d4c394fa366312e0dae14a52c293923dd6ad (HEAD -> master, origin/master, origin/HEAD)
+Author: Milinda Brantini <C_A_T_T_E_R_Y@outlook.com>
+Date:   Wed Oct 2 23:34:49 2024 +0800
 
-    openwisp-config: update to 1.1.0
+    golang: Update to 1.23.2
     
-    Signed-off-by: Gagan Deep <pandafy.dev@gmail.com>
+    go1.23.2 (released 2024-10-01) includes fixes to the compiler, cgo,
+    the runtime, and the maps, os, os/exec, time, and unique packages.
+    
+    Signed-off-by: Milinda Brantini <C_A_T_T_E_R_Y@outlook.com>
