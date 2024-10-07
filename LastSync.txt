@@ -1,7 +1,21 @@
-commit e907b4ce104a0401ac536ec9f040eeafb02830ac (HEAD -> master, origin/master, origin/HEAD)
-Author: Andrey Butirsky <butirsky@gmail.com>
-Date:   Wed Sep 25 18:34:48 2024 +0000
+commit 1501f15b267084976e361a1ac0d70b734b82af5a (HEAD -> master, origin/master, origin/HEAD)
+Author: Fabrice Fontaine <fontaine.fabrice@gmail.com>
+Date:   Tue Oct 1 19:23:10 2024 +0200
 
-    meta: VS Code: Git: Always Sign Off
+    utils/xz: fix license
     
-    Signed-off-by: Andrey Butirsky <butirsky@gmail.com>
+    Remove GPL-2.0+ and GPL-3.0+ from PKG_LICENSE as GNU GPLv2+ and GPLv3+
+    are only used for the build system as stated in [1]:
+    
+     The build system contains public domain files, and files that
+     are under GNU GPLv2+ or GNU GPLv3+. None of these files end up
+     in the binaries being built.
+    
+    Moreover, add 0BSD which is used since version 5.6.0 [2]
+    
+    [1]: https://github.com/tukaani-project/xz/commit/02ddf09bc3079b3e17297729b9e43f14d407b8fc
+    [2]: https://github.com/tukaani-project/xz/commit/689e0228baeb95232430e90d628379db89583d71
+    
+    Fixes: b9e87eeb7deb8b3890415b835c9c69764893c023 (xz: import from old packages feed)
+    
+    Signed-off-by: Fabrice Fontaine <fontaine.fabrice@gmail.com>
