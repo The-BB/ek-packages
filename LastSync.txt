@@ -1,21 +1,15 @@
-commit 1501f15b267084976e361a1ac0d70b734b82af5a (HEAD -> master, origin/master, origin/HEAD)
-Author: Fabrice Fontaine <fontaine.fabrice@gmail.com>
-Date:   Tue Oct 1 19:23:10 2024 +0200
+commit 552f561c51abac603cc40229f3cfa89e32ef3127 (HEAD -> master, origin/master, origin/HEAD)
+Author: Rosen Penev <rosenp@gmail.com>
+Date:   Mon Oct 7 17:40:22 2024 -0700
 
-    utils/xz: fix license
+    libucontext: update to 1.3.2
     
-    Remove GPL-2.0+ and GPL-3.0+ from PKG_LICENSE as GNU GPLv2+ and GPLv3+
-    are only used for the build system as stated in [1]:
+    Switch to local tarballs instead of codeload. No need to override
+    PKG_BUILD_DIR.
     
-     The build system contains public domain files, and files that
-     are under GNU GPLv2+ or GNU GPLv3+. None of these files end up
-     in the binaries being built.
+    Remove PKG_BUILD_PARALLEL and PKG_INSTALL as they are not needed with
+    meson.
     
-    Moreover, add 0BSD which is used since version 5.6.0 [2]
+    Remove upstreamed patch.
     
-    [1]: https://github.com/tukaani-project/xz/commit/02ddf09bc3079b3e17297729b9e43f14d407b8fc
-    [2]: https://github.com/tukaani-project/xz/commit/689e0228baeb95232430e90d628379db89583d71
-    
-    Fixes: b9e87eeb7deb8b3890415b835c9c69764893c023 (xz: import from old packages feed)
-    
-    Signed-off-by: Fabrice Fontaine <fontaine.fabrice@gmail.com>
+    Signed-off-by: Rosen Penev <rosenp@gmail.com>
