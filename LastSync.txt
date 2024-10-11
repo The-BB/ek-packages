@@ -1,11 +1,12 @@
-commit d57306298e55f372954856a7f49fd2294d6fae46 (HEAD -> master, origin/master, origin/HEAD)
-Author: Matthias Schiffer <mschiffer@universe-factory.net>
-Date:   Wed Oct 9 18:09:58 2024 +0200
+commit 1294b54471e4bd17d1b3de9fc777ffa0ae9e429d (HEAD -> master, origin/master, origin/HEAD)
+Author: Dirk Brenken <dev@brenken.org>
+Date:   Thu Oct 10 19:00:14 2024 +0200
 
-    ecdsautils: update to 0.4.2
+    adblock: update to 4.2.2-6
     
-    1b53b726f3dc ecdsautils 0.4.2
-    554e2585efd9 sha256: fix misaligned buffer read in ecdsa_sha256_update()
-    8c17b073647f sha256: remove burnStack function
+    * fixed adblock status reporting
+    * optimized the mail template
+    * removed unanswered DNS requests from reporting
+    * various small fixes
     
-    Signed-off-by: Matthias Schiffer <mschiffer@universe-factory.net>
+    Signed-off-by: Dirk Brenken <dev@brenken.org>
