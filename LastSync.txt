@@ -1,12 +1,9 @@
-commit 1294b54471e4bd17d1b3de9fc777ffa0ae9e429d (HEAD -> master, origin/master, origin/HEAD)
-Author: Dirk Brenken <dev@brenken.org>
-Date:   Thu Oct 10 19:00:14 2024 +0200
+commit 0fe73d3e3108326e22c93e2f5e35fab98f274467 (HEAD -> master, origin/master, origin/HEAD)
+Author: Peter van Dijk <peter.van.dijk@powerdns.com>
+Date:   Thu Oct 3 14:22:47 2024 +0200
 
-    adblock: update to 4.2.2-6
+    pdns-recursor: update to 5.1.2
     
-    * fixed adblock status reporting
-    * optimized the mail template
-    * removed unanswered DNS requests from reporting
-    * various small fixes
+    fixes CVE-2024-25590
     
-    Signed-off-by: Dirk Brenken <dev@brenken.org>
+    Signed-off-by: Peter van Dijk <peter.van.dijk@powerdns.com>
