@@ -1,10 +1,7 @@
-commit 27e7c37ddb0f7ae542080d6b742d55f598357c54 (HEAD -> master, origin/master, origin/HEAD)
-Author: Vladimir Ermakov <vooon341@gmail.com>
-Date:   Sat Oct 12 10:38:10 2024 +0000
+commit 9e86e22808b892a7e97ad3362b88fab43c6d9974 (HEAD -> master, origin/master, origin/HEAD)
+Author: Lehua Zhang <sxlehua@qq.com>
+Date:   Fri Oct 11 14:35:09 2024 +0800
 
-    go2rtc: run service as regular user
+    ddns-scripts: add ddns-scripts for huaweicloud
     
-    Improve security a bit by dropping root privileges.
-    Also instruct procd to respawn.
-    
-    Signed-off-by: Vladimir Ermakov <vooon341@gmail.com>
+    Signed-off-by: Lehua Zhang <sxlehua@qq.com>
