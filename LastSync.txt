@@ -1,7 +1,7 @@
-commit 9e86e22808b892a7e97ad3362b88fab43c6d9974 (HEAD -> master, origin/master, origin/HEAD)
-Author: Lehua Zhang <sxlehua@qq.com>
-Date:   Fri Oct 11 14:35:09 2024 +0800
+commit 8bf814c67cfdad65f04111299c3605d6b8a2f99a (HEAD -> master, origin/master, origin/HEAD)
+Author: Jan Hák <jan.hak@nic.cz>
+Date:   Tue Oct 15 14:46:11 2024 +0200
 
-    ddns-scripts: add ddns-scripts for huaweicloud
+    knot: update to verion 3.4.1
     
-    Signed-off-by: Lehua Zhang <sxlehua@qq.com>
+    Signed-off-by: Jan Hák <jan.hak@nic.cz>
