@@ -9,7 +9,7 @@ include $(TOPDIR)/rules.mk
 
 PKG_NAME:=libpam
 PKG_VERSION:=1.5.2
-PKG_RELEASE:=1a
+PKG_RELEASE:=2
 
 PKG_SOURCE:=Linux-PAM-$(PKG_VERSION).tar.xz
 PKG_SOURCE_URL:=https://github.com/linux-pam/linux-pam/releases/download/v$(PKG_VERSION)
