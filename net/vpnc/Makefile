@@ -61,7 +61,7 @@ endef
 OPENSSL-y:=OPENSSL_GPL_VIOLATION=yes
 
 define Build/Compile
-	mkdir $(PKG_BUILD_DIR)/bin
+	$(INSTALL_DIR) $(PKG_BUILD_DIR)/bin
 	$(call Build/Compile/Default, \
 		OFLAGS="$(TARGET_CFLAGS)" \
 		OS="Linux" \
