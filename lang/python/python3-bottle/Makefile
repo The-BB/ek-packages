@@ -9,7 +9,7 @@ include $(TOPDIR)/rules.mk
 
 PKG_NAME:=python3-bottle
 PKG_VERSION:=0.12.25
-PKG_RELEASE:=1a
+PKG_RELEASE:=2
 
 PYPI_NAME:=bottle
 PKG_HASH:=e1a9c94970ae6d710b3fb4526294dfeb86f2cb4a81eff3a4b98dc40fb0e5e021
