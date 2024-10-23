@@ -9,10 +9,10 @@
 include $(TOPDIR)/rules.mk
 
 PKG_NAME:=ntp
-PKG_VERSION:=4.2.8p17
+PKG_VERSION:=4.2.8_p17
 PKG_RELEASE:=2
 
-PKG_SOURCE:=$(PKG_NAME)-$(PKG_VERSION).tar.gz
+PKG_SOURCE:=$(PKG_NAME)-$(subst _,,$(PKG_VERSION)).tar.gz
 PKG_SOURCE_URL:=http://www.eecis.udel.edu/~ntp/ntp_spool/ntp4/ntp-4.2/
 PKG_HASH:=103dd272e6a66c5b8df07dce5e9a02555fcd6f1397bdfb782237328e89d3a866
 
@@ -25,6 +25,8 @@ PKG_CHECK_FORMAT_SECURITY:=0
 PKG_BUILD_PARALLEL:=1
 
 include $(INCLUDE_DIR)/package.mk
+
+PKG_UNPACK += --strip-components=1 -C $(PKG_BUILD_DIR)
 
 define Package/ntpd/Default
   SUBMENU:=Time Synchronization
