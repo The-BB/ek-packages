@@ -274,6 +274,10 @@ define Py3Build/Compile/Default
 endef
 
 define Py3Build/Install/Default
+# XXX FileExistsError: File already exists: .../ipkg-install/opt/lib/python3.11/site-packages/*
+ifneq ($(CONFIG_USE_APK),)
+	rm -rf $(PKG_INSTALL_DIR)
+endif
 	$(call Python3/Run, \
 		$(PKG_BUILD_DIR), \
 		-m installer \
