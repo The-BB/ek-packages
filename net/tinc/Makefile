@@ -8,10 +8,10 @@
 include $(TOPDIR)/rules.mk
 
 PKG_NAME:=tinc
-PKG_VERSION:=1.1pre18
+PKG_VERSION:=1.1_pre18
 PKG_RELEASE:=4
 
-PKG_SOURCE:=$(PKG_NAME)-$(PKG_VERSION).tar.gz
+PKG_SOURCE:=$(PKG_NAME)-$(subst _,,$(PKG_VERSION)).tar.gz
 PKG_SOURCE_URL:=https://tinc-vpn.org/packages
 PKG_HASH:=2757ddc62cf64b411f569db2fa85c25ec846c0db110023f6befb33691f078986
 
@@ -28,6 +28,8 @@ PKG_CONFIG_DEPENDS:=zlib lzo openssl
 PKG_BUILD_DEPENDS:=zlib lzo openssl
 
 include $(INCLUDE_DIR)/package.mk
+
+PKG_UNPACK += --strip-components=1 -C $(PKG_BUILD_DIR)
 
 define Package/tinc
   SECTION:=net
