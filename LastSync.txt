@@ -1,7 +1,11 @@
-commit dd2e7105e6f0abf9b72155e2b26298ed19a92ab9 (HEAD -> master, origin/master, origin/HEAD)
-Author: Florian Eckert <fe@dev.tdt.de>
-Date:   Thu Oct 10 09:24:48 2024 +0200
+commit 30f383c8a8c89858c3f0a876619a51580f0b1e59 (HEAD -> master, origin/master, origin/HEAD)
+Author: Francesco Benini <francy.benini@gmail.com>
+Date:   Sun Oct 20 01:31:11 2024 +0200
 
-    modemmanger: bump PKG_RELEASE number
+    keepalived: fix dnsmasq reload
     
-    Signed-off-by: Florian Eckert <fe@dev.tdt.de>
+    When "set_reload_if_sync" is set, the service is reloaded when the
+    configuration changes. For dnsmasq this means that the service, if
+    stopped, is started, and we don't want this in the backup node.
+    
+    Signed-off-by: Francesco Benini <francy.benini@gmail.com>
