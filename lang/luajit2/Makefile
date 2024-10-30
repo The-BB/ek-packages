@@ -1,12 +1,14 @@
 include $(TOPDIR)/rules.mk
 
 PKG_NAME:=luajit2
-PKG_VERSION:=2.1_20240626
+PKG_SOURCE_DATE:=2024-06-26
+PKG_VERSION:=2.1.$(subst -,.,$(PKG_SOURCE_DATE))
 PKG_RELEASE:=1
 
-PKG_SOURCE:=$(PKG_NAME)-$(subst _,-,$(PKG_VERSION)).tar.gz
-PKG_SOURCE_URL:=https://github.com/openresty/luajit2/archive/refs/tags/v$(subst _,-,$(PKG_VERSION)).tar.gz?
-PKG_HASH:=1e53822a1105df216b9657ccb0293a152ac5afd875abc848453bfa353ca8181b
+PKG_SOURCE_PROTO:=git
+PKG_SOURCE_URL:=https://github.com/openresty/luajit2
+PKG_SOURCE_VERSION:=dc397b66e6c8065185343cbe5dbeb4532f8e0b92
+PKG_MIRROR_HASH:=012a4b8f64c7f8b217940fe44719bca934b2bb506f4c7f03dd3c9a592e1c55ae
 
 PKG_MAINTAINER:=Javier Marcet <javier@marcet.info>
 PKG_LICENSE:=MIT
@@ -16,8 +18,6 @@ PKG_BUILD_FLAGS:=no-mips16
 
 include $(INCLUDE_DIR)/package.mk
 include $(INCLUDE_DIR)/host-build.mk
-
-PKG_UNPACK += --strip-components=1 -C $(PKG_BUILD_DIR)
 
 # HAS_LUAJIT_ARCH config is defined in luajit and is used to define
 # arch deoendency for luajit. Since luajit2 is an improved version of
