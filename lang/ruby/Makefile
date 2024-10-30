@@ -37,7 +37,7 @@ PKG_CPE_ID:=cpe:/a:ruby-lang:ruby
 # will only work when target matches the host arch. Anyway, we
 # will provide a working rustc for those supported archs to let
 # it work when they match.
-PKG_BUILD_DEPENDS:=ruby/host RUBY_ENABLE_YJIT:rust/host
+PKG_BUILD_DEPENDS:=ruby/host RUBY_ENABLE_YJIT:rustc-dev
 PKG_INSTALL:=1
 PKG_BUILD_PARALLEL:=1
 PKG_FIXUP:=autoreconf
