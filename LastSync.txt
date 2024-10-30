@@ -1,11 +1,13 @@
-commit 30f383c8a8c89858c3f0a876619a51580f0b1e59 (HEAD -> master, origin/master, origin/HEAD)
-Author: Francesco Benini <francy.benini@gmail.com>
-Date:   Sun Oct 20 01:31:11 2024 +0200
+commit 22ad5d889cfefdcb260e5b4ba272614880e641b0 (HEAD -> master, origin/master, origin/HEAD)
+Author: Rosen Penev <rosenp@gmail.com>
+Date:   Tue Oct 29 18:26:53 2024 -0700
 
-    keepalived: fix dnsmasq reload
+    apparmor: update to 3.0.13
     
-    When "set_reload_if_sync" is set, the service is reloaded when the
-    configuration changes. For dnsmasq this means that the service, if
-    stopped, is started, and we don't want this in the backup node.
+    Use PKG_SOURCE_PROTO for smaller tarballs.
     
-    Signed-off-by: Francesco Benini <francy.benini@gmail.com>
+    Removed upstreamed patches
+    
+    Backport basename patch for musl compatibility.
+    
+    Signed-off-by: Rosen Penev <rosenp@gmail.com>
