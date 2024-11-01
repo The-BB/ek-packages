@@ -1,0 +1,15 @@
+cp: cannot create regular file '.../ipkg-install/etc/mail/sendmail.cf': Permission denied
+
+---
+
+--- a/devtools/bin/install.sh
++++ b/devtools/bin/install.sh
+@@ -45,7 +45,7 @@ do
+ 		shift; shift
+ 		;;
+ 
+-	  -c)	program=cp
++	  -c)	program="cp -f"
+ 		shift
+ 		;;
+ 
