@@ -10,6 +10,8 @@ PKG_SOURCE:=$(PKG_NAME)-$(subst _,-,$(PKG_VERSION)).tar.gz
 PKG_SOURCE_URL:=https://github.com/luvit/luv/releases/download/$(subst _,-,$(PKG_VERSION))
 PKG_HASH:=567a6f3dcdcf8a9b54ddc57ffef89d1e950d72832b85ee81c8c83a9d4e0e9de2
 
+PKG_VERSION:=$(subst _,.,$(PKG_VERSION))
+
 PKG_MAINTAINER:=Morteza Milani <milani@pichak.co>
 PKG_LICENSE:=Apache-2.0
 PKG_LICENSE_FILES:=LICENSE
