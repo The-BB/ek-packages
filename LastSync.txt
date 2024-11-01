@@ -1,13 +1,16 @@
-commit 22ad5d889cfefdcb260e5b4ba272614880e641b0 (HEAD -> master, origin/master, origin/HEAD)
-Author: Rosen Penev <rosenp@gmail.com>
-Date:   Tue Oct 29 18:26:53 2024 -0700
+commit 6057b2702e51465e2bc57e794f92f760caaaa4a2 (HEAD -> master, origin/master, origin/HEAD)
+Author: Dengfeng Liu <liudf0716@gmail.com>
+Date:   Sat Oct 26 20:53:03 2024 +0800
 
-    apparmor: update to 3.0.13
+    apfree-wifidog: Update to 7.10.2082
     
-    Use PKG_SOURCE_PROTO for smaller tarballs.
+    Update Makefile to include dependencies: conntrack and libmosquitto.
     
-    Removed upstreamed patches
+    Conntrack: Added to resolve a bug in Apfree-Wifidog that caused long-lived user connections to persist after logout.
+    Libmosquitto: Integrated as a preparatory measure for future support of the MQTT protocol; implementation is still in progress.
+    For detailed information, please refer to the release notes:
+    https://github.com/liudf0716/apfree-wifidog/releases/tag/7.10.2082.
     
-    Backport basename patch for musl compatibility.
+    Additionally, a new /etc/wifidogx directory has been created to store the local authentication portal page for users uploading their own portal pages.
     
-    Signed-off-by: Rosen Penev <rosenp@gmail.com>
+    Signed-off-by: Dengfeng Liu <liudf0716@gmail.com>
