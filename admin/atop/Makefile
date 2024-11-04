@@ -4,6 +4,7 @@
 #
 
 include $(TOPDIR)/rules.mk
+include $(INCLUDE_DIR)/nls.mk
 
 PKG_NAME:=atop
 PKG_RELEASE:=1
@@ -19,8 +20,6 @@ PKG_LICENSE_FILES:=COPYING
 PKG_CPE_ID:=cpe:/a:atop_project:atop
 
 include $(INCLUDE_DIR)/package.mk
-# with glib2: .../*-openwrt-linux-gnu/bin/ld.bfd: cannot find -lintl
-include $(INCLUDE_DIR)/nls.mk
 
 define Package/atop
   SECTION:=admin
