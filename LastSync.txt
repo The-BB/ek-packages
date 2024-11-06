@@ -1,9 +1,10 @@
-commit b5183a38371ff06eae540f2bb68f802cde61887c (HEAD -> master, origin/master, origin/HEAD)
-Author: Christian Marangi <ansuelsmth@gmail.com>
-Date:   Sun Nov 3 16:59:00 2024 +0100
+commit 6a1b0e8c9eed79de1cdd43998dd31b1c9886bc08 (HEAD -> master, origin/master, origin/HEAD)
+Author: Javier Marcet <javier@marcet.info>
+Date:   Tue Nov 5 23:07:42 2024 +0100
 
-    nginx: improve libexslt optional patch
+    docker-compose: Update to version 2.30.2
     
-    Improve libexslt optional patch to silent confusing output.
+    Release notes:
+    https://github.com/docker/compose/releases/tag/v2.30.2
     
-    Signed-off-by: Christian Marangi <ansuelsmth@gmail.com>
+    Signed-off-by: Javier Marcet <javier@marcet.info>
