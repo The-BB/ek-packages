@@ -1,10 +1,11 @@
-commit 6a1b0e8c9eed79de1cdd43998dd31b1c9886bc08 (HEAD -> master, origin/master, origin/HEAD)
-Author: Javier Marcet <javier@marcet.info>
-Date:   Tue Nov 5 23:07:42 2024 +0100
+commit ee89d79eb070e9dbdaf66eb4c3e6fa76d18bf26e (HEAD -> master, origin/master, origin/HEAD)
+Author: Roc Lai <laipeng668@qq.com>
+Date:   Fri Oct 25 16:37:07 2024 +0800
 
-    docker-compose: Update to version 2.30.2
+    ariang: Bump to version 1.3.7
     
-    Release notes:
-    https://github.com/docker/compose/releases/tag/v2.30.2
+    Bump ariang version to 1.3.7.
     
-    Signed-off-by: Javier Marcet <javier@marcet.info>
+    Signed-off-by: Roc Lai <laipeng668@qq.com>
+    [ improve commit description and title ]
+    Signed-off-by: Christian Marangi <ansuelsmth@gmail.com>
