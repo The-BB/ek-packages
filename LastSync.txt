@@ -1,11 +1,9 @@
-commit ee89d79eb070e9dbdaf66eb4c3e6fa76d18bf26e (HEAD -> master, origin/master, origin/HEAD)
-Author: Roc Lai <laipeng668@qq.com>
-Date:   Fri Oct 25 16:37:07 2024 +0800
+commit ca503cc4054d9a13558c7b552886a6dba359a0eb (HEAD -> master, origin/master, origin/HEAD)
+Author: Gagan Deep <pandafy.dev@gmail.com>
+Date:   Tue Oct 29 21:21:55 2024 +0530
 
-    ariang: Bump to version 1.3.7
+    openwisp-monitoring: allow not depending on rpcd-mod-iwinfo
     
-    Bump ariang version to 1.3.7.
+    Add option to exclude rpcd-mod-iwinfo from dependency.
     
-    Signed-off-by: Roc Lai <laipeng668@qq.com>
-    [ improve commit description and title ]
-    Signed-off-by: Christian Marangi <ansuelsmth@gmail.com>
+    Signed-off-by: Gagan Deep <pandafy.dev@gmail.com>
