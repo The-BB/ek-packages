@@ -13,7 +13,7 @@ include perlver.mk
 
 PKG_NAME:=perl
 PKG_VERSION:=$(PERL_VERSION)
-PKG_RELEASE:=2
+PKG_RELEASE:=3
 
 PKG_SOURCE_URL:=https://www.cpan.org/src/5.0
 PKG_SOURCE:=$(PKG_NAME)-$(PKG_VERSION).tar.gz
@@ -138,7 +138,23 @@ define Package/perl/install
 	
 	$(INSTALL_DIR) $(1)/opt/lib/perl5/$(PERL_VERSION)/CORE
 	$(CP) $(PKG_INSTALL_DIR)/opt/lib/perl5/$(PERL_VERSION)/CORE/libperl.so $(1)/opt/lib/perl5/$(PERL_VERSION)/CORE/
+  ifneq ($(CONFIG_USE_MUSL),y)
+	$(INSTALL_DIR) $(1)/opt/etc/ld.so.conf.d
+	$(INSTALL_DATA) ./files/perl.conf $(1)/opt/etc/ld.so.conf.d
+	$(SED) 's,@PERL_VERSION@,$(PERL_VERSION),' $(1)/opt/etc/ld.so.conf.d
+  endif
 endef
+
+ifeq ($(CONFIG_USE_MUSL),y)
+define Package/perl/postinst
+#!/bin/sh
+
+if ! grep -q 'perl' /opt/etc/ld-musl-$(ARCH)$(if $(or $(CONFIG_mips),$(CONFIG_mipsel)),-sf).path; then
+  printf "# path to perl libs\n/opt/lib/perl5/$(PERL_VERSION)/CORE\n" >> \
+  /opt/etc/ld-musl-$(ARCH)$(if $(or $(CONFIG_mips),$(CONFIG_mipsel)),-sf).path
+fi
+endef
+endif
 
 
 $(eval $(call RequireCommand,rsync, \
