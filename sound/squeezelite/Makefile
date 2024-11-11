@@ -6,15 +6,13 @@
 include $(TOPDIR)/rules.mk
 
 PKG_NAME:=squeezelite
-PKG_VERSION:=1.9.9-1432
+PKG_VERSION:=1.9.9.1432
 PKG_RELEASE:=3
 
 PKG_SOURCE_PROTO:=git
 PKG_SOURCE_URL:=https://github.com/ralph-irving/squeezelite
 PKG_SOURCE_VERSION:=575b59398dd19945d2038474062240fc527407fb
 PKG_MIRROR_HASH:=cffa8391c9e550d5ceea168703d599442b8a53b9789231aabd3221f6a0e4902d
-
-PKG_VERSION:=$(subst -,.,$(PKG_VERSION))
 
 PKG_MAINTAINER:=Ted Hess <thess@kitschensync.net>
 PKG_LICENSE:=GPL-3.0-or-later
