@@ -1,9 +1,12 @@
-commit ca503cc4054d9a13558c7b552886a6dba359a0eb (HEAD -> master, origin/master, origin/HEAD)
-Author: Gagan Deep <pandafy.dev@gmail.com>
-Date:   Tue Oct 29 21:21:55 2024 +0530
+commit ea5536c14c35cdaa49d97a0f70695147a538f521 (HEAD -> master, origin/master, origin/HEAD)
+Author: Ryan Keane <the.ra2.ifv@gmail.com>
+Date:   Wed Nov 13 04:31:44 2024 -0800
 
-    openwisp-monitoring: allow not depending on rpcd-mod-iwinfo
+    nginx: Support APK versioning
     
-    Add option to exclude rpcd-mod-iwinfo from dependency.
+    Modify EXTRA_DEPENDS in package section to meet APK packaging
+    requirements.
     
-    Signed-off-by: Gagan Deep <pandafy.dev@gmail.com>
+    Signed-off-by: Ryan Keane <the.ra2.ifv@gmail.com>
+    [ fix dependency also for nginx-full ]
+    Signed-off-by: Christian Marangi <ansuelsmth@gmail.com>
