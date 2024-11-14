@@ -1,12 +1,9 @@
-commit ea5536c14c35cdaa49d97a0f70695147a538f521 (HEAD -> master, origin/master, origin/HEAD)
-Author: Ryan Keane <the.ra2.ifv@gmail.com>
-Date:   Wed Nov 13 04:31:44 2024 -0800
+commit de9f4eb3245892469de9563eb077a9250cbb3ddd (HEAD -> master, origin/master, origin/HEAD)
+Author: Hirokazu MORIKAWA <morikw2@gmail.com>
+Date:   Wed Nov 13 09:54:16 2024 +0900
 
-    nginx: Support APK versioning
+    ntpd: Supports apk version semantics
     
-    Modify EXTRA_DEPENDS in package section to meet APK packaging
-    requirements.
+    See: https://github.com/openwrt/packages/issues/23706
     
-    Signed-off-by: Ryan Keane <the.ra2.ifv@gmail.com>
-    [ fix dependency also for nginx-full ]
-    Signed-off-by: Christian Marangi <ansuelsmth@gmail.com>
+    Signed-off-by: Hirokazu MORIKAWA <morikw2@gmail.com>
