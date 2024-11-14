@@ -9,7 +9,7 @@
 #  - dirs not removed when uninstalling! opkg bug?
 #
 # Entware specific: --with-out-ext= for host build extended.
-# More host gems (json*,pty) are needed for rake->mkvtoolnix build system
+# More host gems (pty) are needed for rake->mkvtoolnix build system
 # remove key `--with-static-linked-ext` (segfault)
 
 include $(TOPDIR)/rules.mk
