@@ -1,10 +1,9 @@
-commit 19d40c8d7a7ecae9e8c8d21ae5ac2d8a6a5f35e9 (HEAD -> master, origin/master, origin/HEAD)
-Author: Ryan Keane <the.ra2.ifv@gmail.com>
-Date:   Thu Nov 14 02:12:06 2024 -0800
+commit 3d6cfc732b67549a770b5a4016024ebaef51dfda (HEAD -> master, origin/master, origin/HEAD)
+Author: Robert Marko <robimarko@gmail.com>
+Date:   Fri Nov 15 14:01:27 2024 +0100
 
-    ocserv: Use default value for log-level in conf
+    tinc: support apk version semantics
     
-    This commit comments out the `log-level` line in the template
-    config file to use default value from upstream, default should be 2.
+    See: #23706
     
-    Signed-off-by: Ryan Keane <the.ra2.ifv@gmail.com>
+    Signed-off-by: Robert Marko <robimarko@gmail.com>
