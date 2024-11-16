@@ -9,11 +9,11 @@ include $(TOPDIR)/rules.mk
 
 PKG_NAME:=openvpn-easy-rsa
 
-PKG_VERSION:=3.1.3
+PKG_VERSION:=3.2.1
 PKG_RELEASE:=1
 PKG_SOURCE_URL:=https://codeload.github.com/OpenVPN/easy-rsa/tar.gz/v$(PKG_VERSION)?
 PKG_SOURCE:=$(PKG_NAME)-$(PKG_VERSION).tar.gz
-PKG_HASH:=f2967aa598cb603dd20791002e767d0ce58e300b04c9cff1b6d6b14fedae6a80
+PKG_HASH:=9b01dba67d811cea1b918ed1a0f146dead31beabc85b96abe4b09ffc75129099
 
 # For git snapshots
 #PKG_SOURCE_PROTO:=git
@@ -43,6 +43,7 @@ define Package/openvpn-easy-rsa/conffiles
 /opt/etc/easy-rsa/vars
 /opt/etc/easy-rsa/openssl-1.0.cnf
 /opt/etc/easy-rsa/openssl-easyrsa.cnf
+/opt/etc/profile.d/50-$(PKG_NAME).sh
 endef
 
 define Build/Configure
@@ -86,8 +87,8 @@ define Package/openvpn-easy-rsa/install
 	$(INSTALL_DIR) $(1)/opt/lib/upgrade/keep.d
 	$(INSTALL_DATA) files/openvpn-easy-rsa.upgrade $(1)/opt/lib/upgrade/keep.d/$(PKG_NAME)
 
-#	$(INSTALL_DIR) $(1)/etc/profile.d
-#	$(INSTALL_DATA) files/openvpn-easy-rsa.profile $(1)/etc/profile.d/50-$(PKG_NAME).sh
+	$(INSTALL_DIR) $(1)/opt/etc/profile.d
+	$(INSTALL_DATA) files/openvpn-easy-rsa.profile $(1)/opt/etc/profile.d/50-$(PKG_NAME).sh
 endef
 
 $(eval $(call BuildPackage,openvpn-easy-rsa))
