@@ -9,7 +9,7 @@ include $(TOPDIR)/rules.mk
 
 PKG_NAME:=git
 PKG_VERSION:=2.46.2
-PKG_RELEASE:=1
+PKG_RELEASE:=2
 
 PKG_SOURCE:=$(PKG_NAME)-$(PKG_VERSION).tar.xz
 PKG_SOURCE_URL:=@KERNEL/software/scm/git/
@@ -138,8 +138,8 @@ define Package/git/install
 		opt/lib/git-core \
 		opt/share/git-core/templates \
 	) | ( cd $(1); $(TAR) -xf - )
-	ln $(1)/opt/lib/git-core/git $(1)/opt/bin/git
-	ln $(1)/opt/lib/git-core/git-shell $(1)/opt/bin/git-shell
+	$(LN) ../lib/git-core/git $(1)/opt/bin/git
+	$(LN) ../lib/git-core/git-shell $(1)/opt/bin/git-shell
 	# Entware specific: fix exec path in scripts
 	$(SED) 's,^#!.*perl,#!/opt/bin/perl,' \
 		$(1)/opt/share/git-core/templates/hooks/fsmonitor-watchman.sample
