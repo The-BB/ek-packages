@@ -31,7 +31,7 @@ define Package/avrdude
   SUBMENU:=Microcontroller programming
   TITLE:=AVR Downloader/UploaDEr
   URL:=https://github.com/avrdudes/avrdude
-  DEPENDS:=+libncurses +libreadline +libusb-1.0 +libftdi1 +libelf +libgpiod
+  DEPENDS:=+libncurses +libreadline +libusb-1.0 +libftdi1 +libelf
 endef
 
 define Package/avrdude/description
@@ -43,7 +43,7 @@ CMAKE_OPTIONS += \
 	-DHAVE_LIBFTDI=OFF \
 	-DHAVE_LIBHIDAPI=OFF \
 	-DHAVE_LIBSERIALPORT=OFF \
-	-DHAVE_LINUXGPIO=ON
+	-DHAVE_LINUXGPIO=OFF
 
 define Package/avrdude/conffiles
 /opt/etc/avrdude.conf
