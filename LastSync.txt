@@ -1,9 +1,10 @@
-commit 3d6cfc732b67549a770b5a4016024ebaef51dfda (HEAD -> master, origin/master, origin/HEAD)
-Author: Robert Marko <robimarko@gmail.com>
-Date:   Fri Nov 15 14:01:27 2024 +0100
+commit 4f00d8f0ee66effd40ec7c56a5a9a7395a7a8d54 (HEAD -> master, origin/master, origin/HEAD)
+Author: Dirk Brenken <dev@brenken.org>
+Date:   Sat Nov 16 12:45:12 2024 +0100
 
-    tinc: support apk version semantics
+    banIP: update to 1.0.0-10
     
-    See: #23706
+    * minimal fix to support all download utilities in currently broken apk snapshots
+      (see https://github.com/openwrt/openwrt/issues/16907 for details)
     
-    Signed-off-by: Robert Marko <robimarko@gmail.com>
+    Signed-off-by: Dirk Brenken <dev@brenken.org>
