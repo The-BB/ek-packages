@@ -8,12 +8,15 @@
 include $(TOPDIR)/rules.mk
 
 PKG_NAME:=owfs
-PKG_VERSION:=3.2_p4
+PKG_REAL_VERSION:=3.2p4
+PKG_VERSION:=$(subst p,.,$(PKG_REAL_VERSION))
 PKG_RELEASE:=2
 
-PKG_SOURCE:=$(PKG_NAME)-$(subst _,,$(PKG_VERSION)).tar.gz
-PKG_SOURCE_URL:=https://github.com/owfs/owfs/releases/download/v$(subst _,,$(PKG_VERSION))
+PKG_SOURCE:=$(PKG_NAME)-$(PKG_REAL_VERSION).tar.gz
+PKG_SOURCE_URL:=https://github.com/owfs/owfs/releases/download/v$(PKG_REAL_VERSION)
 PKG_HASH:=af0a5035f3f3df876ca15aea13486bfed6b3ef5409dee016db0be67755c35fcc
+
+PKG_BUILD_DIR :=$(BUILD_DIR)/$(PKG_NAME)-$(PKG_REAL_VERSION)
 
 PKG_MAINTAINER:=Jo-Philipp Wich <jo@mein.io>
 PKG_LICENSE:=GPL-2.0
@@ -31,8 +34,6 @@ PKG_CONFIG_DEPENDS:= \
   CONFIG_LIBOW_OWTRAFFIC
 
 include $(INCLUDE_DIR)/package.mk
-
-PKG_UNPACK += --strip-components=1 -C $(PKG_BUILD_DIR)
 
 #
 # templates
