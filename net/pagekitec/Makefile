@@ -10,13 +10,11 @@ include $(TOPDIR)/rules.mk
 PKG_NAME:=pagekitec
 PKG_VERSION:=0.91.201110
 PKG_RELEASE:=2
-
+PKG_LICENSE:=Apache-2.0
+PKG_MIRROR_HASH:=fc78791a76b02e1b82708af41b093cf9669924a5c83d8bf2a3e96e2f2ea8775b
+PKG_SOURCE_URL:=https://github.com/pagekite/libpagekite.git
 PKG_SOURCE_PROTO:=git
 PKG_SOURCE_VERSION:=v$(PKG_VERSION)
-PKG_SOURCE_URL:=https://github.com/pagekite/libpagekite.git
-PKG_MIRROR_HASH:=fc78791a76b02e1b82708af41b093cf9669924a5c83d8bf2a3e96e2f2ea8775b
-
-PKG_LICENSE:=Apache-2.0
 
 PKG_FIXUP:=autoreconf
 PKG_INSTALL:=1
