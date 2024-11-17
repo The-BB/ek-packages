@@ -1,10 +1,9 @@
-commit 4f00d8f0ee66effd40ec7c56a5a9a7395a7a8d54 (HEAD -> master, origin/master, origin/HEAD)
-Author: Dirk Brenken <dev@brenken.org>
-Date:   Sat Nov 16 12:45:12 2024 +0100
+commit b665256d62223d85e5efbb633f11c3692bb52ec4 (HEAD -> master, origin/master, origin/HEAD)
+Author: Hannu Nyman <hannu.nyman@iki.fi>
+Date:   Sun Nov 17 12:49:31 2024 +0200
 
-    banIP: update to 1.0.0-10
+    svox: Make version apk compatible
     
-    * minimal fix to support all download utilities in currently broken apk snapshots
-      (see https://github.com/openwrt/openwrt/issues/16907 for details)
+    Adjust PKG_VERSION to be compatible with apk's semantic rules.
     
-    Signed-off-by: Dirk Brenken <dev@brenken.org>
+    Signed-off-by: Hannu Nyman <hannu.nyman@iki.fi>
