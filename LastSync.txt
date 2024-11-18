@@ -1,9 +1,13 @@
-commit b665256d62223d85e5efbb633f11c3692bb52ec4 (HEAD -> master, origin/master, origin/HEAD)
-Author: Hannu Nyman <hannu.nyman@iki.fi>
-Date:   Sun Nov 17 12:49:31 2024 +0200
+commit 9fc92eab22f4ff24bc716bd31e5d94dd1d3c9917 (HEAD -> master, origin/master, origin/HEAD)
+Author: Ryan Keane <the.ra2.ifv@gmail.com>
+Date:   Sun Nov 17 06:10:30 2024 -0800
 
-    svox: Make version apk compatible
+    v2ray-core: Bump to 5.22.0
     
-    Adjust PKG_VERSION to be compatible with apk's semantic rules.
+    Shorten TITLE variable to fix missing title in ncurses menu.
+    Release notes and changes logs in the link below.
     
-    Signed-off-by: Hannu Nyman <hannu.nyman@iki.fi>
+    Link: https://github.com/v2fly/v2ray-core/releases/tag/v5.22.0
+    Link: https://github.com/v2fly/v2ray-core/compare/v5.21.0...v5.22.0
+    
+    Signed-off-by: Ryan Keane <the.ra2.ifv@gmail.com>
