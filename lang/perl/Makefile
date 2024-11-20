@@ -141,7 +141,7 @@ define Package/perl/install
   ifneq ($(CONFIG_USE_MUSL),y)
 	$(INSTALL_DIR) $(1)/opt/etc/ld.so.conf.d
 	$(INSTALL_DATA) ./files/perl.conf $(1)/opt/etc/ld.so.conf.d
-	$(SED) 's,@PERL_VERSION@,$(PERL_VERSION),' $(1)/opt/etc/ld.so.conf.d
+	$(SED) 's,@PERL_VERSION@,$(PERL_VERSION),' $(1)/opt/etc/ld.so.conf.d/perl.conf
   endif
 endef
 
@@ -149,9 +149,12 @@ ifeq ($(CONFIG_USE_MUSL),y)
 define Package/perl/postinst
 #!/bin/sh
 
-if ! grep -q 'perl' /opt/etc/ld-musl-$(ARCH)$(if $(or $(CONFIG_mips),$(CONFIG_mipsel)),-sf).path; then
-  printf "# path to perl libs\n/opt/lib/perl5/$(PERL_VERSION)/CORE\n" >> \
+if ! grep -q 'perl5' /opt/etc/ld-musl-$(ARCH)$(if $(or $(CONFIG_mips),$(CONFIG_mipsel)),-sf).path; then
+  printf "# path to perl5 libs\n/opt/lib/perl5/$(PERL_VERSION)/CORE\n" >> \
   /opt/etc/ld-musl-$(ARCH)$(if $(or $(CONFIG_mips),$(CONFIG_mipsel)),-sf).path
+else
+  sed -i -e 's,perl5/.*/CORE,perl5/$(PERL_VERSION)/CORE,' \
+    /opt/etc/ld-musl-$(ARCH)$(if $(or $(CONFIG_mips),$(CONFIG_mipsel)),-sf).path
 fi
 endef
 endif
