@@ -1,13 +1,7 @@
-commit 9fc92eab22f4ff24bc716bd31e5d94dd1d3c9917 (HEAD -> master, origin/master, origin/HEAD)
-Author: Ryan Keane <the.ra2.ifv@gmail.com>
-Date:   Sun Nov 17 06:10:30 2024 -0800
+commit 6945c7bb65d8f9e9eb42f53c3cd390c6cffc0aa5 (HEAD -> master, origin/master, origin/HEAD)
+Author: Tianling Shen <cnsztl@immortalwrt.org>
+Date:   Wed Nov 20 21:18:50 2024 +0800
 
-    v2ray-core: Bump to 5.22.0
+    yq: Update to 4.44.5
     
-    Shorten TITLE variable to fix missing title in ncurses menu.
-    Release notes and changes logs in the link below.
-    
-    Link: https://github.com/v2fly/v2ray-core/releases/tag/v5.22.0
-    Link: https://github.com/v2fly/v2ray-core/compare/v5.21.0...v5.22.0
-    
-    Signed-off-by: Ryan Keane <the.ra2.ifv@gmail.com>
+    Signed-off-by: Tianling Shen <cnsztl@immortalwrt.org>
