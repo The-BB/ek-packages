@@ -1,7 +1,9 @@
-commit 6945c7bb65d8f9e9eb42f53c3cd390c6cffc0aa5 (HEAD -> master, origin/master, origin/HEAD)
-Author: Tianling Shen <cnsztl@immortalwrt.org>
-Date:   Wed Nov 20 21:18:50 2024 +0800
+commit 9c9f4dd08875c77e145e834b939d0c40c043db60 (HEAD -> master, origin/master, origin/HEAD)
+Author: Rosen Penev <rosenp@gmail.com>
+Date:   Wed Nov 20 15:21:43 2024 -0800
 
-    yq: Update to 4.44.5
+    iperf3: fix crashing with musl
     
-    Signed-off-by: Tianling Shen <cnsztl@immortalwrt.org>
+    Upstream backport.
+    
+    Signed-off-by: Rosen Penev <rosenp@gmail.com>
