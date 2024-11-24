@@ -1,9 +1,11 @@
-commit db51a6426c58924acf6f741376383cb3ad0ba2d7 (HEAD -> master, origin/master, origin/HEAD)
-Author: Rosen Penev <rosenp@gmail.com>
-Date:   Mon Nov 11 16:30:48 2024 -0800
+commit 8609a5bbe5b999045dcd9a10714d9e47e4359599 (HEAD -> master, origin/master, origin/HEAD)
+Author: Dirk Brenken <dev@brenken.org>
+Date:   Sun Nov 24 15:44:20 2024 +0100
 
-    tayga: fix compilation with GCC14
+    banIP: release 1.0.1-1
     
-    Header is needed for musl.
+    * optimized procd settings for better performance
+    * made the log monitor working again (even on master with apk migration issues)
+    * reworked the fetch autodetection function (still broken in master due to apk migration)
     
-    Signed-off-by: Rosen Penev <rosenp@gmail.com>
+    Signed-off-by: Dirk Brenken <dev@brenken.org>
