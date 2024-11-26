@@ -1,11 +1,9 @@
-commit 8609a5bbe5b999045dcd9a10714d9e47e4359599 (HEAD -> master, origin/master, origin/HEAD)
-Author: Dirk Brenken <dev@brenken.org>
-Date:   Sun Nov 24 15:44:20 2024 +0100
+commit 99e70c829e1903944d497e64f7caebe8962a32e8 (HEAD -> master, origin/master, origin/HEAD)
+Author: Daniel Golle <daniel@makrotopia.org>
+Date:   Mon Nov 25 01:00:33 2024 +0100
 
-    banIP: release 1.0.1-1
+    gst1-plugins-bad: fix building GL libraries
     
-    * optimized procd settings for better performance
-    * made the log monitor working again (even on master with apk migration issues)
-    * reworked the fetch autodetection function (still broken in master due to apk migration)
+    Build GL and Wayland libraries if GL modules is selected.
     
-    Signed-off-by: Dirk Brenken <dev@brenken.org>
+    Signed-off-by: Daniel Golle <daniel@makrotopia.org>
