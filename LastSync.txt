@@ -1,9 +1,21 @@
-commit 99e70c829e1903944d497e64f7caebe8962a32e8 (HEAD -> master, origin/master, origin/HEAD)
+commit 9ad17512a8b8dbd87dc8dc95e4dfd69a72637111 (HEAD -> master, origin/master, origin/HEAD)
 Author: Daniel Golle <daniel@makrotopia.org>
-Date:   Mon Nov 25 01:00:33 2024 +0100
+Date:   Tue Nov 26 23:04:37 2024 +0000
 
-    gst1-plugins-bad: fix building GL libraries
+    gst1-plugins-bad: build videoparsersbad plugin
     
-    Build GL and Wayland libraries if GL modules is selected.
+    Build previously commented-out videoparsersbad plugins which contains
+    a bunch of useful format decoders:
+     * av1parse: AV1 parser
+     * diracparse: Dirac parser
+     * h263parse: H.263 parser
+     * h264parse: H.264 parser
+     * h265parse: H.265 parser
+     * jpeg2000parse: JPEG 2000 parser
+     * mpeg4videoparse: MPEG 4 video elementary stream parser
+     * mpegvideoparse: MPEG video elementary stream parser
+     * pngparse: PNG parser
+     * vc1parse: VC1 parser
+     * vp9parse: VP9 parser
     
     Signed-off-by: Daniel Golle <daniel@makrotopia.org>
