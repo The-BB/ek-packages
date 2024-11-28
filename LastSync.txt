@@ -1,21 +1,11 @@
-commit 9ad17512a8b8dbd87dc8dc95e4dfd69a72637111 (HEAD -> master, origin/master, origin/HEAD)
-Author: Daniel Golle <daniel@makrotopia.org>
-Date:   Tue Nov 26 23:04:37 2024 +0000
+commit d7e86e79d976459a3bf49e169c0bb8d8d6f0eb8f (HEAD -> master, origin/master, origin/HEAD)
+Author: Mohd Husaam Mehdi <husaam.mehdi@iopsys.eu>
+Date:   Wed Mar 27 21:37:48 2024 +0530
 
-    gst1-plugins-bad: build videoparsersbad plugin
+    nginx: update init script to publish services over mdns
     
-    Build previously commented-out videoparsersbad plugins which contains
-    a bunch of useful format decoders:
-     * av1parse: AV1 parser
-     * diracparse: Dirac parser
-     * h263parse: H.263 parser
-     * h264parse: H.264 parser
-     * h265parse: H.265 parser
-     * jpeg2000parse: JPEG 2000 parser
-     * mpeg4videoparse: MPEG 4 video elementary stream parser
-     * mpegvideoparse: MPEG video elementary stream parser
-     * pngparse: PNG parser
-     * vc1parse: VC1 parser
-     * vp9parse: VP9 parser
+    Update nginx init script to announce http related services over mdns.
     
-    Signed-off-by: Daniel Golle <daniel@makrotopia.org>
+    Signed-off-by: Mohd Husaam Mehdi <husaam.mehdi@iopsys.eu>
+    [ bump PKG release, improve commit description ]
+    Signed-off-by: Christian Marangi <ansuelsmth@gmail.com>
