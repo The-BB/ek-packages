@@ -10,7 +10,7 @@ include $(TOPDIR)/rules.mk
 PKG_NAME:=tcl
 TCL_MAJOR_VERSION:=8.6
 PKG_VERSION:=${TCL_MAJOR_VERSION}.14
-PKG_RELEASE:=1
+PKG_RELEASE:=2
 
 PKG_SOURCE:=$(PKG_NAME)$(PKG_VERSION)-src.tar.gz
 PKG_SOURCE_URL:=@SF/$(PKG_NAME)
@@ -78,6 +78,9 @@ define Build/InstallDev
 	$(CP) $(PKG_INSTALL_DIR)/opt/lib/libtcl*.{a,so*} $(1)/opt/lib/
 	$(CP) $(PKG_INSTALL_DIR)/opt/lib/tclConfig.sh $(1)/opt/lib/
 	$(CP) $(PKG_INSTALL_DIR)/opt/lib/tclooConfig.sh $(1)/opt/lib/
+	$(SED) 's,-I/opt/include,-I$(STAGING_DIR)/opt/include,g; \
+		s,-L/opt/lib,-L$(STAGING_DIR)/opt/lib,g' \
+			$(1)/opt/lib/tclConfig.sh
 
 	$(INSTALL_DIR) $(1)/opt/lib/pkgconfig
 	$(CP) $(PKG_INSTALL_DIR)/opt/lib/pkgconfig/tcl.pc \
