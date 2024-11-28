@@ -1,11 +1,9 @@
-commit d7e86e79d976459a3bf49e169c0bb8d8d6f0eb8f (HEAD -> master, origin/master, origin/HEAD)
+commit 4695e2c10fb00e3ead4a30313a2db2de5be0dedd (HEAD -> master, origin/master, origin/HEAD)
 Author: Mohd Husaam Mehdi <husaam.mehdi@iopsys.eu>
-Date:   Wed Mar 27 21:37:48 2024 +0530
+Date:   Fri Mar 29 22:49:37 2024 +0530
 
-    nginx: update init script to publish services over mdns
+    atftpd: update init script to publish tftp service
     
-    Update nginx init script to announce http related services over mdns.
+    update init script to announce tftp service over mdns
     
     Signed-off-by: Mohd Husaam Mehdi <husaam.mehdi@iopsys.eu>
-    [ bump PKG release, improve commit description ]
-    Signed-off-by: Christian Marangi <ansuelsmth@gmail.com>
