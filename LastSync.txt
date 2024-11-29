@@ -1,9 +1,11 @@
-commit 4695e2c10fb00e3ead4a30313a2db2de5be0dedd (HEAD -> master, origin/master, origin/HEAD)
-Author: Mohd Husaam Mehdi <husaam.mehdi@iopsys.eu>
-Date:   Fri Mar 29 22:49:37 2024 +0530
+commit 3f35e9c06566af1783ced236ea31f05b68c5a823 (HEAD -> master, origin/master, origin/HEAD)
+Author: Daniel Golle <daniel@makrotopia.org>
+Date:   Mon Nov 25 00:41:02 2024 +0100
 
-    atftpd: update init script to publish tftp service
+    libdrm: split into sub-packages
     
-    update init script to announce tftp service over mdns
+    Instead of build-time configuration just build sub-packages, so
+    users can select what ever is needed on their hardware and we also
+    won't need to set the package non-shared.
     
-    Signed-off-by: Mohd Husaam Mehdi <husaam.mehdi@iopsys.eu>
+    Signed-off-by: Daniel Golle <daniel@makrotopia.org>
