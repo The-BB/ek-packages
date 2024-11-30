@@ -1,11 +1,12 @@
-commit bf9718e3ff77ee672a1cf4fcc90c81ea9ced0d39 (HEAD -> master, origin/master, origin/HEAD)
-Author: Rosen Penev <rosenp@gmail.com>
-Date:   Thu Nov 28 14:28:48 2024 -0800
+commit 86e0e8349c8ab20b88dccae8829fb412776b2aa1 (HEAD -> master, origin/master, origin/HEAD)
+Author: Christian Marangi <ansuelsmth@gmail.com>
+Date:   Sat Nov 30 12:42:33 2024 +0100
 
-    mpd: remove no-lto
+    net-mtools: bump to release 3.1
     
-    This seems to no longer fail compilation.
+    Bump net-mtools to release 3.1 as kernel selftests now require version
+    3.0+.
     
-    Use meson's b_lto to turn it on always.
+    All patch merged upstream.
     
-    Signed-off-by: Rosen Penev <rosenp@gmail.com>
+    Signed-off-by: Christian Marangi <ansuelsmth@gmail.com>
