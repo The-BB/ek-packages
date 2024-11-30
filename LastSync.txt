@@ -1,11 +1,11 @@
-commit 3f35e9c06566af1783ced236ea31f05b68c5a823 (HEAD -> master, origin/master, origin/HEAD)
-Author: Daniel Golle <daniel@makrotopia.org>
-Date:   Mon Nov 25 00:41:02 2024 +0100
+commit bf9718e3ff77ee672a1cf4fcc90c81ea9ced0d39 (HEAD -> master, origin/master, origin/HEAD)
+Author: Rosen Penev <rosenp@gmail.com>
+Date:   Thu Nov 28 14:28:48 2024 -0800
 
-    libdrm: split into sub-packages
+    mpd: remove no-lto
     
-    Instead of build-time configuration just build sub-packages, so
-    users can select what ever is needed on their hardware and we also
-    won't need to set the package non-shared.
+    This seems to no longer fail compilation.
     
-    Signed-off-by: Daniel Golle <daniel@makrotopia.org>
+    Use meson's b_lto to turn it on always.
+    
+    Signed-off-by: Rosen Penev <rosenp@gmail.com>
