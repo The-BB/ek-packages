@@ -1,12 +1,7 @@
-commit 86e0e8349c8ab20b88dccae8829fb412776b2aa1 (HEAD -> master, origin/master, origin/HEAD)
-Author: Christian Marangi <ansuelsmth@gmail.com>
-Date:   Sat Nov 30 12:42:33 2024 +0100
+commit 55a6cd43c6b51f9d57a89093ebe2cd9e06d7b5d4 (HEAD -> master, origin/master, origin/HEAD)
+Author: Norman Dankert <norman.dankert@outlook.com>
+Date:   Fri Nov 22 22:21:18 2024 +0100
 
-    net-mtools: bump to release 3.1
+    stubby: ensure appdata directory is present on service start
     
-    Bump net-mtools to release 3.1 as kernel selftests now require version
-    3.0+.
-    
-    All patch merged upstream.
-    
-    Signed-off-by: Christian Marangi <ansuelsmth@gmail.com>
+    Signed-off-by: Norman Dankert <norman.dankert@outlook.com>
