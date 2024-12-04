@@ -1,7 +1,11 @@
-commit 55a6cd43c6b51f9d57a89093ebe2cd9e06d7b5d4 (HEAD -> master, origin/master, origin/HEAD)
-Author: Norman Dankert <norman.dankert@outlook.com>
-Date:   Fri Nov 22 22:21:18 2024 +0100
+commit 808834b96993dff6ee536a0e31586bfffa8ccddf (HEAD -> master, origin/master, origin/HEAD)
+Author: Martin Schiller <ms@dev.tdt.de>
+Date:   Tue Dec 3 11:56:52 2024 +0100
 
-    stubby: ensure appdata directory is present on service start
+    keepalived: fix name of globals section in default config
     
-    Signed-off-by: Norman Dankert <norman.dankert@outlook.com>
+    This section was renamed some time ago. Although this would be fixed by
+    the uci-default migration script, we should set this correctly in the
+    example config file right away.
+    
+    Signed-off-by: Martin Schiller <ms@dev.tdt.de>
