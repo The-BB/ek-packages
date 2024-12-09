@@ -1,18 +1,7 @@
-commit 5b058c9949b3e3adcbc35347aa1acc40c3442e2c (HEAD -> master, origin/master, origin/HEAD)
-Author: Andrea Pesaresi <andreapesaresi82@gmail.com>
-Date:   Sat Dec 7 10:29:09 2024 +0100
+commit 1f24c07d0a558fa525aa920cad392a6fe09af65c (HEAD -> master, origin/master, origin/HEAD)
+Author: Jan Hák <jan.hak@nic.cz>
+Date:   Mon Dec 9 10:46:16 2024 +0100
 
-    ksmbd-tools: update to version 3.5.3
+    knot: update to version 3.4.3
     
-    - manually refresh patch 030-glib.patch
-    
-    Major changes are:
-        fix adduser / addshare prompting on musl libc
-        fix use of veto files as global share parameter
-        lookup primary group and don't recurse in ksmbd.conf @group handling
-        fix a leak and an intermittent auth failure in Kerberos 5
-        add global parameter kerberos support
-    
-    detailed changelog here: https://github.com/cifsd-team/ksmbd-tools/releases/tag/3.5.3
-    
-    Signed-off-by: Andrea Pesaresi <andreapesaresi82@gmail.com>
+    Signed-off-by: Jan Hák <jan.hak@nic.cz>
