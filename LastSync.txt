@@ -1,7 +1,23 @@
-commit 1f24c07d0a558fa525aa920cad392a6fe09af65c (HEAD -> master, origin/master, origin/HEAD)
-Author: Jan Hák <jan.hak@nic.cz>
-Date:   Mon Dec 9 10:46:16 2024 +0100
+commit 0ca4794564eb7294832636cf46ade680372edebf (HEAD -> master, origin/master, origin/HEAD)
+Author: Andrea Pesaresi <andreapesaresi82@gmail.com>
+Date:   Sun Dec 8 14:04:06 2024 +0100
 
-    knot: update to version 3.4.3
+    ksmbd-tools: adjust smb2 max read/write/trans and cache
     
-    Signed-off-by: Jan Hák <jan.hak@nic.cz>
+    Now for all devices with every size of RAM it is set to:
+    `smb2 max read = 64K`
+    `smb2 max write = 64K`
+    `smb2 max trans = 64K`
+    
+    Instead of fixed value to 64K is better to check RAM size and adjust to:
+    
+    32 ~ 64MB RAM, set the value to 64K
+    64 ~ 128MB, set it to 128KB
+    128 ~ 256MB, set it to 1MB
+    More than 256MB leave default size to 4MB
+    
+    With 64MB and 128MB is better also to disable the read/write cache
+    `cache read buffers = no`
+    `cache write buffers = no`
+    
+    Signed-off-by: Andrea Pesaresi <andreapesaresi82@gmail.com>
