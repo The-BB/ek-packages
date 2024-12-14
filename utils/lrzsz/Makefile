@@ -45,15 +45,6 @@ endef
 # XXX warning: In the GNU C Library, "major" is defined by <sys/sysmacros.h>.
 TARGET_CFLAGS += -DMAJOR_IN_SYSMACROS
 
-CONFIGURE_ARGS += --disable-nls
-
-# to stop automake from running, the bundled autohell crap is too old
-define Build/Configure
-	touch $(PKG_BUILD_DIR)/*
-	touch $(PKG_BUILD_DIR)/*/*
-	$(call Build/Configure/Default)
-endef
-
 define Package/lrzsz/install
 	$(INSTALL_DIR) $(1)/opt/bin
 	$(INSTALL_BIN) $(PKG_INSTALL_DIR)/opt/bin/lrz $(1)/opt/bin/
