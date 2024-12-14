@@ -1,23 +1,10 @@
-commit 0ca4794564eb7294832636cf46ade680372edebf (HEAD -> master, origin/master, origin/HEAD)
-Author: Andrea Pesaresi <andreapesaresi82@gmail.com>
-Date:   Sun Dec 8 14:04:06 2024 +0100
+commit 95d201c2602fc94252794207bc6835d83006a871 (HEAD -> master, origin/master, origin/HEAD)
+Author: Javier Marcet <javier@marcet.info>
+Date:   Fri Dec 13 16:08:37 2024 +0100
 
-    ksmbd-tools: adjust smb2 max read/write/trans and cache
+    docker-compose: Update to version 2.32.0
     
-    Now for all devices with every size of RAM it is set to:
-    `smb2 max read = 64K`
-    `smb2 max write = 64K`
-    `smb2 max trans = 64K`
+    Release notes:
+    https://github.com/docker/compose/releases/tag/v2.32.0
     
-    Instead of fixed value to 64K is better to check RAM size and adjust to:
-    
-    32 ~ 64MB RAM, set the value to 64K
-    64 ~ 128MB, set it to 128KB
-    128 ~ 256MB, set it to 1MB
-    More than 256MB leave default size to 4MB
-    
-    With 64MB and 128MB is better also to disable the read/write cache
-    `cache read buffers = no`
-    `cache write buffers = no`
-    
-    Signed-off-by: Andrea Pesaresi <andreapesaresi82@gmail.com>
+    Signed-off-by: Javier Marcet <javier@marcet.info>
