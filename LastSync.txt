@@ -1,10 +1,7 @@
-commit 95d201c2602fc94252794207bc6835d83006a871 (HEAD -> master, origin/master, origin/HEAD)
-Author: Javier Marcet <javier@marcet.info>
-Date:   Fri Dec 13 16:08:37 2024 +0100
+commit 0d478f650850deaa0c165d20b6b3a34b32af249b (HEAD -> master, origin/master, origin/HEAD)
+Author: Othmar Truniger <github@truniger.ch>
+Date:   Sun Dec 15 13:24:52 2024 +0100
 
-    docker-compose: Update to version 2.32.0
+    knxd: bump to version 0.14.68
     
-    Release notes:
-    https://github.com/docker/compose/releases/tag/v2.32.0
-    
-    Signed-off-by: Javier Marcet <javier@marcet.info>
+    Signed-off-by: Othmar Truniger <github@truniger.ch>
