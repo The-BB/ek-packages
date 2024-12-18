@@ -1,7 +1,7 @@
-commit 0d478f650850deaa0c165d20b6b3a34b32af249b (HEAD -> master, origin/master, origin/HEAD)
-Author: Othmar Truniger <github@truniger.ch>
-Date:   Sun Dec 15 13:24:52 2024 +0100
+commit 6f9bd7df6501401d4bff2c8aafb8baf0ad2e3274 (HEAD -> master, origin/master, origin/HEAD)
+Author: Jon Henrik Bjørnstad <jonhenrik@qbee.io>
+Date:   Tue Dec 17 12:21:54 2024 +0100
 
-    knxd: bump to version 0.14.68
+    qbee-agent: bump version to 2024.50
     
-    Signed-off-by: Othmar Truniger <github@truniger.ch>
+    Signed-off-by: Jon Henrik Bjørnstad <jonhenrik@qbee.io>
