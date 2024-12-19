@@ -23,6 +23,7 @@ PKG_CPE_ID:=cpe:/a:zabbix:zabbix
 
 PKG_INSTALL:=1
 PKG_BUILD_PARALLEL:=1
+PKG_CGO_ENABLED:=1
 
 PKG_CONFIG_DEPENDS:= \
   CONFIG_ZABBIX_MYSQL \
@@ -31,6 +32,7 @@ PKG_CONFIG_DEPENDS:= \
 
 include $(INCLUDE_DIR)/package.mk
 include $(INCLUDE_DIR)/nls.mk
+include $(TOPDIR)/feeds/golang/go_env.mk
 
 define Package/zabbix-proxy/config
 comment "Database Software"
@@ -83,6 +85,22 @@ define Package/zabbix-agentd-gnutls
   DEPENDS+= +libevent2-pthreads +libgnutls
   PROVIDES:=zabbix-agentd
   VARIANT:=gnutls
+endef
+
+define Package/zabbix-agent2
+  $(call Package/zabbix/Default)
+  TITLE+= agent2
+  PROVIDES:=zabbix-agent2
+  VARIANT:=nossl
+  DEFAULT_VARIANT:=1
+endef
+
+define Package/zabbix-agent2-openssl
+  $(call Package/zabbix/Default)
+  TITLE+= agent2 (with OpenSSL)
+  DEPENDS+= +libopenssl
+  PROVIDES:=zabbix-agent2
+  VARIANT:=openssl
 endef
 
 define Package/zabbix-extra-mac80211
@@ -258,6 +276,8 @@ endef
 
 CONFIGURE_ARGS+= \
 	--enable-agent \
+	--enable-agent2 \
+	--enable-webservice \
 	$(if $(CONFIG_ZABBIX_SQLITE),--disable-server,--enable-server) \
 	--enable-proxy \
 	$(call autoconf_bool,CONFIG_IPV6,ipv6) \
@@ -267,7 +287,8 @@ CONFIGURE_ARGS+= \
 	$(if $(CONFIG_ZABBIX_SQLITE),--with-sqlite3=$(STAGING_DIR)/opt) \
 	--with-libevent=$(STAGING_DIR)/opt \
 	--with-libpcre2=$(STAGING_DIR)/opt \
-	--with-zlib=$(STAGING_DIR)/opt
+	--with-zlib=$(STAGING_DIR)/opt \
+	LIBS="$(ICONV_LDFLAGS)"
 
 ifeq ($(BUILD_VARIANT),openssl)
 	CONFIGURE_ARGS+= --with-openssl="$(STAGING_DIR)/opt"
@@ -275,11 +296,14 @@ endif
 
 ifeq ($(BUILD_VARIANT),gnutls)
 	CONFIGURE_ARGS+= --with-gnutls="$(STAGING_DIR)/opt"
+# pkg/tls/tls.go:782:9: error: #error zabbix_agent2 does not support GnuTLS library.
+	CONFIGURE_ARGS+= --disable-agent2 --disable-webservice
 endif
 
 CONFIGURE_VARS += \
 	ac_cv_header_sys_sysinfo_h=no
 
+MAKE_VARS += $(GO_VARS)
 MAKE_FLAGS += ARCH="linux"
 
 define Package/zabbix/install/sbin
@@ -333,6 +357,12 @@ endef
 Package/zabbix-agentd-openssl/conffiles = $(Package/zabbix-agentd/conffiles)
 Package/zabbix-agentd-gnutls/conffiles = $(Package/zabbix-agentd/conffiles)
 
+define Package/zabbix-agent2/conffiles
+/opt/etc/zabbix_agent2.d/plugins.d/
+/opt/etc/zabbix_agent2.conf
+endef
+Package/zabbix-agent2-openssl/conffiles = $(Package/zabbix-agent2/conffiles)
+
 define Package/zabbix-server/conffiles
 /opt/etc/zabbix_server.conf
 endef
@@ -374,6 +404,15 @@ define Package/zabbix-agentd/install
 endef
 Package/zabbix-agentd-openssl/install = $(Package/zabbix-agentd/install)
 Package/zabbix-agentd-gnutls/install = $(Package/zabbix-agentd/install)
+
+define Package/zabbix-agent2/install
+	$(INSTALL_DIR) $(1)/opt/etc
+	$(CP) $(PKG_INSTALL_DIR)/opt/etc/zabbix_agent2.d $(1)/opt/etc/
+	$(INSTALL_CONF) $(PKG_INSTALL_DIR)/opt/etc/zabbix_agent2.conf $(1)/opt/etc/
+	$(INSTALL_DIR) $(1)/opt/sbin
+	$(INSTALL_BIN) $(PKG_INSTALL_DIR)/opt/sbin/zabbix_agent2 $(1)/opt/sbin/
+endef
+Package/zabbix-agent2-openssl/install = $(Package/zabbix-agent2/install)
 
 define Package/zabbix-extra-mac80211/install
 	$(call Package/zabbix/install/zabbix.conf.d,$(1),mac80211)
@@ -442,6 +481,8 @@ Package/zabbix-proxy-gnutls/install = $(Package/zabbix-proxy/install)
 $(eval $(call BuildPackage,zabbix-agentd))
 $(eval $(call BuildPackage,zabbix-agentd-openssl))
 $(eval $(call BuildPackage,zabbix-agentd-gnutls))
+$(eval $(call BuildPackage,zabbix-agent2))
+$(eval $(call BuildPackage,zabbix-agent2-openssl))
 #$(eval $(call BuildPackage,zabbix-extra-mac80211))
 #$(eval $(call BuildPackage,zabbix-extra-network))
 #$(eval $(call BuildPackage,zabbix-extra-wifi))
