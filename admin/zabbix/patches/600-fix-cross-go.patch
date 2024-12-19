@@ -24,4 +24,3 @@
  PKG = golang.zabbix.com/agent2/pkg/version
  NEW_FROM_REV = ""
  GOLDFLAGS = -X '${PKG}.compileDate=${BUILD_DATE}' -X \
-

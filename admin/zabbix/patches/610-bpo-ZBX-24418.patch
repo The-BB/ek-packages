@@ -1,0 +1,18 @@
+https://support.zabbix.com/browse/ZBX-24418
+
+# golang.zabbix.com/agent2/plugins/vfs/dir
+plugins/vfs/dir/size_nix.go:72:3: cannot use iStat.Dev (variable of type uint32) as uint64 value in struct literal
+
+---
+
+--- a/src/go/plugins/vfs/dir/size_nix.go
++++ b/src/go/plugins/vfs/dir/size_nix.go
+@@ -69,7 +69,7 @@ func (cp *common) osSkip(path string, d
+ 	}
+ 
+ 	iData := inodeData{
+-		iStat.Dev, iStat.Ino,
++		uint64(iStat.Dev), uint64(iStat.Ino),
+ 	}
+ 
+ 	_, ok = cp.files[iData]
