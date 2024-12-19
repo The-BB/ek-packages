@@ -1,7 +1,7 @@
-commit 6f9bd7df6501401d4bff2c8aafb8baf0ad2e3274 (HEAD -> master, origin/master, origin/HEAD)
-Author: Jon Henrik Bjørnstad <jonhenrik@qbee.io>
-Date:   Tue Dec 17 12:21:54 2024 +0100
+commit 422655e0c056533f0cbfc2ee7a641bc5d320f51c (HEAD -> master, origin/master, origin/HEAD)
+Author: Tianling Shen <cnsztl@immortalwrt.org>
+Date:   Wed Dec 18 21:47:30 2024 +0800
 
-    qbee-agent: bump version to 2024.50
+    alist: Update to 3.41.0
     
-    Signed-off-by: Jon Henrik Bjørnstad <jonhenrik@qbee.io>
+    Signed-off-by: Tianling Shen <cnsztl@immortalwrt.org>
