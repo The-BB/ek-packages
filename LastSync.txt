@@ -1,7 +1,7 @@
-commit 89f8c4528284411b5cb5c6a709a4566161c20d16 (HEAD -> master, origin/master, origin/HEAD)
-Author: Peter van Dijk <peter.van.dijk@powerdns.com>
-Date:   Thu Dec 19 14:54:08 2024 +0100
+commit 37f076cb1c40032c989e16070815033b73bf493e (HEAD -> master, origin/master, origin/HEAD)
+Author: Olivier Poitrey <rs@nextdns.io>
+Date:   Mon Dec 23 00:49:14 2024 +0000
 
-    pdns: update to 4.9.3
+    nextdns: Update to version 1.44.3
     
-    Signed-off-by: Peter van Dijk <peter.van.dijk@powerdns.com>
+    Signed-off-by: Olivier Poitrey <rs@nextdns.io>
