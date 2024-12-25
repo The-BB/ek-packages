@@ -1,7 +1,7 @@
-commit 37f076cb1c40032c989e16070815033b73bf493e (HEAD -> master, origin/master, origin/HEAD)
-Author: Olivier Poitrey <rs@nextdns.io>
-Date:   Mon Dec 23 00:49:14 2024 +0000
+commit 68a0a8d6a4cdfa6f62b105d6e8c107547fb3cefa (HEAD -> master, origin/master, origin/HEAD)
+Author: Othmar Truniger <github@truniger.ch>
+Date:   Sun Dec 22 09:03:23 2024 +0100
 
-    nextdns: Update to version 1.44.3
+    knxd: bump to new version 0.14.71
     
-    Signed-off-by: Olivier Poitrey <rs@nextdns.io>
+    Signed-off-by: Othmar Truniger <github@truniger.ch>
