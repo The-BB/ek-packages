@@ -1,7 +1,7 @@
-commit 4da4138da21b8dbfe1fe8516b185f9cd579f9b9a (HEAD -> master, origin/master, origin/HEAD)
+commit 86d774edda5c24a907907ee03e71c4afd4af3726 (HEAD -> master, origin/master, origin/HEAD)
 Author: Alexandru Ardelean <alex@shruggie.ro>
-Date:   Wed Dec 25 09:26:21 2024 +0200
+Date:   Fri Dec 27 22:32:54 2024 +0200
 
-    stress-ng: bump to version 0.18.07
+    libwebp: bump to version 1.5.0
     
     Signed-off-by: Alexandru Ardelean <alex@shruggie.ro>
