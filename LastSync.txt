@@ -1,7 +1,9 @@
-commit 86d774edda5c24a907907ee03e71c4afd4af3726 (HEAD -> master, origin/master, origin/HEAD)
-Author: Alexandru Ardelean <alex@shruggie.ro>
-Date:   Fri Dec 27 22:32:54 2024 +0200
+commit 2516d2bdc750bebbe866b2753632bfe8601762a3 (HEAD -> master, origin/master, origin/HEAD)
+Author: Wesley Gimenes <wehagy@proton.me>
+Date:   Sat Dec 28 02:31:26 2024 -0300
 
-    libwebp: bump to version 1.5.0
+    netbird: update to 0.35.1
     
-    Signed-off-by: Alexandru Ardelean <alex@shruggie.ro>
+    changelog: https://github.com/netbirdio/netbird/releases/tag/v0.35.1
+    
+    Signed-off-by: Wesley Gimenes <wehagy@proton.me>
