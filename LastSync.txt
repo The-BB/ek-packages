@@ -1,9 +1,7 @@
-commit 2516d2bdc750bebbe866b2753632bfe8601762a3 (HEAD -> master, origin/master, origin/HEAD)
-Author: Wesley Gimenes <wehagy@proton.me>
-Date:   Sat Dec 28 02:31:26 2024 -0300
+commit 52eab207ee9a5abf811dbdffd5f87fb479f33ff2 (HEAD -> master, origin/master, origin/HEAD)
+Author: Othmar Truniger <github@truniger.ch>
+Date:   Thu Dec 26 19:50:34 2024 +0100
 
-    netbird: update to 0.35.1
+    knxd: add dependency for inih
     
-    changelog: https://github.com/netbirdio/netbird/releases/tag/v0.35.1
-    
-    Signed-off-by: Wesley Gimenes <wehagy@proton.me>
+    Signed-off-by: Othmar Truniger <github@truniger.ch>
