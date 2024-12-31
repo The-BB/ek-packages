@@ -36,8 +36,8 @@ define Package/liborcania/description
 endef
 
 define Package/liborcania/install
-	$(INSTALL_DIR) $(1)/usr/lib
-	$(CP) $(PKG_INSTALL_DIR)/usr/lib/liborcania.so* $(1)/usr/lib/
+	$(INSTALL_DIR) $(1)/opt/lib
+	$(CP) $(PKG_INSTALL_DIR)/opt/lib/liborcania.so* $(1)/opt/lib/
 endef
 
 $(eval $(call BuildPackage,liborcania))
