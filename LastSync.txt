@@ -1,7 +1,9 @@
-commit 52eab207ee9a5abf811dbdffd5f87fb479f33ff2 (HEAD -> master, origin/master, origin/HEAD)
-Author: Othmar Truniger <github@truniger.ch>
-Date:   Thu Dec 26 19:50:34 2024 +0100
+commit 99a4a0fe8ee6d0a7ee964010d81ef852ed4b9f1d (HEAD -> master, origin/master, origin/HEAD)
+Author: Nick Liu <udhappy@gmail.com>
+Date:   Sat Dec 28 20:50:05 2024 +0800
 
-    knxd: add dependency for inih
+    wget: update alternative priority
     
-    Signed-off-by: Othmar Truniger <github@truniger.ch>
+    Update wget-ssl and wget-nossl using differet alternative priorities for /usr/bin/wget.
+    
+    Signed-off-by: Nick Liu <udhappy@gmail.com>
