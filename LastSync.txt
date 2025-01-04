@@ -1,9 +1,17 @@
-commit 99a4a0fe8ee6d0a7ee964010d81ef852ed4b9f1d (HEAD -> master, origin/master, origin/HEAD)
-Author: Nick Liu <udhappy@gmail.com>
-Date:   Sat Dec 28 20:50:05 2024 +0800
+commit c50de920a225ac74aa080d12e30079b9ce964232 (HEAD -> master, origin/master, origin/HEAD)
+Author: Carlos Miguel Ferreira <carlosmf.pt@gmail.com>
+Date:   Fri Jan 3 15:09:37 2025 +0000
 
-    wget: update alternative priority
+    boost: Updates package to version 1.87.0
     
-    Update wget-ssl and wget-nossl using differet alternative priorities for /usr/bin/wget.
+    This commit updates boost to version 1.87.0
     
-    Signed-off-by: Nick Liu <udhappy@gmail.com>
+    New libraries in this release:
+    * Boost.Parser [2]: Framework for building parsers, from Zach Laine.
+    
+    More info about Boost 1.87.0 can be found at the usual place [1].
+    
+    [1]: https://www.boost.org/users/history/version_1_87_0.html
+    [2]: https://www.boost.org/libs/parser/
+    
+    Signed-off-by: Carlos Miguel Ferreira <carlosmf.pt@gmail.com>
