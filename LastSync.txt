@@ -1,17 +1,9 @@
-commit c50de920a225ac74aa080d12e30079b9ce964232 (HEAD -> master, origin/master, origin/HEAD)
-Author: Carlos Miguel Ferreira <carlosmf.pt@gmail.com>
-Date:   Fri Jan 3 15:09:37 2025 +0000
+commit 1ebad043021a901613bb5f072a338be5224df15a (HEAD -> master, origin/master, origin/HEAD)
+Author: Stan Grishin <stangri@melmac.ca>
+Date:   Wed Jan 1 05:25:33 2025 +0000
 
-    boost: Updates package to version 1.87.0
+    pbr: Makefile bugfixes
     
-    This commit updates boost to version 1.87.0
+    * remove indentation in postinst/prerm/postrm scripts to fix issues with APK
     
-    New libraries in this release:
-    * Boost.Parser [2]: Framework for building parsers, from Zach Laine.
-    
-    More info about Boost 1.87.0 can be found at the usual place [1].
-    
-    [1]: https://www.boost.org/users/history/version_1_87_0.html
-    [2]: https://www.boost.org/libs/parser/
-    
-    Signed-off-by: Carlos Miguel Ferreira <carlosmf.pt@gmail.com>
+    Signed-off-by: Stan Grishin <stangri@melmac.ca>
