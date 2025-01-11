@@ -12,6 +12,7 @@ PKG_MAINTAINER:=Jianhui Zhao <zhaojh329@gmail.com>
 PKG_LICENSE:=MIT
 PKG_LICENSE_FILES:=LICENSE
 
+include $(INCLUDE_DIR)/host-build.mk
 include $(INCLUDE_DIR)/package.mk
 include $(INCLUDE_DIR)/cmake.mk
 
@@ -53,16 +54,24 @@ Package/lua-ffi-lua5.3/description = $(Package/lua-ffi/default/description)
 Package/lua-ffi-lua5.4/description = $(Package/lua-ffi/default/description)
 
 ifeq ($(BUILD_VARIANT),lua51)
-  CMAKE_OPTIONS += -DLUA_INCLUDE_DIR="$(STAGING_DIR)/usr/include"
+  CMAKE_HOST_OPTIONS += -DLUA_INCLUDE_DIR="$(STAGING_DIR_HOSTPKG)/include"
+  CMAKE_OPTIONS += -DLUA_INCLUDE_DIR="$(STAGING_DIR)/opt/include"
 endif
 
 ifeq ($(BUILD_VARIANT),lua53)
+#  CMAKE_HOST_OPTIONS += -DLUA_INCLUDE_DIR="$(STAGING_DIR_HOSTPKG)/include/lua5.3"
   CMAKE_OPTIONS += -DLUA_INCLUDE_DIR="$(STAGING_DIR)/usr/include/lua5.3"
 endif
 
 ifeq ($(BUILD_VARIANT),lua54)
+#  CMAKE_HOST_OPTIONS += -DLUA_INCLUDE_DIR="$(STAGING_DIR_HOSTPKG)/include/lua5.4"
   CMAKE_OPTIONS += -DLUA_INCLUDE_DIR="$(STAGING_DIR)/usr/include/lua5.4"
 endif
+
+define Host/Install
+	$(INSTALL_DIR) $(STAGING_DIR_HOSTPKG)/lib/lua/5.1
+	$(INSTALL_BIN) $(HOST_BUILD_DIR)/ffi.so $(STAGING_DIR_HOSTPKG)/lib/lua/5.1
+endef
 
 define Package/lua-ffi/install
 	$(INSTALL_DIR) $(1)/usr/lib/lua
@@ -79,6 +88,7 @@ define Package/lua-ffi-lua5.4/install
 	$(INSTALL_BIN) $(PKG_BUILD_DIR)/ffi.so $(1)/usr/local/lib/lua/5.4
 endef
 
+$(eval $(call HostBuild))
 $(eval $(call BuildPackage,lua-ffi))
-$(eval $(call BuildPackage,lua-ffi-lua5.3))
-$(eval $(call BuildPackage,lua-ffi-lua5.4))
+#$(eval $(call BuildPackage,lua-ffi-lua5.3))
+#$(eval $(call BuildPackage,lua-ffi-lua5.4))
