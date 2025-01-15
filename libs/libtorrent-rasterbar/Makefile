@@ -1,5 +1,3 @@
-# XXX qbittorrent bumped
-
 include $(TOPDIR)/rules.mk
 
 PKG_NAME:=libtorrent-rasterbar
