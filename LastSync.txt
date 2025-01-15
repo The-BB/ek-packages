@@ -1,12 +1,9 @@
-commit a06829b0a23255636d3662d24a6e7a085efd955b (HEAD -> master, origin/master, origin/HEAD)
-Author: Serhii Ivanov <icegood1980@gmail.com>
-Date:   Thu Jan 9 14:01:56 2025 +0200
+commit d91b06208058be72c9d23b3f144b8fec301501c3 (HEAD -> master, origin/master, origin/HEAD)
+Author: John Audia <therealgraysky@proton.me>
+Date:   Tue Jan 14 20:27:47 2025 -0500
 
-    transmissision: remove build dependency on nodejs
+    rsync: update to 3.4.0
     
-    Have no idea why such dependency was added.
-    No documentation from transmission that they need
-    such dependency on build time. On the other hand
-    saves vast of time during build
+    Changelog: https://download.samba.org/pub/rsync/NEWS#3.4.0
     
-    Signed-off-by: Serhii Ivanov <icegood1980@gmail.com>
+    Signed-off-by: John Audia <therealgraysky@proton.me>
