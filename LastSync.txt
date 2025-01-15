@@ -1,9 +1,12 @@
-commit 1ebad043021a901613bb5f072a338be5224df15a (HEAD -> master, origin/master, origin/HEAD)
-Author: Stan Grishin <stangri@melmac.ca>
-Date:   Wed Jan 1 05:25:33 2025 +0000
+commit a06829b0a23255636d3662d24a6e7a085efd955b (HEAD -> master, origin/master, origin/HEAD)
+Author: Serhii Ivanov <icegood1980@gmail.com>
+Date:   Thu Jan 9 14:01:56 2025 +0200
 
-    pbr: Makefile bugfixes
+    transmissision: remove build dependency on nodejs
     
-    * remove indentation in postinst/prerm/postrm scripts to fix issues with APK
+    Have no idea why such dependency was added.
+    No documentation from transmission that they need
+    such dependency on build time. On the other hand
+    saves vast of time during build
     
-    Signed-off-by: Stan Grishin <stangri@melmac.ca>
+    Signed-off-by: Serhii Ivanov <icegood1980@gmail.com>
