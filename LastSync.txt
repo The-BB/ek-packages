@@ -1,10 +1,7 @@
-commit c4f95cb0f2fb500ca18595536ea72d0e63954d39 (HEAD -> master, origin/master, origin/HEAD)
-Author: Dirk Brenken <dev@brenken.org>
-Date:   Sun Jan 19 21:08:28 2025 +0100
+commit 9ea813a30670d21dbf40c2f07eeb9c1323a8c1ce (HEAD -> master, origin/master, origin/HEAD)
+Author: Peter van Dijk <peter.van.dijk@powerdns.com>
+Date:   Tue Jan 14 10:45:50 2025 +0100
 
-    banIP: update 1.5.0-2
+    pdns-recursor: update to 5.2.0
     
-    * fix typo in the log_outbound target
-    * update the readme
-    
-    Signed-off-by: Dirk Brenken <dev@brenken.org>
+    Signed-off-by: Peter van Dijk <peter.van.dijk@powerdns.com>
