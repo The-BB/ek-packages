@@ -1,7 +1,9 @@
-commit 9ea813a30670d21dbf40c2f07eeb9c1323a8c1ce (HEAD -> master, origin/master, origin/HEAD)
-Author: Peter van Dijk <peter.van.dijk@powerdns.com>
-Date:   Tue Jan 14 10:45:50 2025 +0100
+commit 0dceb9d0f1d930fdd3e9583714f4994a139b293e (HEAD -> master, origin/master, origin/HEAD)
+Author: FriesI23 Qin <FriesI23@outlook.com>
+Date:   Thu Jan 16 08:27:20 2025 +0800
 
-    pdns-recursor: update to 5.2.0
+    ddns-scripts: Fixup dnspod.cn-v3
     
-    Signed-off-by: Peter van Dijk <peter.van.dijk@powerdns.com>
+    Migrate retry_count to retry_max_count in the script to fix infinite retry loop.
+    
+    Signed-off-by: FriesI23 Qin <FriesI23@outlook.com>
