@@ -1,9 +1,19 @@
-commit 0dceb9d0f1d930fdd3e9583714f4994a139b293e (HEAD -> master, origin/master, origin/HEAD)
-Author: FriesI23 Qin <FriesI23@outlook.com>
-Date:   Thu Jan 16 08:27:20 2025 +0800
+commit 9cd00fb1916812beaa46be44203b46f6b5615f97 (HEAD -> master, origin/master, origin/HEAD)
+Author: Coia Prant <coiaprant@gmail.com>
+Date:   Wed Jan 15 16:21:53 2025 +0000
 
-    ddns-scripts: Fixup dnspod.cn-v3
+    ddns-scripts: get l3 device for bind network using curl
     
-    Migrate retry_count to retry_max_count in the script to fix infinite retry loop.
+    If pppoe is used for wan access. script set 'eth1' as interface for curl
+    call. The correct interface is however 'pppoe-wan'.
     
-    Signed-off-by: FriesI23 Qin <FriesI23@outlook.com>
+    These scripts use 'network_get_physdev' function to get real device for
+    bind_network but this is wrong. We need instead the l3_device of the the
+    logical interface.
+    
+    In case if we don't use pppoe connection - 'l3_device' is equal to real device.
+    
+    Follow P/R:
+     #14431
+    
+    Signed-off-by: Coia Prant <coiaprant@gmail.com>
