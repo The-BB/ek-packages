@@ -1,19 +1,9 @@
-commit 9cd00fb1916812beaa46be44203b46f6b5615f97 (HEAD -> master, origin/master, origin/HEAD)
-Author: Coia Prant <coiaprant@gmail.com>
-Date:   Wed Jan 15 16:21:53 2025 +0000
+commit 533b1b987e2a1d5e45d5e598e53a7429b0654cb4 (HEAD -> master, origin/master, origin/HEAD)
+Author: Christian Marangi <ansuelsmth@gmail.com>
+Date:   Thu Jan 23 16:39:04 2025 +0100
 
-    ddns-scripts: get l3 device for bind network using curl
+    net-mtools: bump to release 3.2
     
-    If pppoe is used for wan access. script set 'eth1' as interface for curl
-    call. The correct interface is however 'pppoe-wan'.
+    Fix regression with detecting multicast ipv6 packet.
     
-    These scripts use 'network_get_physdev' function to get real device for
-    bind_network but this is wrong. We need instead the l3_device of the the
-    logical interface.
-    
-    In case if we don't use pppoe connection - 'l3_device' is equal to real device.
-    
-    Follow P/R:
-     #14431
-    
-    Signed-off-by: Coia Prant <coiaprant@gmail.com>
+    Signed-off-by: Christian Marangi <ansuelsmth@gmail.com>
