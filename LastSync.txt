@@ -1,9 +1,7 @@
-commit 533b1b987e2a1d5e45d5e598e53a7429b0654cb4 (HEAD -> master, origin/master, origin/HEAD)
-Author: Christian Marangi <ansuelsmth@gmail.com>
-Date:   Thu Jan 23 16:39:04 2025 +0100
+commit 089f77e615f464cd43e2aeff8d133920a27de7bf (HEAD -> master, origin/master, origin/HEAD)
+Author: Jan Hák <jan.hak@nic.cz>
+Date:   Tue Jan 28 10:51:58 2025 +0100
 
-    net-mtools: bump to release 3.2
+    knot: update to version 3.4.4
     
-    Fix regression with detecting multicast ipv6 packet.
-    
-    Signed-off-by: Christian Marangi <ansuelsmth@gmail.com>
+    Signed-off-by: Jan Hák <jan.hak@nic.cz>
