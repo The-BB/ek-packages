@@ -1,7 +1,11 @@
-commit 089f77e615f464cd43e2aeff8d133920a27de7bf (HEAD -> master, origin/master, origin/HEAD)
-Author: Jan Hák <jan.hak@nic.cz>
-Date:   Tue Jan 28 10:51:58 2025 +0100
+commit 55c559347f2f6bf55364b18ca543bdb1187eb120 (HEAD -> master, origin/master, origin/HEAD)
+Author: Noah Meyerhans <frodo@morgul.net>
+Date:   Wed Jan 29 17:23:13 2025 -0500
 
-    knot: update to version 3.4.4
+    bind: bump to 9.20.5
     
-    Signed-off-by: Jan Hák <jan.hak@nic.cz>
+    Fixes CVEs:
+    - CVE-2024-12705: DNS-over-HTTPS flooding
+    - CVE-2024-11187: Limit additional section processing for large RDATA sets
+    
+    Signed-off-by: Noah Meyerhans <frodo@morgul.net>
