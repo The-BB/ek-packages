@@ -4,7 +4,7 @@ ENABLED=yes
 
 DESC="Tor daemon"
 PROCS="tor"
-PROG="/opt/bin/$PROCS"
+PROG="/opt/sbin/$PROCS"
 
 pre_cmd() {
   [ -d "/opt/var/lib/$PROCS" ] || {
