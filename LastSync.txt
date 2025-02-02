@@ -1,11 +1,7 @@
-commit 55c559347f2f6bf55364b18ca543bdb1187eb120 (HEAD -> master, origin/master, origin/HEAD)
-Author: Noah Meyerhans <frodo@morgul.net>
-Date:   Wed Jan 29 17:23:13 2025 -0500
+commit 900e71b607435041a34fd6ef18692baa92bd8398 (HEAD -> master, origin/master, origin/HEAD)
+Author: Antonio Pastor <antonio.pastor@gmail.com>
+Date:   Thu Jan 30 18:58:58 2025 -0500
 
-    bind: bump to 9.20.5
+    netatalk: add uci support
     
-    Fixes CVEs:
-    - CVE-2024-12705: DNS-over-HTTPS flooding
-    - CVE-2024-11187: Limit additional section processing for large RDATA sets
-    
-    Signed-off-by: Noah Meyerhans <frodo@morgul.net>
+    Signed-off-by: Antonio Pastor <antonio.pastor@gmail.com>
