@@ -1,7 +1,10 @@
-commit 900e71b607435041a34fd6ef18692baa92bd8398 (HEAD -> master, origin/master, origin/HEAD)
-Author: Antonio Pastor <antonio.pastor@gmail.com>
-Date:   Thu Jan 30 18:58:58 2025 -0500
+commit bf2fb994facf88cb0e77d7b7216b5a7e5dcc23ac (HEAD -> master, origin/master, origin/HEAD)
+Author: Dirk Brenken <dev@brenken.org>
+Date:   Sun Feb 2 22:15:41 2025 +0100
 
-    netatalk: add uci support
+    banIP: update 1.5.0-6
     
-    Signed-off-by: Antonio Pastor <antonio.pastor@gmail.com>
+    * fixed  the incomplete rule maintainance during banIP reloads
+    * fixed the Set query function (if the Set counters are disabled)
+    
+    Signed-off-by: Dirk Brenken <dev@brenken.org>
