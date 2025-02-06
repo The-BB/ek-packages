@@ -1,10 +1,11 @@
-commit bf2fb994facf88cb0e77d7b7216b5a7e5dcc23ac (HEAD -> master, origin/master, origin/HEAD)
-Author: Dirk Brenken <dev@brenken.org>
-Date:   Sun Feb 2 22:15:41 2025 +0100
+commit 7c58cd667bb37fd6aec9b4fd625bd6962ec1ed0f (HEAD -> master, origin/master, origin/HEAD)
+Author: Francesco Benini <francy.benini@gmail.com>
+Date:   Sat Feb 1 23:13:22 2025 +0100
 
-    banIP: update 1.5.0-6
+    keepalived: add support for directory sync
     
-    * fixed  the incomplete rule maintainance during banIP reloads
-    * fixed the Set query function (if the Set counters are disabled)
+    This commit adds support for folder synchronization.
+    An example is in the 810-files file where it is explained how to
+    synchronize all hotplug files of keepalived.
     
-    Signed-off-by: Dirk Brenken <dev@brenken.org>
+    Signed-off-by: Francesco Benini <francy.benini@gmail.com>
