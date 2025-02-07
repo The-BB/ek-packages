@@ -1,11 +1,5 @@
-commit 7c58cd667bb37fd6aec9b4fd625bd6962ec1ed0f (HEAD -> master, origin/master, origin/HEAD)
-Author: Francesco Benini <francy.benini@gmail.com>
-Date:   Sat Feb 1 23:13:22 2025 +0100
+commit 1c1125a47e61422124bac6852676184be59fa33c (HEAD -> master, origin/master, origin/HEAD)
+Author: ACI0419 <UVOEOO8@outlook.com>
+Date:   Thu Feb 6 16:46:42 2025 +0800
 
-    keepalived: add support for directory sync
-    
-    This commit adds support for folder synchronization.
-    An example is in the 810-files file where it is explained how to
-    synchronize all hotplug files of keepalived.
-    
-    Signed-off-by: Francesco Benini <francy.benini@gmail.com>
+    ddns-scripts: add ydns.io provider
