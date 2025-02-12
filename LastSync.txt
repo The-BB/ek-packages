@@ -1,10 +1,10 @@
-commit 9ec157ee989c54f33a4e93dad928d0c4567738b3 (HEAD -> master, origin/master, origin/HEAD)
-Author: Daniel Golle <daniel@makrotopia.org>
-Date:   Mon Feb 10 05:14:13 2025 +0000
+commit f9dbeea92b3e7aa47bf11843c32d7baaf6224cd5 (HEAD -> master, origin/master, origin/HEAD)
+Author: Koen Vandeputte <koen.vandeputte@citymesh.com>
+Date:   Fri Nov 15 09:23:31 2024 +0100
 
-    postgresql: update to version 17.2
+    libs/srt: bump to 1.5.4
     
-    Update PostgreSQL to new (major) version 17.2
-    See https://www.postgresql.org/docs/release/17.2/ for more details.
+    - No API/ABI changes
+    - Changelog: https://github.com/Haivision/srt/releases/tag/v1.5.4
     
-    Signed-off-by: Daniel Golle <daniel@makrotopia.org>
+    Signed-off-by: Koen Vandeputte <koen.vandeputte@citymesh.com>
