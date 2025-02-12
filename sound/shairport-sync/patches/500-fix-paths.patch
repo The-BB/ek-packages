@@ -31,7 +31,7 @@
    config.scan_interval_when_active =
        1; // number of seconds between DACP server scans when playing something
    config.scan_interval_when_inactive =
-@@ -1463,7 +1463,7 @@ int parse_options(int argc, char **argv)
+@@ -1467,7 +1467,7 @@ int parse_options(int argc, char **argv)
  #ifdef CONFIG_METADATA
    if ((config.metadata_enabled == 1) && (config.metadata_pipename == NULL)) {
      char temp_metadata_pipe_name[4096];
@@ -40,7 +40,7 @@
      strcat(temp_metadata_pipe_name, config.appName);
      strcat(temp_metadata_pipe_name, "-metadata");
      config.metadata_pipename = strdup(temp_metadata_pipe_name);
-@@ -1532,7 +1532,7 @@ int parse_options(int argc, char **argv)
+@@ -1536,7 +1536,7 @@ int parse_options(int argc, char **argv)
    char *use_this_pid_dir = PIDDIR;
  #else
    char temp_pid_dir[4096];
