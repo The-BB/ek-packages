@@ -1,10 +1,24 @@
-commit f9dbeea92b3e7aa47bf11843c32d7baaf6224cd5 (HEAD -> master, origin/master, origin/HEAD)
-Author: Koen Vandeputte <koen.vandeputte@citymesh.com>
-Date:   Fri Nov 15 09:23:31 2024 +0100
+commit ae038d077373f1ea64b007c2bc46e5f8ee53f778 (HEAD -> master, origin/master, origin/HEAD)
+Author: Florian Eckert <fe@dev.tdt.de>
+Date:   Tue Feb 4 13:01:53 2025 +0100
 
-    libs/srt: bump to 1.5.4
+    keepalived: add new uci section config interface_up_down_delays
     
-    - No API/ABI changes
-    - Changelog: https://github.com/Haivision/srt/releases/tag/v1.5.4
+    If an interface that is being used (or tracked) by a VRRP instance goes to
+    down state, the VRRP instance(s) will, by default, immediately transition to
+    FAULT state, and when all relevant interfaces are back up again the VRRP
+    instance(s) will immediately transition to BACKUP state.
     
-    Signed-off-by: Koen Vandeputte <koen.vandeputte@citymesh.com>
+    This can cause problems if interfaces are bouncing, and so delays can be
+    specified between the interface state change and the transition to
+    FAULT/BACKUP state. If the interface returns to its original state before
+    the delay expires, no associated VRRP instance state transition will occur.
+    
+    New uci section 'interface_up_down_delay':
+    
+    config interface_up_down_delays
+            option device <device>
+            option down_delay <number in seconds>
+            option up_delay <number in seconds>
+    
+    Signed-off-by: Florian Eckert <fe@dev.tdt.de>
