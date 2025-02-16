@@ -1,24 +1,16 @@
-commit ae038d077373f1ea64b007c2bc46e5f8ee53f778 (HEAD -> master, origin/master, origin/HEAD)
-Author: Florian Eckert <fe@dev.tdt.de>
-Date:   Tue Feb 4 13:01:53 2025 +0100
+commit 56139cc52bda17e257785226334fa2f25b5bcd95 (HEAD -> master, origin/master, origin/HEAD)
+Author: Til Kaiser <mail@tk154.de>
+Date:   Sat Feb 8 12:01:32 2025 +0100
 
-    keepalived: add new uci section config interface_up_down_delays
+    mstflint: update to 4.31.0
     
-    If an interface that is being used (or tracked) by a VRRP instance goes to
-    down state, the VRRP instance(s) will, by default, immediately transition to
-    FAULT state, and when all relevant interfaces are back up again the VRRP
-    instance(s) will immediately transition to BACKUP state.
+    This commit updates the mstflint package to the
+    latest 4.31.0 release.
     
-    This can cause problems if interfaces are bouncing, and so delays can be
-    specified between the interface state change and the transition to
-    FAULT/BACKUP state. If the interface returns to its original state before
-    the delay expires, no associated VRRP instance state transition will occur.
+    It also includes patches to fix some build errors
+    that have been merged into their development branch [1]
+    but are not inside the current release version.
     
-    New uci section 'interface_up_down_delay':
+    [1] https://github.com/Mellanox/mstflint/pull/1131
     
-    config interface_up_down_delays
-            option device <device>
-            option down_delay <number in seconds>
-            option up_delay <number in seconds>
-    
-    Signed-off-by: Florian Eckert <fe@dev.tdt.de>
+    Signed-off-by: Til Kaiser <mail@tk154.de>
