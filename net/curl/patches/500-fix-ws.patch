@@ -4,9 +4,9 @@
 
 --- a/lib/curl_trc.h
 +++ b/lib/curl_trc.h
-@@ -226,6 +226,12 @@ static void Curl_trc_smtp(struct Curl_ea
-   (void)data; (void)fmt;
- }
+@@ -162,6 +162,12 @@ void Curl_trc_ws(struct Curl_easy *data,
+ #if !defined(CURL_DISABLE_WEBSOCKETS) && !defined(CURL_DISABLE_HTTP)
+ #define CURL_TRC_WS    Curl_trc_ws
  #endif
 +#if defined(USE_WEBSOCKETS) && !defined(CURL_DISABLE_HTTP)
 +static void Curl_trc_ws(struct Curl_easy *data, const char *fmt, ...)
@@ -15,5 +15,5 @@
 +}
 +#endif
  
- #endif /* !defined(CURL_DISABLE_VERBOSE_STRINGS) */
+ #endif /* !CURL_HAVE_C99 */
  
