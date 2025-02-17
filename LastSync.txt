@@ -1,16 +1,11 @@
-commit 56139cc52bda17e257785226334fa2f25b5bcd95 (HEAD -> master, origin/master, origin/HEAD)
-Author: Til Kaiser <mail@tk154.de>
-Date:   Sat Feb 8 12:01:32 2025 +0100
+commit c3a33e10a5cb4fb01c35739f58281146015e7351 (HEAD -> master, origin/master, origin/HEAD)
+Author: Ryan Keane <the.ra2.ifv@gmail.com>
+Date:   Sun Dec 22 06:12:04 2024 -0800
 
-    mstflint: update to 4.31.0
+    adguardhome: Update init files
     
-    This commit updates the mstflint package to the
-    latest 4.31.0 release.
+    Move working directory from `/var/adguardhome` to
+    `/var/lib/adguardhome`, according to Linux FHS.
+    Add option to store PID file, defaulting to `/run/adguardhome.pid`.
     
-    It also includes patches to fix some build errors
-    that have been merged into their development branch [1]
-    but are not inside the current release version.
-    
-    [1] https://github.com/Mellanox/mstflint/pull/1131
-    
-    Signed-off-by: Til Kaiser <mail@tk154.de>
+    Signed-off-by: Ryan Keane <the.ra2.ifv@gmail.com>
