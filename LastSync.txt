@@ -1,15 +1,7 @@
-commit 162b1e693e68b44500d301e3db0ce2dc19db7336 (HEAD -> master, origin/master, origin/HEAD)
-Author: Dirk Brenken <dev@brenken.org>
-Date:   Mon Feb 17 21:58:24 2025 +0100
+commit 0a2746c6d6cdd92e310408e22a30b1088ac60bc3 (HEAD -> master, origin/master, origin/HEAD)
+Author: Bei Lin <UVOEOO8@outlook.com>
+Date:   Tue Feb 18 21:28:44 2025 +0800
 
-    adblock: release 4.2.5-1
+    ddns-scripts: Accept 'good|nochg' for IPv4/IPv6 in ydns.io.json
     
-    * removed needless subshell calls
-    * add memory measurements:
-       - size of the final blocklist in MB
-       - free memory in MB (MemAvailable from /proc/meminfo)
-       - script max. used RAM (VmHWM from /proc/$$/status)
-    * optimized restart logic
-    * cosmetics
-    
-    Signed-off-by: Dirk Brenken <dev@brenken.org>
+    Signed-off-by: Bei Lin <UVOEOO8@outlook.com>
