@@ -1,7 +1,9 @@
-commit 0a2746c6d6cdd92e310408e22a30b1088ac60bc3 (HEAD -> master, origin/master, origin/HEAD)
-Author: Bei Lin <UVOEOO8@outlook.com>
-Date:   Tue Feb 18 21:28:44 2025 +0800
+commit 65cbccfded0ef69aed0e6cc6e83ab9abd8ed39f1 (HEAD -> master, origin/master, origin/HEAD)
+Author: Dimitri Souza <dimitri.souza@gmail.com>
+Date:   Thu Feb 20 12:31:27 2025 -0300
 
-    ddns-scripts: Accept 'good|nochg' for IPv4/IPv6 in ydns.io.json
+    ddns-scripts: Add option 'myip=no' to Dynu IPv6 update URL
     
-    Signed-off-by: Bei Lin <UVOEOO8@outlook.com>
+    Prevents IPv6 updates to also update IPv4 (undesirable when behind a CGNAT)
+    
+    Signed-off-by: Dimitri Souza <dimitri.souza@gmail.com>
