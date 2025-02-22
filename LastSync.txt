@@ -1,9 +1,10 @@
-commit 65cbccfded0ef69aed0e6cc6e83ab9abd8ed39f1 (HEAD -> master, origin/master, origin/HEAD)
-Author: Dimitri Souza <dimitri.souza@gmail.com>
-Date:   Thu Feb 20 12:31:27 2025 -0300
+commit fc35c4e9c82c0d159be0c193f288a54da541ec1f (HEAD -> master, origin/master, origin/HEAD)
+Author: Dirk Brenken <dev@brenken.org>
+Date:   Sat Feb 22 06:55:26 2025 +0100
 
-    ddns-scripts: Add option 'myip=no' to Dynu IPv6 update URL
+    adblock: release 4.2.6-1
     
-    Prevents IPv6 updates to also update IPv4 (undesirable when behind a CGNAT)
+    * removed needless 'adb_mailcnt' option
+    * fixed blocklist count formatting
     
-    Signed-off-by: Dimitri Souza <dimitri.souza@gmail.com>
+    Signed-off-by: Dirk Brenken <dev@brenken.org>
