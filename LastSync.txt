@@ -1,10 +1,7 @@
-commit fc35c4e9c82c0d159be0c193f288a54da541ec1f (HEAD -> master, origin/master, origin/HEAD)
-Author: Dirk Brenken <dev@brenken.org>
-Date:   Sat Feb 22 06:55:26 2025 +0100
+commit 2db5fca2d8b3310de2812972af13f91e55a52217 (HEAD -> master, origin/master, origin/HEAD)
+Author: Ray Wang <r@hev.cc>
+Date:   Sat Feb 22 11:56:36 2025 +0800
 
-    adblock: release 4.2.6-1
+    natmap: update to 20250221
     
-    * removed needless 'adb_mailcnt' option
-    * fixed blocklist count formatting
-    
-    Signed-off-by: Dirk Brenken <dev@brenken.org>
+    Signed-off-by: Ray Wang <r@hev.cc>
