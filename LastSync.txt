@@ -1,7 +1,9 @@
-commit 2db5fca2d8b3310de2812972af13f91e55a52217 (HEAD -> master, origin/master, origin/HEAD)
-Author: Ray Wang <r@hev.cc>
-Date:   Sat Feb 22 11:56:36 2025 +0800
+commit 51ba51011e2f774ba537881b21ccb2a1ce9e37ff (HEAD -> master, origin/master, origin/HEAD)
+Author: Thomas Richard <thomas.richard@bootlin.com>
+Date:   Fri Feb 7 18:34:47 2025 +0100
 
-    natmap: update to 20250221
+    phytool: add phytool package
     
-    Signed-off-by: Ray Wang <r@hev.cc>
+    Add phytool, a very useful tool to access MDIO PHY registers.
+    
+    Signed-off-by: Thomas Richard <thomas.richard@bootlin.com>
