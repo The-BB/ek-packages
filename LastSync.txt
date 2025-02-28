@@ -1,17 +1,10 @@
-commit 5cb12d479b43eaed89066827690a23f4e1e994a7 (HEAD -> master, origin/master, origin/HEAD)
-Author: Gilles Lenaerts <gilles.lenaerts_ext@softathome.com>
-Date:   Tue Feb 11 13:58:57 2025 +0100
+commit 7fdb92b59ac356f9a8c99ea49147ce0e66799a4b (HEAD -> master, origin/master, origin/HEAD)
+Author: Robert Marko <robimarko@gmail.com>
+Date:   Thu Feb 27 12:35:12 2025 +0100
 
-    modemmanager: add config optional netifd integration
+    nginx-mod-njs: fix endianess patch
     
-    This change introduces an optional configuration
-    of the  netifd integration in the ModemManager package.
-    When disabled, it removes the NETIFD dependency and
-    other unwanted components from the root filesystem
-    during the build phase.
+    Currently, the 104-endianness_fix.patch does not apply, so lets manually
+    refresh it to apply and thus fix buildbot nginx builds.
     
-    Additionally, in the modemmanager.common the netifd-proto.sh
-    inclusion line can be savely removed as there is no usage
-    of it in its functions.
-    
-    Signed-off-by: Gilles Lenaerts <gilles.lenaerts_ext@softathome.com>
+    Signed-off-by: Robert Marko <robimarko@gmail.com>
