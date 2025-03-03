@@ -1,10 +1,15 @@
-commit 7fdb92b59ac356f9a8c99ea49147ce0e66799a4b (HEAD -> master, origin/master, origin/HEAD)
-Author: Robert Marko <robimarko@gmail.com>
-Date:   Thu Feb 27 12:35:12 2025 +0100
+commit 7ce67fb7dc08ebd541dc36eccb0f68c0f8c7f48b (HEAD -> master, origin/master, origin/HEAD)
+Author: Hannu Nyman <hannu.nyman@iki.fi>
+Date:   Mon Mar 3 17:15:11 2025 +0200
 
-    nginx-mod-njs: fix endianess patch
+    lang/node-* : Disable parallel builds for node packages
     
-    Currently, the 104-endianness_fix.patch does not apply, so lets manually
-    refresh it to apply and thus fix buildbot nginx builds.
+    Disable parallel builds for node downstream packages, as the
+    buildbot is showing frequent timeout problems
+    for aarch644, arm, i386 and x86, and node & node packages
+    are the primary suspect.
     
-    Signed-off-by: Robert Marko <robimarko@gmail.com>
+    Based on discussion in
+    https://github.com/openwrt/packages/issues/26078
+    
+    Signed-off-by: Hannu Nyman <hannu.nyman@iki.fi>
