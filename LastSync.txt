@@ -1,15 +1,13 @@
-commit 7ce67fb7dc08ebd541dc36eccb0f68c0f8c7f48b (HEAD -> master, origin/master, origin/HEAD)
-Author: Hannu Nyman <hannu.nyman@iki.fi>
-Date:   Mon Mar 3 17:15:11 2025 +0200
+commit bf87a6dcecc75b765b14d49e5c89b9106218f4a0 (HEAD -> master, origin/master, origin/HEAD)
+Author: Dirk Brenken <dev@brenken.org>
+Date:   Mon Mar 3 21:50:01 2025 +0100
 
-    lang/node-* : Disable parallel builds for node packages
+    adblock: release 4.2.7-1
     
-    Disable parallel builds for node downstream packages, as the
-    buildbot is showing frequent timeout problems
-    for aarch644, arm, i386 and x86, and node & node packages
-    are the primary suspect.
+    * optimized uci config processing (list options)
+    * no longer set a hardcoded confdir in dhcp/dnsmasq config
+    * rework suspend/resume handling
+    * clean up download queue handling
+    * various small improvements & fixes
     
-    Based on discussion in
-    https://github.com/openwrt/packages/issues/26078
-    
-    Signed-off-by: Hannu Nyman <hannu.nyman@iki.fi>
+    Signed-off-by: Dirk Brenken <dev@brenken.org>
