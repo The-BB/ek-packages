@@ -1,13 +1,15 @@
-commit bf87a6dcecc75b765b14d49e5c89b9106218f4a0 (HEAD -> master, origin/master, origin/HEAD)
-Author: Dirk Brenken <dev@brenken.org>
-Date:   Mon Mar 3 21:50:01 2025 +0100
+commit d16b8ca78ac9b4d0bb0de084d3c157fc55567f27 (HEAD -> master, origin/master, origin/HEAD)
+Author: Nick Hainke <vincent@systemli.org>
+Date:   Mon Mar 3 21:50:27 2025 +0100
 
-    adblock: release 4.2.7-1
+    dawn: update to 2025-03-03
     
-    * optimized uci config processing (list options)
-    * no longer set a hardcoded confdir in dhcp/dnsmasq config
-    * rework suspend/resume handling
-    * clean up download queue handling
-    * various small improvements & fixes
+    Add "option tcp_ip '0.0.0.0'" to config.
     
-    Signed-off-by: Dirk Brenken <dev@brenken.org>
+    Changelog:
+    62688e4 tcpsocket: add option to bind to specific ip
+    be63ed4 ubus: actually deny association when no probe entry is found
+    6361df6 datastorage: fix debug message regarding client kick condition
+    af593cc ci: fix and improve ci
+    
+    Signed-off-by: Nick Hainke <vincent@systemli.org>
