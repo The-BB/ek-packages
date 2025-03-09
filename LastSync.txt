@@ -1,7 +1,13 @@
-commit a93f0f47522fb149008823ea9256baabcf68c08c (HEAD -> master, origin/master, origin/HEAD)
-Author: Maxim Storchak <m.storchak@gmail.com>
-Date:   Sun Mar 2 22:16:21 2025 +0200
+commit 764a77acfdc2df4acbc7bf6fcafea792da190876 (HEAD -> master, origin/master, origin/HEAD)
+Author: Dirk Brenken <dev@brenken.org>
+Date:   Fri Mar 7 13:25:54 2025 +0100
 
-    tgt: update to 1.0.95
+    banIP: update 1.5.3-3
     
-    Signed-off-by: Maxim Storchak <m.storchak@gmail.com>
+    * fix a race condition in the process scheduler
+    * sync the banIP country file with ipdeny feed
+    * refine etag handling with country/asn feeds
+    * refine logging with country/asn feeds
+    * refine the banIP status output (incl. LuCI changes)
+    
+    Signed-off-by: Dirk Brenken <dev@brenken.org>
