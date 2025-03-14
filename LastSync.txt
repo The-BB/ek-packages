@@ -1,13 +1,22 @@
-commit 764a77acfdc2df4acbc7bf6fcafea792da190876 (HEAD -> master, origin/master, origin/HEAD)
-Author: Dirk Brenken <dev@brenken.org>
-Date:   Fri Mar 7 13:25:54 2025 +0100
+commit c01643e78bdf2bcb7de93c7f5408d1c2c4c84aaa (HEAD -> master, origin/master, origin/HEAD)
+Author: Robert Marko <robimarko@gmail.com>
+Date:   Wed Mar 12 12:34:03 2025 +0100
 
-    banIP: update 1.5.3-3
+    ipmitool: disable FreeIPMI support
     
-    * fix a race condition in the process scheduler
-    * sync the banIP country file with ipdeny feed
-    * refine etag handling with country/asn feeds
-    * refine logging with country/asn feeds
-    * refine the banIP status output (incl. LuCI changes)
+    Now that we are building FreeIPMI library ipmitool will detect it
+    and since we are already passing --enable-intf-free it will build
+    support for FreeIPMI as well.
     
-    Signed-off-by: Dirk Brenken <dev@brenken.org>
+    However, --enable-intf-free was previously no-op since it would just
+    fail to detect FreeIPMI and disable support for it but now it seems
+    that buildbots build FreeIPMI first and then ipmitool will fail with
+    missing dependency on FreeIPMI library.
+    
+    Since FreeIPMI is quite big and previously ipmitool was built without
+    support for it anyway lets disable support for FreeIPMI in ipmitool and
+    if its required it can be made optional or as a package variant later.
+    
+    This fixes building ipmitool via buildbots again.
+    
+    Signed-off-by: Robert Marko <robimarko@gmail.com>
