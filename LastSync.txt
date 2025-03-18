@@ -1,29 +1,17 @@
-commit 3141672cee25623a3e83fb2e9885ec1bdfe731f1 (HEAD -> master, origin/master, origin/HEAD)
-Author: Álvaro Fernández Rojas <noltari@gmail.com>
-Date:   Sat Mar 15 12:57:19 2025 +0100
+commit 82852a9f158e7e1a4dff48cc10016f1b2fba2e17 (HEAD -> master, origin/master, origin/HEAD)
+Author: Hannu Nyman <hannu.nyman@iki.fi>
+Date:   Sat Mar 15 21:33:22 2025 +0200
 
-    bcm27xx-eeprom: update to v2025-02-12-2712
+    coreutils: Adjust coreutils dependency in each app to be selective
     
-    bcm2711:
-    https://github.com/raspberrypi/rpi-eeprom/blob/v2025.02.12-2712/firmware-2711/release-notes.md#2024-12-07-enable-banklow-and-so-numa-by-default-latest
-    https://github.com/raspberrypi/rpi-eeprom/blob/v2025.02.12-2712/firmware-2711/release-notes.md#2024-12-07-enable-banklow-and-so-numa-by-default-latest
-    https://github.com/raspberrypi/rpi-eeprom/blob/v2025.02.12-2712/firmware-2711/release-notes.md#2025-02-11-recovery-walk-partitions-to-delete-recoverybin-latest
+    Adjust the dependency to the virtual coreutils main package in
+    each app to be selective. Otherwise you need to first select the
+    main coreutils before the actuall apps can be selected. That has
+    prevented other applications from depending on just one individual
+    coreutils app, as they have needed to depend also on the empty main
+    coreutils package.
     
-    bcm2712:
-    https://github.com/raspberrypi/rpi-eeprom/blob/v2025.02.12-2712/firmware-2712/release-notes.md#2024-11-27-rp1fw-add-fifo_state--drain_tx-fix-can_add_program-default
-    https://github.com/raspberrypi/rpi-eeprom/blob/v2025.02.12-2712/firmware-2712/release-notes.md#2024-12-07-enable-banklow-and-so-numa-by-default-latest
-    https://github.com/raspberrypi/rpi-eeprom/blob/v2025.02.12-2712/firmware-2712/release-notes.md#2024-12-15-add-net-install-to-boot-menu-latest
-    https://github.com/raspberrypi/rpi-eeprom/blob/v2025.02.12-2712/firmware-2712/release-notes.md#2024-12-19-disable-fan-pwm-before-shutdown-latest
-    https://github.com/raspberrypi/rpi-eeprom/blob/v2025.02.12-2712/firmware-2712/release-notes.md#2025-01-06-stop-the-fan-after-after-fan-probe-latest
-    https://github.com/raspberrypi/rpi-eeprom/blob/v2025.02.12-2712/firmware-2712/release-notes.md#2025-01-07-fixup-m2-hat-detection-latest
-    https://github.com/raspberrypi/rpi-eeprom/blob/v2025.02.12-2712/firmware-2712/release-notes.md#2025-01-08-update-sdram-refresh-timings-for-bcm2712d0-products-latest
-    https://github.com/raspberrypi/rpi-eeprom/blob/v2025.02.12-2712/firmware-2712/release-notes.md#2025-01-13-improved-sdram-refresh-timings-for-pi5-16gb-latest
-    https://github.com/raspberrypi/rpi-eeprom/blob/v2025.02.12-2712/firmware-2712/release-notes.md#2025-01-14-add-set_reboot_order-api-latest
-    https://github.com/raspberrypi/rpi-eeprom/blob/v2025.02.12-2712/firmware-2712/release-notes.md#2025-01-22-add-dt-chosen-property-signed-boot-bootimg-hash-latest
-    https://github.com/raspberrypi/rpi-eeprom/blob/v2025.02.12-2712/firmware-2712/release-notes.md#2025-01-27-walk-the-partition-table-if-the-requested-partition-is-not-bootable-latest
-    https://github.com/raspberrypi/rpi-eeprom/blob/v2025.02.12-2712/firmware-2712/release-notes.md#2025-02-11-cm5-no-wifi-stability-improvements-latest
-    https://github.com/raspberrypi/rpi-eeprom/blob/v2025.02.12-2712/firmware-2712/release-notes.md#2025-02-12-fixup-change-to-disable-37v-pmic-output-on-cm5-no-wifi-latest
+    Reference to discussion in:
+    https://github.com/openwrt/luci/issues/7605
     
-    Full changelog: https://github.com/raspberrypi/rpi-eeprom/compare/v2024.11.12-2712...v2025.02.12-2712
-    
-    Signed-off-by: Álvaro Fernández Rojas <noltari@gmail.com>
+    Signed-off-by: Hannu Nyman <hannu.nyman@iki.fi>
