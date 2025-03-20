@@ -1,17 +1,11 @@
-commit 82852a9f158e7e1a4dff48cc10016f1b2fba2e17 (HEAD -> master, origin/master, origin/HEAD)
-Author: Hannu Nyman <hannu.nyman@iki.fi>
-Date:   Sat Mar 15 21:33:22 2025 +0200
+commit 9aeff5f5e43f768f9d5029f502381a523c36057f (HEAD -> master, origin/master, origin/HEAD)
+Author: Alexandru Ardelean <alex@shruggie.ro>
+Date:   Mon Mar 17 09:19:53 2025 +0200
 
-    coreutils: Adjust coreutils dependency in each app to be selective
+    stress-ng: bump to version 0.18.11
     
-    Adjust the dependency to the virtual coreutils main package in
-    each app to be selective. Otherwise you need to first select the
-    main coreutils before the actuall apps can be selected. That has
-    prevented other applications from depending on just one individual
-    coreutils app, as they have needed to depend also on the empty main
-    coreutils package.
+    Also fixes MIPS builds.
+    Seems there is some inline assembly that won't work with MIPS16
+    instructions.
     
-    Reference to discussion in:
-    https://github.com/openwrt/luci/issues/7605
-    
-    Signed-off-by: Hannu Nyman <hannu.nyman@iki.fi>
+    Signed-off-by: Alexandru Ardelean <alex@shruggie.ro>
