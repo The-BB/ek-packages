@@ -1,11 +1,9 @@
-commit 9aeff5f5e43f768f9d5029f502381a523c36057f (HEAD -> master, origin/master, origin/HEAD)
-Author: Alexandru Ardelean <alex@shruggie.ro>
-Date:   Mon Mar 17 09:19:53 2025 +0200
+commit aa89d293dbf7d9f485946eeb971e8e0f9a9da74f (HEAD -> master, origin/master, origin/HEAD)
+Author: John Audia <therealgraysky@proton.me>
+Date:   Sun Mar 16 06:58:36 2025 -0400
 
-    stress-ng: bump to version 0.18.11
+    snort3: update to 3.7.1.0
     
-    Also fixes MIPS builds.
-    Seems there is some inline assembly that won't work with MIPS16
-    instructions.
+    Changelog: https://github.com/snort3/snort3/releases/tag/3.7.1.0
     
-    Signed-off-by: Alexandru Ardelean <alex@shruggie.ro>
+    Signed-off-by: John Audia <therealgraysky@proton.me>
