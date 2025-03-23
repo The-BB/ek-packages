@@ -1,11 +1,10 @@
-commit ed57afa392cf57676dcdde420d6397354352f159 (HEAD -> master, origin/master, origin/HEAD)
-Author: Dirk Brenken <dev@brenken.org>
-Date:   Sat Mar 22 08:53:45 2025 +0100
+commit 0b4e8e1c2b2b95cfee52d15040c8dc5cdb9a96cd (HEAD -> master, origin/master, origin/HEAD)
+Author: George Sapkin <george@sapk.in>
+Date:   Fri Mar 21 13:37:12 2025 +0200
 
-    adblock: update 4.2.7-3
+    adguardhome: bump to 0.107.59
     
-    * fixed a reversed domain output when TLD compression is disabled (reported in the forum)
-    * removed abandoned antipopads source
-    * added three energized source variants (blu, spark, ultimate)
+    Use prebuilt frontend and drop node/host depenendency as a result.
     
-    Signed-off-by: Dirk Brenken <dev@brenken.org>
+    Changelog: https://github.com/AdguardTeam/AdGuardHome/releases/tag/v0.107.59
+    Signed-off-by: George Sapkin <george@sapk.in>
