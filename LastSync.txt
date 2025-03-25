@@ -1,10 +1,11 @@
-commit 0b4e8e1c2b2b95cfee52d15040c8dc5cdb9a96cd (HEAD -> master, origin/master, origin/HEAD)
-Author: George Sapkin <george@sapk.in>
-Date:   Fri Mar 21 13:37:12 2025 +0200
+commit 47425ce255157107bc55dfeeb42bd1a74a9ee7e9 (HEAD -> master, origin/master, origin/HEAD)
+Author: Khachatryan Karen <karen0734@gmail.com>
+Date:   Mon Mar 24 13:50:41 2025 +0300
 
-    adguardhome: bump to 0.107.59
+    antiblock: Update to 2.1.1
     
-    Use prebuilt frontend and drop node/host depenendency as a result.
+    1) Fixed a bug that not all routers were deleted.
+    2) Log updated.
+    3) The "output" option has been removed from the service, it is now /tmp/antiblock
     
-    Changelog: https://github.com/AdguardTeam/AdGuardHome/releases/tag/v0.107.59
-    Signed-off-by: George Sapkin <george@sapk.in>
+    Signed-off-by: Khachatryan Karen <karen0734@gmail.com>
