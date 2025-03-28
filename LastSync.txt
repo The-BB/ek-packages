@@ -1,11 +1,16 @@
-commit 47425ce255157107bc55dfeeb42bd1a74a9ee7e9 (HEAD -> master, origin/master, origin/HEAD)
-Author: Khachatryan Karen <karen0734@gmail.com>
-Date:   Mon Mar 24 13:50:41 2025 +0300
+commit 716e73da56fbe6c10b758b5024779872f1a1a581 (HEAD -> master, origin/master, origin/HEAD)
+Author: Dirk Brenken <dev@brenken.org>
+Date:   Fri Mar 28 07:57:16 2025 +0100
 
-    antiblock: Update to 2.1.1
+    banIP: release 1.5.5-1
     
-    1) Fixed a bug that not all routers were deleted.
-    2) Log updated.
-    3) The "output" option has been removed from the service, it is now /tmp/antiblock
+    * added a geoIP Map to show home IPs and potential attacker IPs on a leafletjs based map
+    * significantly improved the reporting performance on multicore hardware
+    * removed aria2 support (it doesn't support post data requests)
+    * removed the following outbound feeds due to too many false positives:
+       adaway, adguard, adguardtrackers, antipopads, oisdbig, oisdnsfw, oisdsmall, stevenblack and yoyo
+    * renamed the banIP command "survey" to "content"
+    * various other small tweaks
+    * update the readme
     
-    Signed-off-by: Khachatryan Karen <karen0734@gmail.com>
+    Signed-off-by: Dirk Brenken <dev@brenken.org>
