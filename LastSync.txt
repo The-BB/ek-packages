@@ -1,16 +1,9 @@
-commit 716e73da56fbe6c10b758b5024779872f1a1a581 (HEAD -> master, origin/master, origin/HEAD)
-Author: Dirk Brenken <dev@brenken.org>
-Date:   Fri Mar 28 07:57:16 2025 +0100
+commit 05f82abaa77064e126e61e595978506e5532d416 (HEAD -> master, origin/master, origin/HEAD)
+Author: Daniel Golle <daniel@makrotopia.org>
+Date:   Sun Feb 23 16:45:04 2025 +0000
 
-    banIP: release 1.5.5-1
+    exim: update to 4.98.2
     
-    * added a geoIP Map to show home IPs and potential attacker IPs on a leafletjs based map
-    * significantly improved the reporting performance on multicore hardware
-    * removed aria2 support (it doesn't support post data requests)
-    * removed the following outbound feeds due to too many false positives:
-       adaway, adguard, adguardtrackers, antipopads, oisdbig, oisdnsfw, oisdsmall, stevenblack and yoyo
-    * renamed the banIP command "survey" to "content"
-    * various other small tweaks
-    * update the readme
+    Fixes CVE-2025-26794 (SQL injection when using SQLite for ETRN hints)
     
-    Signed-off-by: Dirk Brenken <dev@brenken.org>
+    Signed-off-by: Daniel Golle <daniel@makrotopia.org>
