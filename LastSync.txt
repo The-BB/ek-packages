@@ -1,9 +1,7 @@
-commit 05f82abaa77064e126e61e595978506e5532d416 (HEAD -> master, origin/master, origin/HEAD)
-Author: Daniel Golle <daniel@makrotopia.org>
-Date:   Sun Feb 23 16:45:04 2025 +0000
+commit c9220e58b62b22e83b2c1de65e355a4b82b59bb2 (HEAD -> master, origin/master, origin/HEAD)
+Author: Ryan Press <ryan@presslab.us>
+Date:   Mon Mar 31 13:57:23 2025 -0700
 
-    exim: update to 4.98.2
+    lpac: Refresh 0001-driver-add-uqmi-backend.patch
     
-    Fixes CVE-2025-26794 (SQL injection when using SQLite for ETRN hints)
-    
-    Signed-off-by: Daniel Golle <daniel@makrotopia.org>
+    Signed-off-by: Ryan Press <ryan@presslab.us>
