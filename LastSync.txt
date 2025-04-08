@@ -1,16 +1,7 @@
-commit 3b68d2b60d754b93f90af1d7b557cb1361fe6f3c (HEAD -> master, origin/master, origin/HEAD)
-Author: John Audia <therealgraysky@proton.me>
-Date:   Thu Apr 3 07:45:56 2025 -0400
+commit aad793b6f46e5d4d6ec2177fec7f38b1e575fe99 (HEAD -> master, origin/master, origin/HEAD)
+Author: Tianling Shen <cnsztl@immortalwrt.org>
+Date:   Mon Apr 7 20:37:42 2025 +0800
 
-    nvme-cli: update to 1.12
+    v2raya: Update to 2.2.6.7
     
-    Bump to latest upstream release.
-    
-    Removed upstreamed: 021-pligins-netapp-add-include-of-libgen.h-for-basename.patch
-    Manually rebased: 010-gcc14.patch
-    
-    Build system: x86/64
-    Build-tested: x86/64
-    Run-tested: x86/64
-    
-    Signed-off-by: John Audia <therealgraysky@proton.me>
+    Signed-off-by: Tianling Shen <cnsztl@immortalwrt.org>
