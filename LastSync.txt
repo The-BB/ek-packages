@@ -1,19 +1,7 @@
-commit 9ebb457377f7104c1f03906580454172a21f184b (HEAD -> master, origin/master, origin/HEAD)
-Author: Michael Heimpold <mhei@heimpold.de>
-Date:   Tue Jan 21 21:28:00 2025 +0100
+commit 3764639cae5183df7887b42c79a50e72df1523f8 (HEAD -> master, origin/master, origin/HEAD)
+Author: Jan Hák <jan.hak@nic.cz>
+Date:   Thu Apr 10 12:13:42 2025 +0200
 
-    php8: update to 8.4.5
+    knot: update to version 3.4.6
     
-    This is a major upgrade to latest stable PHP version.
-    
-    - IMAP extension was unbundled from PHP
-    - align patch filenames with latest ones from Debian
-    - removed obsolete patches
-    - adapted/refreshed patches
-    - added patch to remove call to httpd during configure
-      Note: this assumes that 'prefork' mpm is used
-    
-    Upstream changelog for this specific release:
-    https://www.php.net/ChangeLog-8.php#8.4.5
-    
-    Signed-off-by: Michael Heimpold <mhei@heimpold.de>
+    Signed-off-by: Jan Hák <jan.hak@nic.cz>
