@@ -1,7 +1,19 @@
-commit aad793b6f46e5d4d6ec2177fec7f38b1e575fe99 (HEAD -> master, origin/master, origin/HEAD)
-Author: Tianling Shen <cnsztl@immortalwrt.org>
-Date:   Mon Apr 7 20:37:42 2025 +0800
+commit 9ebb457377f7104c1f03906580454172a21f184b (HEAD -> master, origin/master, origin/HEAD)
+Author: Michael Heimpold <mhei@heimpold.de>
+Date:   Tue Jan 21 21:28:00 2025 +0100
 
-    v2raya: Update to 2.2.6.7
+    php8: update to 8.4.5
     
-    Signed-off-by: Tianling Shen <cnsztl@immortalwrt.org>
+    This is a major upgrade to latest stable PHP version.
+    
+    - IMAP extension was unbundled from PHP
+    - align patch filenames with latest ones from Debian
+    - removed obsolete patches
+    - adapted/refreshed patches
+    - added patch to remove call to httpd during configure
+      Note: this assumes that 'prefork' mpm is used
+    
+    Upstream changelog for this specific release:
+    https://www.php.net/ChangeLog-8.php#8.4.5
+    
+    Signed-off-by: Michael Heimpold <mhei@heimpold.de>
