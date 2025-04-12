@@ -1,7 +1,7 @@
-commit 3764639cae5183df7887b42c79a50e72df1523f8 (HEAD -> master, origin/master, origin/HEAD)
-Author: Jan Hák <jan.hak@nic.cz>
-Date:   Thu Apr 10 12:13:42 2025 +0200
+commit 3a81db1f107ae00fb64de493b316b863a3c45a28 (HEAD -> master, origin/master, origin/HEAD)
+Author: Maxim Storchak <m.storchak@gmail.com>
+Date:   Sat Apr 12 11:58:37 2025 +0300
 
-    knot: update to version 3.4.6
+    tgt: update to 1.0.96
     
-    Signed-off-by: Jan Hák <jan.hak@nic.cz>
+    Signed-off-by: Maxim Storchak <m.storchak@gmail.com>
