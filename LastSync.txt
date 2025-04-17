@@ -1,9 +1,7 @@
-commit e67e30d0e10ed7e0bb3168c56e86a1997e5a6d87 (HEAD -> master, origin/master, origin/HEAD)
-Author: Stan Grishin <stangri@melmac.ca>
-Date:   Tue Apr 1 04:00:44 2025 +0000
+commit 589debf53d7147422ef509c0520d3bed55d83598 (HEAD -> master, origin/master, origin/HEAD)
+Author: Ryan Press <ryan@presslab.us>
+Date:   Wed Apr 16 17:06:59 2025 -0700
 
-    https-dns-proxy: update to 2025.03.13 upstream
+    libmbim: bump to 1.32.0
     
-    * fixes https://github.com/openwrt/packages/issues/25522
-    
-    Signed-off-by: Stan Grishin <stangri@melmac.ca>
+    Signed-off-by: Ryan Press <ryan@presslab.us>
