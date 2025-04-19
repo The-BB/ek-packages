@@ -1,7 +1,7 @@
-commit 589debf53d7147422ef509c0520d3bed55d83598 (HEAD -> master, origin/master, origin/HEAD)
-Author: Ryan Press <ryan@presslab.us>
-Date:   Wed Apr 16 17:06:59 2025 -0700
+commit bed8c8ae330a6468b87ea49e667a53655d34703c (HEAD -> master, origin/master, origin/HEAD)
+Author: Paul Donald <newtwen+github@gmail.com>
+Date:   Fri Apr 11 15:46:21 2025 +0200
 
-    libmbim: bump to 1.32.0
+    ddns-scripts: bump package release
     
-    Signed-off-by: Ryan Press <ryan@presslab.us>
+    Signed-off-by: Paul Donald <newtwen+github@gmail.com>
