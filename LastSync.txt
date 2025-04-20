@@ -1,7 +1,10 @@
-commit bed8c8ae330a6468b87ea49e667a53655d34703c (HEAD -> master, origin/master, origin/HEAD)
-Author: Paul Donald <newtwen+github@gmail.com>
-Date:   Fri Apr 11 15:46:21 2025 +0200
+commit 6ade11fc3acad733c57188db6b6c80b40b67f42b (HEAD -> master, origin/master, origin/HEAD)
+Author: Stephen Howell <howels@allthatwemight.be>
+Date:   Thu Apr 17 18:11:50 2025 +0100
 
-    ddns-scripts: bump package release
+    realtek-poe: Build for all targets
     
-    Signed-off-by: Paul Donald <newtwen+github@gmail.com>
+    * realtek-poe was only being built for realtek/rtl838x with mips-4kec
+    * needed by targets in realtek/rtl839x with mips-24kc
+    
+    Signed-off-by: Stephen Howell <howels@allthatwemight.be>
