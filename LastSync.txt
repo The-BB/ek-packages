@@ -1,10 +1,11 @@
-commit 6ade11fc3acad733c57188db6b6c80b40b67f42b (HEAD -> master, origin/master, origin/HEAD)
-Author: Stephen Howell <howels@allthatwemight.be>
-Date:   Thu Apr 17 18:11:50 2025 +0100
+commit d8272975468374232b72e85c70cf79c3699aca8b (HEAD -> master, origin/master, origin/HEAD)
+Author: Liangbin Lian <jjm2473@gmail.com>
+Date:   Mon Apr 21 14:19:19 2025 +0800
 
-    realtek-poe: Build for all targets
+    transmission: add syscalls to seccomp filter
     
-    * realtek-poe was only being built for realtek/rtl838x with mips-4kec
-    * needed by targets in realtek/rtl839x with mips-24kc
+    Add missing syscalls found with `/etc/init.d/transmission trace`.
     
-    Signed-off-by: Stephen Howell <howels@allthatwemight.be>
+    fix crash on boot on x86_64 platform
+    
+    Signed-off-by: Liangbin Lian <jjm2473@gmail.com>
