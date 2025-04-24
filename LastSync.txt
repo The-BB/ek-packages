@@ -1,11 +1,12 @@
-commit d8272975468374232b72e85c70cf79c3699aca8b (HEAD -> master, origin/master, origin/HEAD)
-Author: Liangbin Lian <jjm2473@gmail.com>
-Date:   Mon Apr 21 14:19:19 2025 +0800
+commit 711a19c4b23f3517ece5296d323c8f0220a0ff4e (HEAD -> master, origin/master, origin/HEAD)
+Author: Maximilian Trüpschuch <milanx@gmx.net>
+Date:   Tue Apr 22 22:04:46 2025 +0200
 
-    transmission: add syscalls to seccomp filter
+    jq: provide regex support in additional package jq-full
     
-    Add missing syscalls found with `/etc/init.d/transmission trace`.
+    I modified the makefile, so that it will build two packages: jq and
+    jq-full. The former will remain unchanged and the latter will have a
+    dependency to the oniguruma library, so jq-full will have regex functions
+    enabled.
     
-    fix crash on boot on x86_64 platform
-    
-    Signed-off-by: Liangbin Lian <jjm2473@gmail.com>
+    Signed-off-by: Maximilian Trüpschuch <milanx@gmx.net>
