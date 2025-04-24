@@ -1,12 +1,14 @@
-commit 711a19c4b23f3517ece5296d323c8f0220a0ff4e (HEAD -> master, origin/master, origin/HEAD)
-Author: Maximilian Trüpschuch <milanx@gmx.net>
-Date:   Tue Apr 22 22:04:46 2025 +0200
+commit c6daef227b2faa3388b5a300269d263ba9cdaad2 (HEAD -> master, origin/master, origin/HEAD)
+Author: Will Mortensen <willmo@gmail.com>
+Date:   Sun Feb 9 09:20:16 2025 +0000
 
-    jq: provide regex support in additional package jq-full
+    shairport-sync: add drift and ALSA mixer config options
     
-    I modified the makefile, so that it will build two packages: jq and
-    jq-full. The former will remain unchanged and the latter will have a
-    dependency to the oniguruma library, so jq-full will have regex functions
-    enabled.
+    Allow setting drift_tolerance_in_seconds, which replaces the
+    now-deprecated drift option.
     
-    Signed-off-by: Maximilian Trüpschuch <milanx@gmx.net>
+    Also allow setting alsa.mixer_control_index, which is necessary to use
+    the hardware mixer correctly on some devices (like the Apple USB-C
+    Headphone Adapter when a headset is plugged in).
+    
+    Signed-off-by: Will Mortensen <willmo@gmail.com>
