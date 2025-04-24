@@ -21,7 +21,7 @@ PKG_MAINTAINER:=Imre Kaloz <kaloz@openwrt.org>, \
 	Hsing-Wang Liao <kuoruan@gmail.com>
 PKG_LICENSE:=GPLv2
 PKG_LICENSE_FILES:=COPYING
-PKG_CPE_ID:=cpe:/a:tatsuhiro_tsujikawa:aria2
+PKG_CPE_ID:=cpe:/a:aria2_project:aria2
 
 PKG_CONFIG_DEPENDS := \
 	CONFIG_ARIA2_NOSSL \
@@ -95,7 +95,7 @@ define Package/aria2/install
 	$(INSTALL_DIR) $(1)/opt/etc/init.d
 	$(INSTALL_BIN) ./files/S81aria2 $(1)/opt/etc/init.d
 
-	$(INSTALL_CONF) ./files/aria2.conf $(1)/opt/etc
+	$(INSTALL_CONF) ./files/aria2.config $(1)/opt/etc/aria2.conf
 endef
 
 $(eval $(call BuildPackage,aria2))
