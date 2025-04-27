@@ -218,6 +218,17 @@ CONFIGURE_ARGS += \
 	--disable-execinfo \
 	--nowerror=unused-variable
 
+# XXX MIPS: Glibc-2.34: undefined reference to `__sync_lock_test_and_set_8'
+define Build/Configure
+	$(call Build/Configure/Default)
+  ifeq ($(CONFIG_GLIBC_USE_VERSION_2_34),y)
+    ifeq ($(ARCH),$(filter $(ARCH),mips mipsel))
+	$(SED) '/ATOMIC/ s/1/0/' $(PKG_BUILD_DIR)/build.linux/build.h
+	$(SED) '/ATOMIC/ s/yes/no/' $(PKG_BUILD_DIR)/.config.mk
+    endif
+  endif
+endef
+
 ## Transcoding | Remove these from CONFIGURE_ARGS.
 ##	--disable-libav \
 ##	--disable-libx265 \
