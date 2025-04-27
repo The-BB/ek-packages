@@ -1,14 +1,10 @@
-commit c6daef227b2faa3388b5a300269d263ba9cdaad2 (HEAD -> master, origin/master, origin/HEAD)
-Author: Will Mortensen <willmo@gmail.com>
-Date:   Sun Feb 9 09:20:16 2025 +0000
+commit 4c4d71dcb1d0249c39087e7e45b0cf2441d01409 (HEAD -> master, origin/master, origin/HEAD)
+Author: Daniel Golle <daniel@makrotopia.org>
+Date:   Sat Apr 26 04:09:49 2025 +0100
 
-    shairport-sync: add drift and ALSA mixer config options
+    gpgme: update to version 1.24.2
     
-    Allow setting drift_tolerance_in_seconds, which replaces the
-    now-deprecated drift option.
+    Numerous changes, see
+    https://git.gnupg.org/cgi-bin/gitweb.cgi?p=gpgme.git;a=blob;f=NEWS;hb=5214a34ba766d5eba4d0c1ce53be51e118382476
     
-    Also allow setting alsa.mixer_control_index, which is necessary to use
-    the hardware mixer correctly on some devices (like the Apple USB-C
-    Headphone Adapter when a headset is plugged in).
-    
-    Signed-off-by: Will Mortensen <willmo@gmail.com>
+    Signed-off-by: Daniel Golle <daniel@makrotopia.org>
