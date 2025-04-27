@@ -40,7 +40,7 @@
  	/* No luck, so search for the best-matching timezone file */
 --- a/src/bin/psql/command.c
 +++ b/src/bin/psql/command.c
-@@ -4109,7 +4109,7 @@ do_edit(const char *filename_arg, PQExpB
+@@ -4112,7 +4112,7 @@ do_edit(const char *filename_arg, PQExpB
  		const char *tmpdir = getenv("TMPDIR");
  
  		if (!tmpdir)
