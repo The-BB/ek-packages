@@ -1,10 +1,13 @@
-commit 4c4d71dcb1d0249c39087e7e45b0cf2441d01409 (HEAD -> master, origin/master, origin/HEAD)
-Author: Daniel Golle <daniel@makrotopia.org>
-Date:   Sat Apr 26 04:09:49 2025 +0100
+commit e7aa0272db48af438a6338e52c77cd506a5d93ac (HEAD -> master, origin/master, origin/HEAD)
+Author: Kevin Locke <kevin@kevinlocke.name>
+Date:   Sat Nov 30 14:28:31 2024 -0700
 
-    gpgme: update to version 1.24.2
+    strongswan: swanctl: make overtime local
     
-    Numerous changes, see
-    https://git.gnupg.org/cgi-bin/gitweb.cgi?p=gpgme.git;a=blob;f=NEWS;hb=5214a34ba766d5eba4d0c1ce53be51e118382476
+    $overtime has been used since swanctl.init was added in f9d91f1f47.
+    However, there's no need for it to be global.  Make it local like the
+    other config variables to avoid polluting the global namespace and make
+    the code easier to reason about.
     
-    Signed-off-by: Daniel Golle <daniel@makrotopia.org>
+    Fixes: f9d91f1f470a ("strongswan: migrate to swanctl configs")
+    Signed-off-by: Kevin Locke <kevin@kevinlocke.name>
