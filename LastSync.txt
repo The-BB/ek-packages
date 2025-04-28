@@ -1,13 +1,7 @@
-commit e7aa0272db48af438a6338e52c77cd506a5d93ac (HEAD -> master, origin/master, origin/HEAD)
-Author: Kevin Locke <kevin@kevinlocke.name>
-Date:   Sat Nov 30 14:28:31 2024 -0700
+commit b2d2ba8ae9e852f02753dfcf43773883e9b0d123 (HEAD -> master, origin/master, origin/HEAD)
+Author: George Sapkin <george@sapk.in>
+Date:   Thu Apr 24 16:40:38 2025 +0300
 
-    strongswan: swanctl: make overtime local
+    sqlite3: add CI version check
     
-    $overtime has been used since swanctl.init was added in f9d91f1f47.
-    However, there's no need for it to be global.  Make it local like the
-    other config variables to avoid polluting the global namespace and make
-    the code easier to reason about.
-    
-    Fixes: f9d91f1f470a ("strongswan: migrate to swanctl configs")
-    Signed-off-by: Kevin Locke <kevin@kevinlocke.name>
+    Signed-off-by: George Sapkin <george@sapk.in>
