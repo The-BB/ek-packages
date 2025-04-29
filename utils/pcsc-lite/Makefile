@@ -79,7 +79,7 @@ define Build/InstallDev
 	$(CP) $(PKG_INSTALL_DIR)/opt/include/PCSC/* $(1)/opt/include/PCSC/
 	$(INSTALL_DIR) $(1)/opt/lib
 	$(CP) $(PKG_INSTALL_DIR)/opt/lib/libpcsclite.{a,so*} $(1)/opt/lib/
-	$(CP) $(PKG_INSTALL_DIR)/opt/lib/libpcsclite_real.{a,so*} $(1)/opt/lib/
+	$(CP) $(PKG_INSTALL_DIR)/opt/lib/libpcsclite_real.so* $(1)/opt/lib/
 	$(INSTALL_DIR) $(1)/opt/lib/pkgconfig
 	$(CP) $(PKG_INSTALL_DIR)/opt/lib/pkgconfig/libpcsclite.pc $(1)/opt/lib/pkgconfig/
 endef
