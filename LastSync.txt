@@ -1,7 +1,14 @@
-commit b2d2ba8ae9e852f02753dfcf43773883e9b0d123 (HEAD -> master, origin/master, origin/HEAD)
-Author: George Sapkin <george@sapk.in>
-Date:   Thu Apr 24 16:40:38 2025 +0300
+commit 911d890b119e95ceb39fa28b5edb26e42cfbc0ed (HEAD -> master, origin/master, origin/HEAD)
+Author: Fabrice Fontaine <fontaine.fabrice@gmail.com>
+Date:   Wed Feb 26 19:12:14 2025 +0100
 
-    sqlite3: add CI version check
+    libs/libupnp: fix PKG_CPE_ID
     
-    Signed-off-by: George Sapkin <george@sapk.in>
+    pupnp_project:pupnp is a better CPE ID than libupnp_project:libupnp as
+    this CPE ID has the latest CVEs from 2021 (whereas
+    libupnp_project:libupnp only has CVEs up to 2020):
+    https://nvd.nist.gov/products/cpe/search/results?keyword=cpe:2.3:a:pupnp_project:pupnp
+    
+    Fixes: 299e5b0a9bce19d6e96cb9ff217028b36ee2dd36 (treewide: add PKG_CPE_ID for better cvescanner coverage)
+    
+    Signed-off-by: Fabrice Fontaine <fontaine.fabrice@gmail.com>
