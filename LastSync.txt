@@ -1,7 +1,12 @@
-commit abec21420104210721223c8af9eeda35275f0c45 (HEAD -> master, origin/master, origin/HEAD)
-Author: Tianling Shen <cnsztl@immortalwrt.org>
-Date:   Wed Apr 30 18:34:53 2025 +0800
+commit 52b51e30f4c7f7c444a00563feecbc9f24139b28 (HEAD -> master, origin/master, origin/HEAD)
+Author: Dirk Brenken <dev@brenken.org>
+Date:   Sat May 3 14:37:13 2025 +0200
 
-    v2ray-core: Update to 5.30.0
+    adblock: update 4.4.1-2
     
-    Signed-off-by: Tianling Shen <cnsztl@immortalwrt.org>
+    * init improvements
+    * jail mode fixes and improvements
+    * small code cleanups
+    * update the readme
+    
+    Signed-off-by: Dirk Brenken <dev@brenken.org>
