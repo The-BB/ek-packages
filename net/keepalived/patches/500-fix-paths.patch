@@ -1,6 +1,6 @@
 --- a/keepalived/core/global_data.c
 +++ b/keepalived/core/global_data.c
-@@ -875,7 +875,7 @@ dump_global_data(FILE *fp, data_t * data
+@@ -907,7 +907,7 @@ dump_global_data(FILE *fp, data_t * data
  #endif
  #ifdef _WITH_SNMP_
  	conf_write(fp, " SNMP traps %s", data->enable_traps ? "enabled" : "disabled");
