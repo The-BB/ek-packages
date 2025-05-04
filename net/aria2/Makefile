@@ -8,7 +8,7 @@ include $(TOPDIR)/rules.mk
 
 PKG_NAME:=aria2
 PKG_VERSION:=1.37.0
-PKG_RELEASE:=2
+PKG_RELEASE:=3
 
 PKG_SOURCE:=$(PKG_NAME)-$(PKG_VERSION).tar.xz
 PKG_SOURCE_URL:=https://github.com/aria2/aria2/releases/download/release-$(PKG_VERSION)/
@@ -105,6 +105,10 @@ define Package/aria2/install
 	$(INSTALL_BIN) ./files/S81aria2 $(1)/opt/etc/init.d
 
 	$(INSTALL_CONF) ./files/aria2.config $(1)/opt/etc/aria2.conf
+endef
+
+define Package/aria2-openssl/install
+	true
 endef
 
 $(eval $(call BuildPackage,aria2))
