@@ -1,12 +1,15 @@
-commit 52b51e30f4c7f7c444a00563feecbc9f24139b28 (HEAD -> master, origin/master, origin/HEAD)
-Author: Dirk Brenken <dev@brenken.org>
-Date:   Sat May 3 14:37:13 2025 +0200
+commit 53f8aa5c5172e5de2d16d6f9ac83b2acdf1e8f40 (HEAD -> master, origin/master, origin/HEAD)
+Author: George Sapkin <george@sapk.in>
+Date:   Sat May 3 10:41:10 2025 +0300
 
-    adblock: update 4.4.1-2
+    sqlite3: add legacy SONAME
     
-    * init improvements
-    * jail mode fixes and improvements
-    * small code cleanups
-    * update the readme
+    With no SONAME set, when linking against the full library path, that
+    path will be used. But if SONAME is set, it will be used instead.
     
-    Signed-off-by: Dirk Brenken <dev@brenken.org>
+    Set --soname=legacy to add a SONAME to the library to allow projects
+    that use full path to link correctly.
+    
+    Link: https://sqlite.org/src/forumpost/5a3b44f510df8ded
+    Fixes: https://github.com/openwrt/packages/issues/26449
+    Signed-off-by: George Sapkin <george@sapk.in>
