@@ -1,15 +1,84 @@
-commit 53f8aa5c5172e5de2d16d6f9ac83b2acdf1e8f40 (HEAD -> master, origin/master, origin/HEAD)
-Author: George Sapkin <george@sapk.in>
-Date:   Sat May 3 10:41:10 2025 +0300
+commit b98fb6063599fa0c33ac4f8b1ca836b957f2ea96 (HEAD -> master, origin/master, origin/HEAD)
+Author: Matthias Schiffer <mschiffer@universe-factory.net>
+Date:   Sat Apr 26 22:37:16 2025 +0200
 
-    sqlite3: add legacy SONAME
+    perl: fix parallel build race condition in target build
     
-    With no SONAME set, when linking against the full library path, that
-    path will be used. But if SONAME is set, it will be used instead.
+    We have received reports of builds of perl occasionally failing when
+    building with many parallel jobs, with a log like the following:
     
-    Set --soname=legacy to add a SONAME to the library to allow projects
-    that use full path to link correctly.
+        LD_LIBRARY_PATH=[...]/perl/perl-5.40.0 ./miniperl -Ilib make_ext.pl \
+            dist/constant/pm_to_blib  MAKE="make" LIBPERL_A=libperl.so
+        File/Path.pm did not return a true value at [...]/hostpkg/usr/lib/perl5/5.40.0/ExtUtils/MakeMaker.pm line 13.
+        BEGIN failed--compilation aborted at [...]/hostpkg/usr/lib/perl5/5.40.0/ExtUtils/MakeMaker.pm line 13.
+        Compilation failed in require at Makefile.PL line 3.
+        BEGIN failed--compilation aborted at Makefile.PL line 3.
+        Unsuccessful Makefile.PL(dist/constant): code=65280 at make_ext.pl line 532.
     
-    Link: https://sqlite.org/src/forumpost/5a3b44f510df8ded
-    Fixes: https://github.com/openwrt/packages/issues/26449
-    Signed-off-by: George Sapkin <george@sapk.in>
+    The failing extension (dist/constant in the above log) would differ
+    between runs.
+    
+    The cause of the issue is the `-Ilib` in the command line of miniperl.
+    In the host build, `./miniperl -I lib` will use the following include
+    path:
+    
+        [..]/build_dir/hostpkg/perl/perl-5.40.0/cpan/AutoLoader/lib
+        [..]/build_dir/hostpkg/perl/perl-5.40.0/dist/Carp/lib
+        [..]/build_dir/hostpkg/perl/perl-5.40.0/dist/PathTools
+        [..]/build_dir/hostpkg/perl/perl-5.40.0/dist/PathTools/lib
+        [..]/build_dir/hostpkg/perl/perl-5.40.0/cpan/ExtUtils-Install/lib
+        [..]/build_dir/hostpkg/perl/perl-5.40.0/cpan/ExtUtils-MakeMaker/lib
+        [..]/build_dir/hostpkg/perl/perl-5.40.0/cpan/ExtUtils-Manifest/lib
+        [..]/build_dir/hostpkg/perl/perl-5.40.0/cpan/File-Path/lib
+        [..]/build_dir/hostpkg/perl/perl-5.40.0/ext/re
+        [..]/build_dir/hostpkg/perl/perl-5.40.0/dist/Term-ReadLine/lib
+        [..]/build_dir/hostpkg/perl/perl-5.40.0/dist/Exporter/lib
+        [..]/build_dir/hostpkg/perl/perl-5.40.0/ext/File-Find/lib
+        [..]/build_dir/hostpkg/perl/perl-5.40.0/cpan/Text-Tabs/lib
+        [..]/build_dir/hostpkg/perl/perl-5.40.0/dist/constant/lib
+        [..]/build_dir/hostpkg/perl/perl-5.40.0/cpan/version/lib
+        [..]/build_dir/hostpkg/perl/perl-5.40.0/cpan/Getopt-Long/lib
+        [..]/build_dir/hostpkg/perl/perl-5.40.0/cpan/Text-ParseWords/lib
+        [..]/build_dir/hostpkg/perl/perl-5.40.0/cpan/ExtUtils-PL2Bat/lib
+        [..]/build_dir/hostpkg/perl/perl-5.40.0/lib
+        .
+    
+    Various dependencies of the extension build scripts (Makefile.PL) -
+    including File-Path, which failed to be loaded in the error log - are
+    included in the path by buildcustomize.pl, as these extensions are only
+    installed to `lib` as the build proceeds.
+    
+    However, in a target build, miniperl is just a symlink to the previously
+    built host perl. As the host perl does not implicitly load
+    `buildcustomize.pl`, we get the following include path for
+    `./miniperl -Ilib`:
+    
+        lib
+        [..]/staging_dir/hostpkg/usr/lib/perl5/site_perl/5.40.0/x86_64-linux
+        [..]/staging_dir/hostpkg/usr/lib/perl5/site_perl/5.40.0
+        [..]/staging_dir/hostpkg/usr/lib/perl5/5.40.0/x86_64-linux
+        [..]/staging_dir/hostpkg/usr/lib/perl5/5.40.0
+    
+    The host perl's install location is used as the default include path
+    which provides File-Path etc. for the target build; however, as more
+    and more libraries get installed into `lib` during the extension build,
+    they may get loaded from there instead, as `lib` is at the beginning of
+    the include path. When multiple extensions are built in parallel, a
+    Makefile.PL may attempt to load File/Path from `lib` after the file has
+    been created, but before its contents have been written fully, resulting
+    in the build to fail.
+    
+    In fact, we should not load anything from `lib` during the target build,
+    as it is the staging directory for the target, including native
+    extensions built for the target architecture - with one exception: The
+    build scripts expect to find target information in the `Config` module,
+    so simply removing `lib` from the include path completely would break
+    the build.
+    
+    Solve the issue by creating an alternative lib directory `lib_build`,
+    symlinking `Config.pm` and its dependencies in it, and replacing the
+    `-Ilib` argument with `-Ilib_build` using a wrapper script around the
+    host perl executable. This is similar to the approach seen in perl's own
+    obsolete/broken cross compile scripts (`Cross/Makefile`).
+    
+    Signed-off-by: Matthias Schiffer <mschiffer@universe-factory.net>
