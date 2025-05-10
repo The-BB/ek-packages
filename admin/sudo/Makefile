@@ -90,10 +90,6 @@ define Package/sudo/install
 	chmod 0440 $(1)/opt/etc/sudoers
 	$(CP) $(PKG_INSTALL_DIR)/opt/lib/sudo/*.so* $(1)/opt/lib/sudo/
 #	$(INSTALL_BIN) ./files/sudo.init $(1)/etc/init.d/sudo
-  ifneq ($(CONFIG_USE_MUSL),y)
-	$(INSTALL_DIR) $(1)/opt/etc/ld.so.conf.d
-	$(INSTALL_DATA) ./files/sudo.conf $(1)/opt/etc/ld.so.conf.d
-  endif
 endef
 
 #define Package/sudo/postinst
@@ -104,16 +100,5 @@ endef
 #	/etc/init.d/sudo start
 #}
 #endef
-
-ifeq ($(CONFIG_USE_MUSL),y)
-define Package/sudo/postinst
-#!/bin/sh
-
-if ! grep -q 'sudo' /opt/etc/ld-musl-$(ARCH)$(if $(or $(CONFIG_mips),$(CONFIG_mipsel)),-sf).path; then
-  printf "# path to sudo libs\n/opt/lib/sudo\n" >> \
-  /opt/etc/ld-musl-$(ARCH)$(if $(or $(CONFIG_mips),$(CONFIG_mipsel)),-sf).path
-fi
-endef
-endif
 
 $(eval $(call BuildPackage,sudo))
