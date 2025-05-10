@@ -141,6 +141,7 @@ MESON_ARGS += \
 endif
 
 TARGET_LDFLAGS += -Wl,--gc-sections $(if $(INTL_FULL),-lintl)
+TARGET_LDFLAGS += $(if $(ICONV_FULL),-liconv)
 
 define Build/Prepare
 	$(call Build/Prepare/Default)
