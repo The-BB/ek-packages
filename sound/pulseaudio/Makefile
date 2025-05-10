@@ -188,10 +188,6 @@ define Package/pulseaudio-daemon/install
 	$(INSTALL_DIR) $(1)/opt/lib/pulse-$(PKG_VERSION)/modules
 	$(CP) $(PKG_INSTALL_DIR)/opt/lib/pulseaudio/modules/lib*.so $(1)/opt/lib/
 	$(CP) $(PKG_INSTALL_DIR)/opt/lib/pulseaudio/modules/module*.so $(1)/opt/lib/pulseaudio/modules/
-  ifneq ($(CONFIG_USE_MUSL),y)
-	$(INSTALL_DIR) $(1)/opt/etc/ld.so.conf.d
-	$(INSTALL_DATA) ./files/pulseaudio.conf $(1)/opt/etc/ld.so.conf.d
-  endif
 endef
 
 define Package/pulseaudio-daemon-avahi/install
@@ -200,19 +196,6 @@ define Package/pulseaudio-daemon-avahi/install
 	$(INSTALL_DIR) $(1)/opt/share/dbus-1/system.d
 	$(INSTALL_DATA) $(PKG_INSTALL_DIR)/opt/share/dbus-1/system.d/pulseaudio-system.conf $(1)/opt/share/dbus-1/system.d/pulseaudio-system.conf
 endef
-
-ifeq ($(CONFIG_USE_MUSL),y)
-define Package/pulseaudio-daemon/postinst
-#!/bin/sh
-
-if ! grep -q 'pulseaudio' /opt/etc/ld-musl-$(ARCH)$(if $(or $(CONFIG_mips),$(CONFIG_mipsel)),-sf).path; then
-  printf "# path to pulseaudio libs\n/opt/lib/pulseaudio\n/opt/lib/pulseaudio/modules\n" >> \
-  /opt/etc/ld-musl-$(ARCH)$(if $(or $(CONFIG_mips),$(CONFIG_mipsel)),-sf).path
-fi
-endef
-
-Package/pulseaudio-daemon-avahi/postinst=$(Package/pulseaudio-daemon/postinst)
-endif
 
 define Package/pulseaudio-tools/install
 	$(INSTALL_DIR) $(1)/opt/bin
