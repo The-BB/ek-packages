@@ -143,31 +143,7 @@ define Package/dovecot/install
 
 	$(INSTALL_DIR) $(1)/opt/sbin
 	$(INSTALL_BIN) $(PKG_INSTALL_DIR)/opt/sbin/* $(1)/opt/sbin/
-
-  ifneq ($(CONFIG_USE_MUSL),y)
-	$(INSTALL_DIR) $(1)/opt/etc/ld.so.conf.d
-	$(INSTALL_DATA) ./files/dovecot.conf $(1)/opt/etc/ld.so.conf.d
-  endif
 endef
-
-ifeq ($(CONFIG_USE_MUSL),y)
-define Package/dovecot/postinst
-#!/bin/sh
-
-ld_conf="
-# path to dovecot libs
-/opt/lib/dovecot
-/opt/lib/dovecot/modules
-/opt/lib/dovecot/modules/auth
-/opt/lib/dovecot/modules/doveadm
-/opt/lib/dovecot/modules/old-stats
-"
-
-if ! grep -q 'dovecot' /opt/etc/ld-musl-$(ARCH)$(if $(or $(CONFIG_mips),$(CONFIG_mipsel)),-sf).path; then
-  printf "$$ld_conf" >> /opt/etc/ld-musl-$(ARCH)$(if $(or $(CONFIG_mips),$(CONFIG_mipsel)),-sf).path
-fi
-endef
-endif
 
 define Package/dovecot-utils/install
 	$(INSTALL_DIR) $(1)/opt/bin
