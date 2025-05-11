@@ -1,7 +1,15 @@
-commit b36612de69754d0f270050649b7c5760ae5c4196 (HEAD -> master, origin/master, origin/HEAD)
-Author: Tianling Shen <cnsztl@immortalwrt.org>
-Date:   Fri May 9 16:29:31 2025 +0800
+commit c851cf35c58fc00633aaf214ad99bb8184fa9319 (HEAD -> master, origin/master, origin/HEAD)
+Author: John Audia <therealgraysky@proton.me>
+Date:   Fri Apr 11 09:57:51 2025 -0400
 
-    yq: Update to 4.45.3
+    nfs-kernel-server: update to v2.8.3
     
-    Signed-off-by: Tianling Shen <cnsztl@immortalwrt.org>
+    Update to v2.8.3
+    Removed upstreamed: 210-patch-for-broken-libnfsimapd-static-and-regex-plugins.patch
+    Added: 210-nfsdctl.c-add-missing-basename.patch
+    
+    Build system: x86/64
+    Build-tested: x86/64
+    Run-tested: x86/64
+    
+    Signed-off-by: John Audia <therealgraysky@proton.me>
