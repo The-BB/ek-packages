@@ -449,6 +449,10 @@ define BuildPlugin
 	$(call Plugin/$(1)/install,$$(1))
   endef
 
+  define Package/strongswan-mod-$(1)/conffiles
+/opt/etc/strongswan.d/charon/$(1).conf
+endef
+
   $$(eval $$(call BuildPackage,strongswan-mod-$(1)))
 endef
 
@@ -511,6 +515,11 @@ define Package/strongswan-charon/install
 	$(INSTALL_DIR) $(1)/opt/lib/ipsec
 	$(INSTALL_BIN) $(PKG_INSTALL_DIR)/opt/lib/ipsec/charon $(1)/opt/lib/ipsec/
 	$(CP) $(PKG_INSTALL_DIR)/opt/lib/ipsec/libcharon.so.* $(1)/opt/lib/ipsec/
+endef
+
+define Package/strongswan-charon/conffiles
+/opt/etc/strongswan.d/charon.conf
+/opt/etc/strongswan.d/charon-logging.conf
 endef
 
 define Package/strongswan-charon-cmd/install
