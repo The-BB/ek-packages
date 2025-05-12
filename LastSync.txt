@@ -1,15 +1,14 @@
-commit c851cf35c58fc00633aaf214ad99bb8184fa9319 (HEAD -> master, origin/master, origin/HEAD)
-Author: John Audia <therealgraysky@proton.me>
-Date:   Fri Apr 11 09:57:51 2025 -0400
+commit 17748714765694e2c898f16a51e8a424901517ee (HEAD -> master, origin/master, origin/HEAD)
+Author: Fabrice Fontaine <fontaine.fabrice@gmail.com>
+Date:   Wed Feb 26 22:26:44 2025 +0100
 
-    nfs-kernel-server: update to v2.8.3
+    libs/libuv: fix PKG_CPE_ID
     
-    Update to v2.8.3
-    Removed upstreamed: 210-patch-for-broken-libnfsimapd-static-and-regex-plugins.patch
-    Added: 210-nfsdctl.c-add-missing-basename.patch
+    libuv:libuv is a better CPE ID than libuv_project:libuv as this CPE ID
+    has the latest CVEs (whereas libuv_project:libuv only has a CVE from
+    2015):
+    https://nvd.nist.gov/products/cpe/search/results?keyword=cpe:2.3:a:libuv:libuv
     
-    Build system: x86/64
-    Build-tested: x86/64
-    Run-tested: x86/64
+    Fixes: f8ecbf529bad57970e4ff8f90484ba58d06b4a39 (libuv: update to 1.32.0)
     
-    Signed-off-by: John Audia <therealgraysky@proton.me>
+    Signed-off-by: Fabrice Fontaine <fontaine.fabrice@gmail.com>
