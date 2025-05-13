@@ -1,14 +1,10 @@
-commit 17748714765694e2c898f16a51e8a424901517ee (HEAD -> master, origin/master, origin/HEAD)
-Author: Fabrice Fontaine <fontaine.fabrice@gmail.com>
-Date:   Wed Feb 26 22:26:44 2025 +0100
+commit aafff5ff987a45d6bdb49abce8b312edda37ebe9 (HEAD -> master, origin/master, origin/HEAD)
+Author: Stan Grishin <stangri@melmac.ca>
+Date:   Mon May 12 01:55:03 2025 +0000
 
-    libs/libuv: fix PKG_CPE_ID
+    https-dns-proxy: update to 2025.05.11
     
-    libuv:libuv is a better CPE ID than libuv_project:libuv as this CPE ID
-    has the latest CVEs (whereas libuv_project:libuv only has a CVE from
-    2015):
-    https://nvd.nist.gov/products/cpe/search/results?keyword=cpe:2.3:a:libuv:libuv
+    * update to 2025.05.11 from upstream: https://github.com/aarond10/https_dns_proxy/commit/a34e20d6e24df603427d91bac8f58c2d3a8aa0a6
+    * update default config with default value for procd_fw_src_interfaces
     
-    Fixes: f8ecbf529bad57970e4ff8f90484ba58d06b4a39 (libuv: update to 1.32.0)
-    
-    Signed-off-by: Fabrice Fontaine <fontaine.fabrice@gmail.com>
+    Signed-off-by: Stan Grishin <stangri@melmac.ca>
