@@ -11,7 +11,7 @@
  				break;
 --- a/src/btop_menu.cpp
 +++ b/src/btop_menu.cpp
-@@ -212,7 +212,7 @@ namespace Menu {
+@@ -214,7 +214,7 @@ namespace Menu {
  				"Set color theme.",
  				"",
  				"Choose from all theme files in (usually)",
