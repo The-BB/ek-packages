@@ -1,10 +1,10 @@
-commit aafff5ff987a45d6bdb49abce8b312edda37ebe9 (HEAD -> master, origin/master, origin/HEAD)
-Author: Stan Grishin <stangri@melmac.ca>
-Date:   Mon May 12 01:55:03 2025 +0000
+commit d63d5c202ae803d0f8f5952d4c321098f407cf09 (HEAD -> master, origin/master, origin/HEAD)
+Author: Andris PE <neandris@gmail.com>
+Date:   Tue May 13 17:46:15 2025 +0000
 
-    https-dns-proxy: update to 2025.05.11
+    net/bcp38: Add cgnat shared space to bcp38 list
     
-    * update to 2025.05.11 from upstream: https://github.com/aarond10/https_dns_proxy/commit/a34e20d6e24df603427d91bac8f58c2d3a8aa0a6
-    * update default config with default value for procd_fw_src_interfaces
+    Add CG-NAT address space to non-routable list
+    Mmake dhcp filter stricter
     
-    Signed-off-by: Stan Grishin <stangri@melmac.ca>
+    Signed-off-by: Andris PE <neandris@gmail.com>
