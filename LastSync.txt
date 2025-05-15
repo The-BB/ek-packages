@@ -1,10 +1,15 @@
-commit d63d5c202ae803d0f8f5952d4c321098f407cf09 (HEAD -> master, origin/master, origin/HEAD)
-Author: Andris PE <neandris@gmail.com>
-Date:   Tue May 13 17:46:15 2025 +0000
+commit 0d18846dab8aba7a2c7a0ad3feeae42660fac36f (HEAD -> master, origin/master, origin/HEAD)
+Author: Florian Eckert <fe@dev.tdt.de>
+Date:   Wed Apr 23 12:42:18 2025 +0200
 
-    net/bcp38: Add cgnat shared space to bcp38 list
+    xtables-addons: remove not needed iptables install dependency for RTSP helpers
     
-    Add CG-NAT address space to non-routable list
-    Mmake dhcp filter stricter
+    The RTSP conntrack and nat does not dependent on iptables, but only on
+    nf_conntrack and nf_nat. The RTSP conntrack module is used as a helper in
+    firewall4 [1]. Previously, it was not possible to install RTSP kernel module
+    without also installing the not needed iptables modules. However, as firewall4
+    is based on nftables and not on iptables, this dependency is not necessary.
     
-    Signed-off-by: Andris PE <neandris@gmail.com>
+    [1] https://github.com/openwrt/firewall4/blob/master/root/usr/share/firewall4/helpers#L89
+    
+    Signed-off-by: Florian Eckert <fe@dev.tdt.de>
