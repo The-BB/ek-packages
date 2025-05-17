@@ -1,15 +1,7 @@
-commit 0d18846dab8aba7a2c7a0ad3feeae42660fac36f (HEAD -> master, origin/master, origin/HEAD)
-Author: Florian Eckert <fe@dev.tdt.de>
-Date:   Wed Apr 23 12:42:18 2025 +0200
+commit c26204d36a72eeb2276d6127b6361abf51a3637e (HEAD -> master, origin/master, origin/HEAD)
+Author: Tianling Shen <cnsztl@immortalwrt.org>
+Date:   Sat May 17 21:41:34 2025 +0800
 
-    xtables-addons: remove not needed iptables install dependency for RTSP helpers
+    cloudflared: Update to 2025.5.0
     
-    The RTSP conntrack and nat does not dependent on iptables, but only on
-    nf_conntrack and nf_nat. The RTSP conntrack module is used as a helper in
-    firewall4 [1]. Previously, it was not possible to install RTSP kernel module
-    without also installing the not needed iptables modules. However, as firewall4
-    is based on nftables and not on iptables, this dependency is not necessary.
-    
-    [1] https://github.com/openwrt/firewall4/blob/master/root/usr/share/firewall4/helpers#L89
-    
-    Signed-off-by: Florian Eckert <fe@dev.tdt.de>
+    Signed-off-by: Tianling Shen <cnsztl@immortalwrt.org>
