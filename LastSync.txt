@@ -1,12 +1,8 @@
-commit f21bc7f170da725285a9d017b98c8da8869ec327 (HEAD -> master, origin/master, origin/HEAD)
-Author: Michael Heimpold <mhei@heimpold.de>
-Date:   Tue May 13 07:33:11 2025 +0200
+commit 7c268c3ac2cc3e3fb259c057036ec7032cc16395 (HEAD -> master, origin/master, origin/HEAD)
+Author: Thlv Alivs <zgmzzzz18@gmail.com>
+Date:   Sun May 18 12:40:32 2025 +0800
 
-    php8: adapt test.sh for upcoming opkg -> apk transition
+    zabbix: update to 7.0.12
+    also fix build error
     
-    We used to rely on opkg to install the CLI tool for testing
-    PHP modules, but when opkg is not available anymore, we have to
-    use apk. The (simple) switch logic assumes, that only one
-    of both package manager tools is installed.
-    
-    Signed-off-by: Michael Heimpold <mhei@heimpold.de>
+    Signed-off-by: Thlv Alivs <zgmzzzz18@gmail.com>
