@@ -1,7 +1,12 @@
-commit c26204d36a72eeb2276d6127b6361abf51a3637e (HEAD -> master, origin/master, origin/HEAD)
-Author: Tianling Shen <cnsztl@immortalwrt.org>
-Date:   Sat May 17 21:41:34 2025 +0800
+commit f21bc7f170da725285a9d017b98c8da8869ec327 (HEAD -> master, origin/master, origin/HEAD)
+Author: Michael Heimpold <mhei@heimpold.de>
+Date:   Tue May 13 07:33:11 2025 +0200
 
-    cloudflared: Update to 2025.5.0
+    php8: adapt test.sh for upcoming opkg -> apk transition
     
-    Signed-off-by: Tianling Shen <cnsztl@immortalwrt.org>
+    We used to rely on opkg to install the CLI tool for testing
+    PHP modules, but when opkg is not available anymore, we have to
+    use apk. The (simple) switch logic assumes, that only one
+    of both package manager tools is installed.
+    
+    Signed-off-by: Michael Heimpold <mhei@heimpold.de>
