@@ -4,7 +4,7 @@
 # This is free software, licensed under the GNU General Public License v2.
 # See /LICENSE for more information.
 #
-# Entware specific: autoreconf added
+# Entware specific: autoreconf added, IPV6_FREEBIND fix from https://github.com/acassen/keepalived/commit/8ccb425d5f15f83755a4d959fa2821ed1564cefe.patch
 
 include $(TOPDIR)/rules.mk
 
@@ -221,9 +221,9 @@ endif
 #	$(INSTALL_BIN) ./files/etc/uci-defaults/keepalived \
 #		$(1)/etc/uci-defaults/keepalived
 
-#	$(INSTALL_DIR) $(1)/etc/init.d
-#	$(INSTALL_BIN) ./files/keepalived.init \
-#		$(1)/etc/init.d/keepalived
+	$(INSTALL_DIR) $(1)/opt/etc/init.d
+	$(INSTALL_BIN) ./files/S81keepalived \
+		$(1)/opt/etc/init.d
 
 #	$(INSTALL_DIR) $(1)/etc/config
 #	$(INSTALL_CONF) ./files/keepalived.config \
