@@ -1,8 +1,11 @@
-commit 7c268c3ac2cc3e3fb259c057036ec7032cc16395 (HEAD -> master, origin/master, origin/HEAD)
-Author: Thlv Alivs <zgmzzzz18@gmail.com>
-Date:   Sun May 18 12:40:32 2025 +0800
+commit 937e2a5b809cbd21bee7bf8d1e7c2bb90ad21275 (HEAD -> master, origin/master, origin/HEAD)
+Author: Tianling Shen <cnsztl@immortalwrt.org>
+Date:   Sun May 25 18:41:17 2025 +0800
 
-    zabbix: update to 7.0.12
-    also fix build error
+    openthread-br: fix build on GCC 14
     
-    Signed-off-by: Thlv Alivs <zgmzzzz18@gmail.com>
+    This patch is taken from openwrt/openwrt@a41747ac8e82 ("mbedtls: fix
+     build on GCC 14").
+    
+    Fixes: #26570
+    Signed-off-by: Tianling Shen <cnsztl@immortalwrt.org>
