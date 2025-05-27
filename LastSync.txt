@@ -1,14 +1,10 @@
-commit 2c78935539f06d1b4c48a358e95ff2e0fcdbeab5 (HEAD -> master, origin/master, origin/HEAD)
-Author: Robert Marko <robimarko@gmail.com>
-Date:   Mon May 26 19:06:33 2025 +0200
+commit b82574b31c240efedcb3f96274982a2703abf440 (HEAD -> master, origin/master, origin/HEAD)
+Author: Philip Prindeville <philipp@redfish-solutions.com>
+Date:   Sun May 25 21:20:25 2025 -0600
 
-    usb-serial-xr_usb_serial_common: remove package
+    named: /var/run/named isn't being created with correct permissions
     
-    Now that we have packaged the upstream driver[1] and only board[2] that
-    includes it by default has been switched to it, remove this out-of-tree
-    driver that is broken on 6.12 anyway.
+    It needs to be group writable or session.key can't be written once
+    named drops privileges.
     
-    [1] https://github.com/openwrt/openwrt/commit/d39d626b23756fe574ad46e093f5a796b1861b17
-    [2] https://github.com/openwrt/openwrt/commit/200a31b6f5ec7a46e5556b55d4e45a74fb5d6167
-    
-    Signed-off-by: Robert Marko <robimarko@gmail.com>
+    Signed-off-by: Philip Prindeville <philipp@redfish-solutions.com>
