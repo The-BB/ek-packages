@@ -1,10 +1,7 @@
-commit b82574b31c240efedcb3f96274982a2703abf440 (HEAD -> master, origin/master, origin/HEAD)
-Author: Philip Prindeville <philipp@redfish-solutions.com>
-Date:   Sun May 25 21:20:25 2025 -0600
+commit a6b068923461e19e14d1d93ef76d3efca127d2f8 (HEAD -> master, origin/master, origin/HEAD)
+Author: Packet Please <pktpls@systemli.org>
+Date:   Wed May 28 17:50:17 2025 +0200
 
-    named: /var/run/named isn't being created with correct permissions
+    poemgr: update to latest Git HEAD
     
-    It needs to be group writable or session.key can't be written once
-    named drops privileges.
-    
-    Signed-off-by: Philip Prindeville <philipp@redfish-solutions.com>
+    Signed-off-by: Packet Please <pktpls@systemli.org>
