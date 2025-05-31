@@ -1,7 +1,13 @@
-commit a6b068923461e19e14d1d93ef76d3efca127d2f8 (HEAD -> master, origin/master, origin/HEAD)
-Author: Packet Please <pktpls@systemli.org>
-Date:   Wed May 28 17:50:17 2025 +0200
+commit 250d8d7f16a962c9bf24e85d0c98609b0daa7336 (HEAD -> master, origin/master, origin/HEAD)
+Author: Jonas Jelonek <jelonek.jonas@gmail.com>
+Date:   Fri May 30 20:43:13 2025 +0000
 
-    poemgr: update to latest Git HEAD
+    eza: update to 0.21.4
     
-    Signed-off-by: Packet Please <pktpls@systemli.org>
+    [release notes]
+    0.21.1: https://github.com/eza-community/eza/releases/tag/v0.21.1
+    0.21.2: https://github.com/eza-community/eza/releases/tag/v0.21.2
+    0.21.3: https://github.com/eza-community/eza/releases/tag/v0.21.3
+    0.21.4: https://github.com/eza-community/eza/releases/tag/v0.21.4
+    
+    Signed-off-by: Jonas Jelonek <jelonek.jonas@gmail.com>
