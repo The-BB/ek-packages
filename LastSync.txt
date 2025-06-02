@@ -1,13 +1,7 @@
-commit 250d8d7f16a962c9bf24e85d0c98609b0daa7336 (HEAD -> master, origin/master, origin/HEAD)
-Author: Jonas Jelonek <jelonek.jonas@gmail.com>
-Date:   Fri May 30 20:43:13 2025 +0000
+commit a47f0830d85bfd8c60fddcc2f0ef5cc407b46b33 (HEAD -> master, origin/master, origin/HEAD)
+Author: Jan Hák <jan.hak@nic.cz>
+Date:   Fri May 23 13:59:06 2025 +0200
 
-    eza: update to 0.21.4
+    liburcu: update to version 0.15.3
     
-    [release notes]
-    0.21.1: https://github.com/eza-community/eza/releases/tag/v0.21.1
-    0.21.2: https://github.com/eza-community/eza/releases/tag/v0.21.2
-    0.21.3: https://github.com/eza-community/eza/releases/tag/v0.21.3
-    0.21.4: https://github.com/eza-community/eza/releases/tag/v0.21.4
-    
-    Signed-off-by: Jonas Jelonek <jelonek.jonas@gmail.com>
+    Signed-off-by: Jan Hák <jan.hak@nic.cz>
