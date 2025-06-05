@@ -1,7 +1,10 @@
-commit a47f0830d85bfd8c60fddcc2f0ef5cc407b46b33 (HEAD -> master, origin/master, origin/HEAD)
-Author: Jan Hák <jan.hak@nic.cz>
-Date:   Fri May 23 13:59:06 2025 +0200
+commit 08b4fcd5e6b2ec5853c7eedd548bff0d3f541fbe (HEAD -> master, origin/master, origin/HEAD)
+Author: Nikolay Manev <just.ops@proton.me>
+Date:   Fri May 23 15:20:15 2025 +0300
 
-    liburcu: update to version 0.15.3
+    fping: update to version 5.3
     
-    Signed-off-by: Jan Hák <jan.hak@nic.cz>
+    * update to version 5.3
+    * added test.sh file for ci testing
+    
+    Signed-off-by: Nikolay Manev <just.ops@proton.me>
