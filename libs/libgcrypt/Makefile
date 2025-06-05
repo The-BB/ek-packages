@@ -53,6 +53,9 @@ CONFIGURE_ARGS += \
 
 TARGET_CFLAGS += $(FPIC)
 
+# Entware specifics: add libpthread
+TARGET_LDFLAGS += $(if $(CONFIG_USE_GLIBC),-pthread)
+
 define Build/InstallDev
 	$(INSTALL_DIR) $(1)/opt/bin $(2)/bin $(1)/opt/include $(1)/opt/lib/pkgconfig $(1)/opt/share/aclocal
 	$(INSTALL_BIN) $(PKG_INSTALL_DIR)/opt/bin/libgcrypt-config $(1)/opt/bin/
