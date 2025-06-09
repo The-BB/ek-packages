@@ -52,7 +52,8 @@ PKG_AUTOMAKE_PATHS:=$(MAKE_PATH)
 
 CONFIGURE_ARGS += \
 	--with-database=sqlite3 \
-	--with-included-gsl
+	--with-included-gsl \
+	--disable-documentation
 
 define Package/bogofilter/conffiles
 /opt/etc/bogofilter.cf
@@ -63,7 +64,7 @@ define Package/bogofilter/install
                         $(1)/opt/bin \
                         $(1)/opt/sbin
 	$(INSTALL_CONF) $(PKG_BUILD_DIR)/$(MAKE_PATH)/bogofilter.cf.example $(1)/opt/etc/bogofilter.cf
-#	$(INSTALL_BIN) ./files/postfix-bogofilter $(1)/opt/sbin/postfix-bogofilter
+#	$(INSTALL_BIN) ./files/postfix-bogofilter $(1)/sbin/postfix-bogofilter
 	$(CP) $(PKG_INSTALL_DIR)/opt/bin/bf_compact $(1)/opt/bin/
 	$(CP) $(PKG_INSTALL_DIR)/opt/bin/bf_copy $(1)/opt/bin/
 	$(CP) $(PKG_INSTALL_DIR)/opt/bin/bf_tar $(1)/opt/bin/
