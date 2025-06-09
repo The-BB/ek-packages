@@ -1,10 +1,10 @@
-commit 08b4fcd5e6b2ec5853c7eedd548bff0d3f541fbe (HEAD -> master, origin/master, origin/HEAD)
-Author: Nikolay Manev <just.ops@proton.me>
-Date:   Fri May 23 15:20:15 2025 +0300
+commit d1422dda41cee99f6ab9c0f302edbbdc95c247bc (HEAD -> master, origin/master, origin/HEAD)
+Author: Javier Marcet <javier@marcet.info>
+Date:   Sat Jun 7 10:54:21 2025 +0200
 
-    fping: update to version 5.3
+    docker-compose: Update to version 2.37.0
     
-    * update to version 5.3
-    * added test.sh file for ci testing
+    Release notes:
+    https://github.com/docker/compose/releases/tag/v2.37.0
     
-    Signed-off-by: Nikolay Manev <just.ops@proton.me>
+    Signed-off-by: Javier Marcet <javier@marcet.info>
