@@ -4,17 +4,16 @@
 # This is free software, licensed under the GNU General Public License v2.
 # See /LICENSE for more information.
 #
-# Entware specific: no uci
 
 include $(TOPDIR)/rules.mk
 
 PKG_NAME:=strongswan
-PKG_VERSION:=5.9.14
-PKG_RELEASE:=9
+PKG_VERSION:=6.0.1
+PKG_RELEASE:=1
 
 PKG_SOURCE:=$(PKG_NAME)-$(PKG_VERSION).tar.bz2
 PKG_SOURCE_URL:=https://download.strongswan.org/ https://download2.strongswan.org/
-PKG_HASH:=728027ddda4cb34c67c4cec97d3ddb8c274edfbabdaeecf7e74693b54fc33678
+PKG_HASH:=212368cbc674fed31f3292210303fff06da8b90acad2d1387375ed855e6879c4
 PKG_LICENSE:=GPL-2.0-or-later
 PKG_MAINTAINER:=Philip Prindeville <philipp@redfish-solutions.com>, Noel Kuntze <noel.kuntze@thermi.consulting>
 PKG_CPE_ID:=cpe:/a:strongswan:strongswan
@@ -26,7 +25,6 @@ PKG_MOD_AVAILABLE:= \
 	agent \
 	attr \
 	attr-sql \
-	bliss \
 	blowfish \
 	ccm \
 	chapoly \
@@ -63,12 +61,11 @@ PKG_MOD_AVAILABLE:= \
 	ldap \
 	led \
 	load-tester \
+	lookip \
 	md4 \
 	md5 \
 	mgf1 \
 	mysql \
-	newhope \
-	ntru \
 	openssl \
 	pem \
 	pgp \
@@ -150,14 +147,12 @@ $(call Package/strongswan/Default)
 	+strongswan-charon \
 	+strongswan-charon-cmd \
 	+strongswan-ipsec \
-	+strongswan-libnttfft \
 	+strongswan-mod-addrblock \
 	+strongswan-mod-aes \
 	+strongswan-mod-af-alg \
 	+strongswan-mod-agent \
 	+strongswan-mod-attr \
 	+strongswan-mod-attr-sql \
-	+strongswan-mod-bliss \
 	+strongswan-mod-blowfish \
 	+strongswan-mod-ccm \
 	+strongswan-mod-chapoly \
@@ -192,12 +187,11 @@ $(call Package/strongswan/Default)
 	+strongswan-mod-ldap \
 	+strongswan-mod-led \
 	+strongswan-mod-load-tester \
+	+strongswan-mod-lookip \
 	+strongswan-mod-md4 \
 	+strongswan-mod-md5 \
 	+strongswan-mod-mgf1 \
 	+strongswan-mod-mysql \
-	+strongswan-mod-newhope \
-	+strongswan-mod-ntru \
 	+strongswan-mod-openssl \
 	+strongswan-mod-pem \
 	+strongswan-mod-pgp \
@@ -376,17 +370,6 @@ $(call Package/strongswan/description/Default)
  This package contains the ipsec utility.
 endef
 
-define Package/strongswan-libnttfft
-$(call Package/strongswan/Default)
-  TITLE+= nttfft library
-  DEPENDS:= strongswan
-endef
-
-define Package/strongswan-libnttfft/description
-$(call Package/strongswan/description/Default)
- This package contains the Number Theoretic Transforms library.
-endef
-
 define Package/strongswan-pki
 $(call Package/strongswan/Default)
   TITLE+= PKI tool
@@ -465,6 +448,7 @@ CONFIGURE_ARGS+= \
 	--enable-mediation \
 	--with-systemdsystemunitdir=no \
 	$(if $(CONFIG_PACKAGE_strongswan-charon-cmd),--enable-cmd,--disable-cmd) \
+	$(if $(CONFIG_PACKAGE_strongswan-mod-gmpdh),--enable-gmpdh,) \
 	$(if $(CONFIG_PACKAGE_strongswan-pki),--enable-pki,--disable-pki) \
 	--with-piddir=/opt/var/run \
 	--with-random-device=/dev/random \
@@ -546,11 +530,6 @@ define Package/strongswan-ipsec/install
 	$(INSTALL_BIN) $(PKG_INSTALL_DIR)/opt/sbin/ipsec $(1)/opt/sbin/
 endef
 
-
-define Package/strongswan-libnttfft/install
-	$(INSTALL_DIR) $(1)/opt/lib/ipsec
-	$(CP) $(PKG_INSTALL_DIR)/opt/lib/ipsec/libnttfft.so.* $(1)/opt/lib/ipsec/
-endef
 
 define Package/strongswan-pki/install
 	$(INSTALL_DIR) $(1)/opt/etc/strongswan.d
@@ -645,7 +624,6 @@ $(eval $(call BuildPackage,strongswan-isakmp))
 $(eval $(call BuildPackage,strongswan-charon))
 $(eval $(call BuildPackage,strongswan-charon-cmd))
 $(eval $(call BuildPackage,strongswan-ipsec))
-$(eval $(call BuildPackage,strongswan-libnttfft))
 $(eval $(call BuildPackage,strongswan-pki))
 $(eval $(call BuildPackage,strongswan-swanctl))
 $(eval $(call BuildPackage,strongswan-gencerts))
@@ -656,7 +634,6 @@ $(eval $(call BuildPlugin,af-alg,AF_ALG crypto interface to Linux Crypto API,))
 $(eval $(call BuildPlugin,agent,SSH agent signing,))
 $(eval $(call BuildPlugin,attr,file based config,))
 $(eval $(call BuildPlugin,attr-sql,SQL based config,+strongswan-charon))
-$(eval $(call BuildPlugin,bliss,BLISS crypto,+strongswan-libnttfft +strongswan-mod-mgf1 +strongswan-mod-hmac))
 $(eval $(call BuildPlugin,blowfish,Blowfish crypto,))
 $(eval $(call BuildPlugin,ccm,CCM AEAD wrapper crypto,))
 $(eval $(call BuildPlugin,chapoly,ChaCha20-Poly1305 AEAD crypto,))
@@ -693,12 +670,11 @@ $(eval $(call BuildPlugin,kernel-netlink,netlink kernel interface,))
 $(eval $(call BuildPlugin,ldap,LDAP,+PACKAGE_strongswan-mod-ldap:libopenldap))
 $(eval $(call BuildPlugin,led,LED blink on IKE activity,))
 $(eval $(call BuildPlugin,load-tester,load testing,))
+$(eval $(call BuildPlugin,lookip,enable fast virtual IP lookup and notification,))
 $(eval $(call BuildPlugin,md4,MD4 crypto,))
 $(eval $(call BuildPlugin,md5,MD5 crypto,))
 $(eval $(call BuildPlugin,mgf1,MGF1 crypto,))
 $(eval $(call BuildPlugin,mysql,MySQL database interface,+strongswan-mod-sql +PACKAGE_strongswan-mod-mysql:libmysqlclient-r))
-$(eval $(call BuildPlugin,newhope,New Hope crypto,+strongswan-libnttfft +strongswan-mod-chapoly +strongswan-mod-sha3))
-$(eval $(call BuildPlugin,ntru,NTRU crypto,+strongswan-mod-mgf1))
 $(eval $(call BuildPlugin,openssl,OpenSSL crypto,+PACKAGE_strongswan-mod-openssl:libopenssl))
 $(eval $(call BuildPlugin,pem,PEM decoding,))
 $(eval $(call BuildPlugin,pgp,PGP key decoding,))
@@ -723,7 +699,6 @@ $(eval $(call BuildPlugin,sqlite,SQLite database interface,+strongswan-mod-sql +
 $(eval $(call BuildPlugin,sshkey,SSH key decoding,))
 $(eval $(call BuildPlugin,stroke,Stroke,+strongswan-charon +strongswan-ipsec))
 $(eval $(call BuildPlugin,test-vectors,crypto test vectors,))
-#$(eval $(call BuildPlugin,uci,UCI config interface,+PACKAGE_strongswan-mod-uci:libuci @BROKEN))
 $(eval $(call BuildPlugin,unity,Cisco Unity extension,))
 $(eval $(call BuildPlugin,updown,updown firewall,+iptables))
 $(eval $(call BuildPlugin,vici,Versatile IKE Configuration Interface,))
