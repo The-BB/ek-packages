@@ -1,10 +1,15 @@
-commit d1422dda41cee99f6ab9c0f302edbbdc95c247bc (HEAD -> master, origin/master, origin/HEAD)
-Author: Javier Marcet <javier@marcet.info>
-Date:   Sat Jun 7 10:54:21 2025 +0200
+commit fa01e8adfcae6d58cd780bc4578e1d27053932a9 (HEAD -> master, origin/master, origin/HEAD)
+Author: Josef Schlehofer <pepe.schlehofer@gmail.com>
+Date:   Fri Jun 13 15:41:01 2025 +0200
 
-    docker-compose: Update to version 2.37.0
+    mc: drop patches to handle newer terminfo
     
-    Release notes:
-    https://github.com/docker/compose/releases/tag/v2.37.0
+    This patch was introduced by me in commit
+    62513dc57661ac91a4ed7ba1260ebae959c19bbb ("mc: fix mouse handling")
+    and that commit backported patch from master branch and it that time,
+    there was not any release, which included it.
+    Since 4.8.2.5 update, we are still rebasing it, no need to do that.
     
-    Signed-off-by: Javier Marcet <javier@marcet.info>
+    Fixes: eb0c3b534a7f1676cc49552a3fbac3165e8b37eb ("mc: update to 4.8.25")
+    
+    Signed-off-by: Josef Schlehofer <pepe.schlehofer@gmail.com>
