@@ -4,7 +4,6 @@
 # This is free software, licensed under the GNU General Public License v2.
 # See /LICENSE for more information.
 #
-# perl bumped
 
 include $(TOPDIR)/rules.mk
 
@@ -12,7 +11,7 @@ PKG_NAME:=perl-encode-locale
 PKG_VERSION:=1.05
 PKG_RELEASE:=3
 
-PKG_SOURCE_URL:=http://www.cpan.org/authors/id/G/GA/GAAS
+PKG_SOURCE_URL:=https://www.cpan.org/authors/id/G/GA/GAAS
 PKG_SOURCE:=Encode-Locale-$(PKG_VERSION).tar.gz
 PKG_HASH:=176fa02771f542a4efb1dbc2a4c928e8f4391bf4078473bd6040d8f11adb0ec1
 
