@@ -1,12 +1,10 @@
-commit ae33358c4f2633d49414870e43e5b7796259eced (HEAD -> master, origin/master, origin/HEAD)
-Author: Tianling Shen <cnsztl@immortalwrt.org>
-Date:   Thu Jun 12 19:09:49 2025 +0800
+commit 8a6a3d6f5d92897cf191a12e8264e22010758113 (HEAD -> master, origin/master, origin/HEAD)
+Author: Daniel Cousens <github@dcousens.com>
+Date:   Sun Feb 18 22:46:51 2024 +1100
 
-    btop: add migration for alias command
+    treewide: use https for some PKG_SOURCE_URLs
     
-    Files in `/etc/profile.d/` are marked as user configs and won't be
-    replaced to new version when update the package, so add a migration
-    script for this.
+    This changes a number of PKG_SOURCE_URLs that were using the http protocol to use https if available.
+    HTTPS was verified as functioning for the updated hosts.
     
-    Fixes: #26709
-    Signed-off-by: Tianling Shen <cnsztl@immortalwrt.org>
+    Signed-off-by: Daniel Cousens <github@dcousens.com>
