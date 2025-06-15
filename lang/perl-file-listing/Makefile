@@ -4,7 +4,6 @@
 # This is free software, licensed under the GNU General Public License v2.
 # See /LICENSE for more information.
 #
-# perl bumped
 
 include $(TOPDIR)/rules.mk
 
@@ -12,7 +11,7 @@ PKG_NAME:=perl-file-listing
 PKG_VERSION:=6.04
 PKG_RELEASE:=3
 
-PKG_SOURCE_URL:=http://www.cpan.org/authors/id/G/GA/GAAS
+PKG_SOURCE_URL:=https://www.cpan.org/authors/id/G/GA/GAAS
 PKG_SOURCE:=File-Listing-$(PKG_VERSION).tar.gz
 PKG_HASH:=1e0050fcd6789a2179ec0db282bf1e90fb92be35d1171588bd9c47d52d959cf5
 
