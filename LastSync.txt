@@ -1,10 +1,10 @@
-commit 8a6a3d6f5d92897cf191a12e8264e22010758113 (HEAD -> master, origin/master, origin/HEAD)
-Author: Daniel Cousens <github@dcousens.com>
-Date:   Sun Feb 18 22:46:51 2024 +1100
+commit bae138d392947395a540696d087e47935fc48644 (HEAD -> master, origin/master, origin/HEAD)
+Author: Ted Hess <thess@kitschensync.net>
+Date:   Tue Jun 17 16:04:27 2025 -0400
 
-    treewide: use https for some PKG_SOURCE_URLs
+    sox: Remove unmaintained package. See sox_ng replacement
     
-    This changes a number of PKG_SOURCE_URLs that were using the http protocol to use https if available.
-    HTTPS was verified as functioning for the updated hosts.
+    Sourceforge project abandoned - last version was 14.4.2 2015-02-22
+    New source: https://codeberg.org/sox_ng
     
-    Signed-off-by: Daniel Cousens <github@dcousens.com>
+    Signed-off-by: Ted Hess <thess@kitschensync.net>
