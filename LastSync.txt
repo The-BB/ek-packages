@@ -1,10 +1,12 @@
-commit bae138d392947395a540696d087e47935fc48644 (HEAD -> master, origin/master, origin/HEAD)
-Author: Ted Hess <thess@kitschensync.net>
-Date:   Tue Jun 17 16:04:27 2025 -0400
+commit 12b50193b1572cd751f56ea1c79251b3d0fed011 (HEAD -> master, origin/master, origin/HEAD)
+Author: Tianling Shen <cnsztl@immortalwrt.org>
+Date:   Thu Jun 19 21:45:44 2025 +0800
 
-    sox: Remove unmaintained package. See sox_ng replacement
+    dufs: do not reload firewall manually
     
-    Sourceforge project abandoned - last version was 14.4.2 2015-02-22
-    New source: https://codeberg.org/sox_ng
+    This is no longer required after commit openwrt/procd@2e206dbe77ec
+    ("service: add support for triggers on service/instance data changes").
     
-    Signed-off-by: Ted Hess <thess@kitschensync.net>
+    Also remove unused 'name' field.
+    
+    Signed-off-by: Tianling Shen <cnsztl@immortalwrt.org>
