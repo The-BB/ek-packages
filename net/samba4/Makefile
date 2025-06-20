@@ -1,11 +1,9 @@
 # Based partially on (wongsyrone/hbl0307106015) versions
-# perl bumped
-
 include $(TOPDIR)/rules.mk
 
 PKG_NAME:=samba
-PKG_VERSION:=4.18.8
-PKG_RELEASE:=2
+PKG_VERSION:=4.22.2
+PKG_RELEASE:=1
 
 PKG_SOURCE:=$(PKG_NAME)-$(PKG_VERSION).tar.gz
 PKG_SOURCE_URL:= \
@@ -15,7 +13,7 @@ PKG_SOURCE_URL:= \
 		http://www.nic.funet.fi/index/samba/pub/samba/stable/ \
 		http://samba.mirror.bit.nl/samba/ftp/stable/ \
 		https://download.samba.org/pub/samba/stable/
-PKG_HASH:=4fb87bceaeb01d832a59046c197a044b7e8e8000581548b5d577a6cda03344d1
+PKG_HASH:=d9ac8e224a200159e62c651cf42307dc162212ec25d04eb6800b9a7ccfbcc3c1
 
 PKG_BUILD_FLAGS:=gc-sections
 
@@ -221,15 +219,6 @@ HOST_CONFIGURE_ARGS += --disable-avahi --without-quotas --without-acl-support --
 	--without-ad-dc --without-json --without-libarchive --disable-python --nopyc --nopyo \
 	--without-ads --without-ldap --without-ldb-lmdb
 
-# Optional AES-NI support - https://lists.samba.org/archive/samba-technical/2017-September/122738.html
-# Support for Nettle wasn't comitted
-#ifdef CONFIG_TARGET_x86_64
-ifdef CONFIG_TARGET_x64_3_2
-	CONFIGURE_ARGS += --accel-aes=intelaesni
-else
-	CONFIGURE_ARGS += --accel-aes=none
-endif
-
 CONFIGURE_ARGS += \
 		--with-lockdir=/opt/var/lock/samba \
 		--with-logfilebase=/opt/var/log/samba \
@@ -378,6 +367,7 @@ define Build/Configure
 	echo 'Checking uname version type: "$(VERSION_DIST) Linux-$(LINUX_VERSION) $(shell date +%Y-%m-%d)"' >> $(PKG_BUILD_DIR)/cross-answers.txt
 	# NOTE: special answers for freeBSD/CircleCI
 	echo 'checking for clnt_create(): OK' >> $(PKG_BUILD_DIR)/cross-answers.txt
+	echo 'Checking whether fcntl supports setting/getting hints: OK' >> $(PKG_BUILD_DIR)/cross-answers.txt
 	$(call Build/Configure/Default)
 endef
 
