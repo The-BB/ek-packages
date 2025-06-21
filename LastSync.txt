@@ -1,12 +1,11 @@
-commit 12b50193b1572cd751f56ea1c79251b3d0fed011 (HEAD -> master, origin/master, origin/HEAD)
-Author: Tianling Shen <cnsztl@immortalwrt.org>
-Date:   Thu Jun 19 21:45:44 2025 +0800
+commit ceb3349f384d8c1dc2ab1931eafdd49ee32583be (HEAD -> master, origin/master, origin/HEAD)
+Author: Tomasz Maciej Nowak <tmn505@gmail.com>
+Date:   Fri Jun 20 16:54:25 2025 +0200
 
-    dufs: do not reload firewall manually
+    lttng-ust: bump version to 2.13.9
     
-    This is no longer required after commit openwrt/procd@2e206dbe77ec
-    ("service: add support for triggers on service/instance data changes").
+    Fixes build on platforms without 64-bit atomics.
     
-    Also remove unused 'name' field.
-    
-    Signed-off-by: Tianling Shen <cnsztl@immortalwrt.org>
+    Fixes: https://github.com/openwrt/packages/issues/26575
+    Changelog: https://github.com/lttng/lttng-ust/compare/v2.13.5...v2.13.9
+    Signed-off-by: Tomasz Maciej Nowak <tmn505@gmail.com>
