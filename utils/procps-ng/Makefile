@@ -28,6 +28,9 @@ include $(INCLUDE_DIR)/package.mk
 
 CONFIGURE_ARGS += --enable-skill
 
+# Entware specifics: pidfd_open syscall since Linux 5.3
+CONFIGURE_ARGS += --disable-pidwait
+
 # most of these have alternatives provided by busybox applets
 PROCPS_APPLETS := \
     free kill pgrep pkill pmap ps pwdx skill slabtop \
