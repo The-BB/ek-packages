@@ -1,11 +1,10 @@
-commit ceb3349f384d8c1dc2ab1931eafdd49ee32583be (HEAD -> master, origin/master, origin/HEAD)
-Author: Tomasz Maciej Nowak <tmn505@gmail.com>
-Date:   Fri Jun 20 16:54:25 2025 +0200
+commit 73f9b9ab79ee6e2ceedcc0387d66b994bdc6de9c (HEAD -> master, origin/master, origin/HEAD)
+Author: Etienne Champetier <champetier.etienne@gmail.com>
+Date:   Mon Jun 23 10:19:03 2025 -0400
 
-    lttng-ust: bump version to 2.13.9
+    prometheus-node-exporter-lua: add HTTPS support
     
-    Fixes build on platforms without 64-bit atomics.
+    With valid 'cert'/'key' config, prometheus-node-exporter-lua
+    will respond to https instead of http on 'listen_port'.
     
-    Fixes: https://github.com/openwrt/packages/issues/26575
-    Changelog: https://github.com/lttng/lttng-ust/compare/v2.13.5...v2.13.9
-    Signed-off-by: Tomasz Maciej Nowak <tmn505@gmail.com>
+    Signed-off-by: Etienne Champetier <champetier.etienne@gmail.com>
