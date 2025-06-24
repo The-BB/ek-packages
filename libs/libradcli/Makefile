@@ -19,8 +19,7 @@ PKG_BUILD_DIR:=$(BUILD_DIR)/radcli-$(PKG_VERSION)
 PKG_INSTALL:=1
 PKG_BUILD_PARALLEL:=1
 
-PKG_CONFIG_DEPENDS:= \
-	CONFIG_RADCLI_TLS
+PKG_CONFIG_DEPENDS := CONFIG_RADCLI_TLS
 
 include $(INCLUDE_DIR)/package.mk
 
@@ -41,7 +40,7 @@ define Package/libradcli/decription
 endef
 
 define Package/libradcli/config
-  source "$(SOURCE)/Config.in"
+        source "$(SOURCE)/Config.in"
 endef
 
 CONFIGURE_ARGS+= \
