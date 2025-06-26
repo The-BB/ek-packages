@@ -1,10 +1,9 @@
-commit 73f9b9ab79ee6e2ceedcc0387d66b994bdc6de9c (HEAD -> master, origin/master, origin/HEAD)
-Author: Etienne Champetier <champetier.etienne@gmail.com>
-Date:   Mon Jun 23 10:19:03 2025 -0400
+commit e9c1321e8bc7218521663f61d842b223c7d1824d (HEAD -> master, origin/master, origin/HEAD)
+Author: Shin Rag <zhdlcc@gmail.com>
+Date:   Fri Jun 13 23:43:36 2025 +0800
 
-    prometheus-node-exporter-lua: add HTTPS support
+    ddns-scripts: add aliyun.com
     
-    With valid 'cert'/'key' config, prometheus-node-exporter-lua
-    will respond to https instead of http on 'listen_port'.
+    Adds support for aliyun.com to the ddns-scripts package.
     
-    Signed-off-by: Etienne Champetier <champetier.etienne@gmail.com>
+    Signed-off-by: Shin Rag <zhdlcc@gmail.com>
