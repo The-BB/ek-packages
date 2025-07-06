@@ -1,12 +1,9 @@
-commit 5872070add7956524fd4d0d1b27625d5a40ce7c6 (HEAD -> master, origin/master, origin/HEAD)
-Author: Aleks Mariusz <a+git-commit@alek.cx>
-Date:   Wed Jun 11 12:03:00 2025 +0100
+commit 7e362a6e3581a0f0c6b12bc8f1f9e26d2ff7f78e (HEAD -> master, origin/master, origin/HEAD)
+Author: Nate Robinson <nrobinson2000@me.com>
+Date:   Wed Jul 2 10:53:03 2025 -0400
 
-    gpsd: update to 3.26.1
+    lf: add new package
     
-    Release Information: https://gitlab.com/gpsd/gpsd/-/blob/release-3.26.1/NEWS?ref_type=tags
+    https://github.com/gokcehan/lf
     
-    Removed the patch to enhance ncurses6 detection (upstreamed in the release)
-    - 0002-ncurses6_detection.patch
-    
-    Signed-off-by: Aleks Mariusz <a+git-commit@alek.cx>
+    Signed-off-by: Nate Robinson <nrobinson2000@me.com>
