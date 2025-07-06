@@ -9,13 +9,13 @@
 include $(TOPDIR)/rules.mk
 
 PKG_NAME:=znc
-PKG_VERSION:=1.9.1
-PKG_RELEASE:=2
+PKG_VERSION:=1.10.1
+PKG_RELEASE:=1
 
 PKG_SOURCE:=$(PKG_NAME)-$(PKG_VERSION).tar.gz
 PKG_SOURCE_URL:=https://znc.in/releases \
 		https://znc.in/releases/archive
-PKG_HASH:=e8a7cf80e19aad510b4e282eaf61b56bc30df88ea2e0f64fadcdd303c4894f3c
+PKG_HASH:=4e6e76851dbf2606185972b53ec5decad68fe53b63a56e4df8b8b3c0a6c46800
 
 PKG_MAINTAINER:=Jonas Gorski <jonas.gorski@gmail.com>
 PKG_LICENSE:=Apache-2.0
@@ -66,8 +66,8 @@ define Package/znc/install
 	$(INSTALL_DIR) $(1)/opt/share/znc/configs
 	$(INSTALL_DATA) ./files/znc.config $(1)/opt/share/znc/configs/znc.conf
 	$(INSTALL_BIN) $(PKG_BUILD_DIR)/modules/droproot.so $(1)/opt/lib/znc/
-	$(INSTALL_DIR) $(1)/opt/var/run/znc
 endef
+
 
 ZNC_MODULES :=
 ZNC_MODULE_TARGETS := droproot.so
