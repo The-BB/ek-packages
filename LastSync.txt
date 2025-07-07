@@ -1,11 +1,11 @@
-commit 0ac2c7416afedaff5c6aa76e1787825d56a83699 (HEAD -> master, origin/master, origin/HEAD)
-Author: Jens Wagner <jens@wagner2013.de>
-Date:   Fri Jun 20 11:47:53 2025 +0200
+commit f2c93e0e25af7488918bc522bd3c53e346a46a4d (HEAD -> master, origin/master, origin/HEAD)
+Author: Rui Salvaterra <rsalvaterra@gmail.com>
+Date:   Sun Jul 6 11:25:03 2025 +0100
 
-    perl-clone: new module Clone, version 0.47
+    tor: update to 0.4.8.17 stable
     
-    This module provides a clone() method to make recursive copies of various nested data types.
+    Minor release, see the changelog [1] for what's new.
     
-    It is e.g. required by recent versions of HTTP::Message
+    [1] https://gitlab.torproject.org/tpo/core/tor/-/blob/tor-0.4.8.17/ChangeLog
     
-    Signed-off-by: Jens Wagner <jens@wagner2013.de>
+    Signed-off-by: Rui Salvaterra <rsalvaterra@gmail.com>
