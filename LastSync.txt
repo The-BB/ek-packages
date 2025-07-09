@@ -1,11 +1,11 @@
-commit f2c93e0e25af7488918bc522bd3c53e346a46a4d (HEAD -> master, origin/master, origin/HEAD)
-Author: Rui Salvaterra <rsalvaterra@gmail.com>
-Date:   Sun Jul 6 11:25:03 2025 +0100
+commit 763f09e19a9336964bf341d8c6cbca745e3bab2f (HEAD -> master, origin/master, origin/HEAD)
+Author: Daniel Golle <daniel@makrotopia.org>
+Date:   Fri Jul 4 22:24:20 2025 +0100
 
-    tor: update to 0.4.8.17 stable
+    gnunet: update to 0.24.3
     
-    Minor release, see the changelog [1] for what's new.
+    See upstream NEWS file for more information
     
-    [1] https://gitlab.torproject.org/tpo/core/tor/-/blob/tor-0.4.8.17/ChangeLog
+    https://git.gnunet.org/gnunet.git/tree/NEWS?h=v0.24.3
     
-    Signed-off-by: Rui Salvaterra <rsalvaterra@gmail.com>
+    Signed-off-by: Daniel Golle <daniel@makrotopia.org>
