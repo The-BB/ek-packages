@@ -1,6 +1,6 @@
 --- a/src/btop.cpp
 +++ b/src/btop.cpp
-@@ -864,7 +864,7 @@ int main(const int argc, const char** ar
+@@ -868,7 +868,7 @@ int main(const int argc, const char** ar
  	}
  	//? If relative path failed, check two most common absolute paths
  	if (Theme::theme_dir.empty()) {
