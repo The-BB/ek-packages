@@ -66,7 +66,8 @@ MESON_ARGS+= \
 	-Dkeyfile_default=/opt/etc/knot-resolver/root.keys \
 	-Dprefix=/opt \
 	-Dunit_tests=disabled \
-	-Dutils=disabled
+	-Dutils=disabled \
+	-Dmalloc=disabled
 
 define Package/knot-resolver/install
 	$(INSTALL_DIR) $(1)/opt/sbin
