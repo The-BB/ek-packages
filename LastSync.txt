@@ -1,11 +1,9 @@
-commit 763f09e19a9336964bf341d8c6cbca745e3bab2f (HEAD -> master, origin/master, origin/HEAD)
-Author: Daniel Golle <daniel@makrotopia.org>
-Date:   Fri Jul 4 22:24:20 2025 +0100
+commit 48f3c800a749effb43d47deaa7df6d1b19709f86 (HEAD -> master, origin/master, origin/HEAD)
+Author: Rosen Penev <rosenp@gmail.com>
+Date:   Tue Jul 8 18:14:34 2025 -0700
 
-    gnunet: update to 0.24.3
+    vim: update to 9.1
     
-    See upstream NEWS file for more information
+    Fixes compilation with GCC15.
     
-    https://git.gnunet.org/gnunet.git/tree/NEWS?h=v0.24.3
-    
-    Signed-off-by: Daniel Golle <daniel@makrotopia.org>
+    Signed-off-by: Rosen Penev <rosenp@gmail.com>
