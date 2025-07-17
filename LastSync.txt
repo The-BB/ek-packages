@@ -1,9 +1,9 @@
-commit 48f3c800a749effb43d47deaa7df6d1b19709f86 (HEAD -> master, origin/master, origin/HEAD)
-Author: Rosen Penev <rosenp@gmail.com>
-Date:   Tue Jul 8 18:14:34 2025 -0700
+commit 8457a9fecc52aa3d4b45ea4e6808ad585dfca510 (HEAD -> master, origin/master, origin/HEAD)
+Author: Philip Prindeville <philipp@redfish-solutions.com>
+Date:   Sun Jul 13 15:12:30 2025 -0600
 
-    vim: update to 9.1
+    strongswan: Update to 6.0.2
     
-    Fixes compilation with GCC15.
+    No significant functional changes.
     
-    Signed-off-by: Rosen Penev <rosenp@gmail.com>
+    Signed-off-by: Philip Prindeville <philipp@redfish-solutions.com>
