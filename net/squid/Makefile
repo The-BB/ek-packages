@@ -10,7 +10,7 @@ include $(TOPDIR)/rules.mk
 
 PKG_NAME:=squid
 PKG_VERSION:=6.11
-PKG_RELEASE:=1
+PKG_RELEASE:=2
 
 PKG_SOURCE:=$(PKG_NAME)-$(PKG_VERSION).tar.xz
 PKG_SOURCE_URL:=http://www2.pl.squid-cache.org/Versions/v6/ \
@@ -37,7 +37,7 @@ endef
 define Package/squid
   $(call Package/squid/Default)
   MENU:=1
-  DEPENDS:=+libpthread +librt +libltdl +libstdcpp +libatomic +USE_GLIBC:libbsd
+  DEPENDS:= +USE_GLIBC:libbsd +libpthread +librt +libltdl +libstdcpp +libatomic #+USE_GLIBC:libcrypt-compat
   DEPENDS+= +SQUID_use-gnutls:libgnutls +SQUID_use-openssl:libopenssl
   DEPENDS+= +SQUID_with-libcap:libcap
   DEPENDS+= +SQUID_with-nettle:libnettle
