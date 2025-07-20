@@ -1,12 +1,10 @@
-commit 7e19f2b331ac413ac4f58851c345a6dc1f79021e (HEAD -> master, origin/master, origin/HEAD)
-Author: Josef Schlehofer <pepe.schlehofer@gmail.com>
-Date:   Sat Jul 19 14:38:41 2025 +0200
+commit 283702c29f2980d9b5d9072a4a05333640c85a70 (HEAD -> master, origin/master, origin/HEAD)
+Author: Liu Yu <f78fk@live.com>
+Date:   Sat Jul 19 10:50:17 2025 +0900
 
-    perl-html-parser: add perl/host to HOST_BUILD_DEPENDS
+    bind: bump to 9.20.11
     
-    Added `perl/host` to the `HOST_BUILD_DEPENDS` variable to ensure Perl is available during the host build process.
-    This is required for scripts or tools that rely on Perl on the host system.
+    Fix a possible assertion failure when stale-answer-client-timeout
+    is set to 0. (CVE-2025-40777)
     
-    Fixes: ebfb47aa7448d46f950164e9d5835da5151182b1 ("perl-html-parser: restructure and update to 3.83")
-    
-    Signed-off-by: Josef Schlehofer <pepe.schlehofer@gmail.com>
+    Signed-off-by: Liu Yu <f78fk@live.com>
