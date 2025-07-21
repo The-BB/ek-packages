@@ -1,10 +1,10 @@
-commit 283702c29f2980d9b5d9072a4a05333640c85a70 (HEAD -> master, origin/master, origin/HEAD)
-Author: Liu Yu <f78fk@live.com>
-Date:   Sat Jul 19 10:50:17 2025 +0900
+commit 251497c14df24ebf99ad1cc584c9e38759a5befd (HEAD -> master, origin/master, origin/HEAD)
+Author: Daniel Golle <daniel@makrotopia.org>
+Date:   Mon Jul 21 01:09:32 2025 +0100
 
-    bind: bump to 9.20.11
+    fluidsynth: update to 2.4.7
     
-    Fix a possible assertion failure when stale-answer-client-timeout
-    is set to 0. (CVE-2025-40777)
+    See https://github.com/FluidSynth/fluidsynth/wiki/ChangeLog#fluidsynth-247
+    for details on changes since 2.4.5.
     
-    Signed-off-by: Liu Yu <f78fk@live.com>
+    Signed-off-by: Daniel Golle <daniel@makrotopia.org>
