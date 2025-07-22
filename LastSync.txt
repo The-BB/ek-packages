@@ -1,10 +1,10 @@
-commit 251497c14df24ebf99ad1cc584c9e38759a5befd (HEAD -> master, origin/master, origin/HEAD)
-Author: Daniel Golle <daniel@makrotopia.org>
-Date:   Mon Jul 21 01:09:32 2025 +0100
+commit ae7cb49d6fe8c4934bfceaaee3256378a988895c (HEAD -> master, origin/master, origin/HEAD)
+Author: Michael Heimpold <mhei@heimpold.de>
+Date:   Thu Jul 10 23:53:19 2025 +0200
 
-    fluidsynth: update to 2.4.7
+    php8: update to 8.4.10
     
-    See https://github.com/FluidSynth/fluidsynth/wiki/ChangeLog#fluidsynth-247
-    for details on changes since 2.4.5.
+    Upstream changelog:
+    https://www.php.net/ChangeLog-8.php#8.4.10
     
-    Signed-off-by: Daniel Golle <daniel@makrotopia.org>
+    Signed-off-by: Michael Heimpold <mhei@heimpold.de>
