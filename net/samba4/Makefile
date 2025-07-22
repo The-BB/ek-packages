@@ -136,6 +136,13 @@ RSTRIP:=:
 
 TARGET_CFLAGS += -D_LARGEFILE64_SOURCE -D_FILE_OFFSET_BITS=64
 
+# Entware specifics: @(mips||mipsel)
+# Build failed
+#  -> task in 'krb5' failed with exit status 1 (run with -v to display more information)
+ifeq ($(ARCH),$(filter $(ARCH),mips mipsel))
+TARGET_LDFLAGS += -latomic
+endif
+
 CONFIGURE_VARS += \
 	CPP="$(TARGET_CROSS)cpp" \
 	XSLTPROC=false \
