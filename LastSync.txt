@@ -1,10 +1,11 @@
-commit ae7cb49d6fe8c4934bfceaaee3256378a988895c (HEAD -> master, origin/master, origin/HEAD)
-Author: Michael Heimpold <mhei@heimpold.de>
-Date:   Thu Jul 10 23:53:19 2025 +0200
+commit 5bfd9558f47eda1d85e557a3b193e674124c8dff (HEAD -> master, origin/master, origin/HEAD)
+Author: Tianling Shen <cnsztl@immortalwrt.org>
+Date:   Tue Jul 22 21:22:55 2025 +0800
 
-    php8: update to 8.4.10
+    cloudreve: Update to 4.3.0
     
-    Upstream changelog:
-    https://www.php.net/ChangeLog-8.php#8.4.10
+    Major update log: https://github.com/cloudreve/cloudreve/releases/tag/4.0.0
     
-    Signed-off-by: Michael Heimpold <mhei@heimpold.de>
+    Updated assets build commands.
+    
+    Signed-off-by: Tianling Shen <cnsztl@immortalwrt.org>
