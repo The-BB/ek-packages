@@ -1,11 +1,11 @@
-commit 5bfd9558f47eda1d85e557a3b193e674124c8dff (HEAD -> master, origin/master, origin/HEAD)
-Author: Tianling Shen <cnsztl@immortalwrt.org>
-Date:   Tue Jul 22 21:22:55 2025 +0800
+commit a45c1a4fe5e3d1030f4c065d16a558b766179b98 (HEAD -> master, origin/master, origin/HEAD)
+Author: Alexander Couzens <lynxis@fe80.eu>
+Date:   Sat Jul 19 13:29:19 2025 +0200
 
-    cloudreve: Update to 4.3.0
+    libmicrohttpd: update to 1.0.2
     
-    Major update log: https://github.com/cloudreve/cloudreve/releases/tag/4.0.0
+    Changelog:
+    * Fix double-close bugs on bind() errors reported by MC on the list.
+    * Removed MHD2 draft code, now in libmicrohttpd2.git.
     
-    Updated assets build commands.
-    
-    Signed-off-by: Tianling Shen <cnsztl@immortalwrt.org>
+    Signed-off-by: Alexander Couzens <lynxis@fe80.eu>
