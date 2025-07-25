@@ -9,7 +9,7 @@ include $(TOPDIR)/rules.mk
 
 PKG_NAME:=rsync
 PKG_VERSION:=3.4.1
-PKG_RELEASE:=1
+PKG_RELEASE:=2
 
 PKG_SOURCE:=$(PKG_NAME)-$(PKG_VERSION).tar.gz
 PKG_SOURCE_URL:=https://download.samba.org/pub/$(PKG_NAME)/src
@@ -60,8 +60,7 @@ CONFIGURE_ARGS += \
 	--$(if $(CONFIG_RSYNC_acl),en,dis)able-acl-support \
 	--$(if $(CONFIG_RSYNC_xxhash),en,dis)able-xxhash \
 	$(if $(CONFIG_IPV6),,--disable-ipv6) \
-	--with-rsyncd-conf=/opt/etc/rsyncd.conf \
-	--with-nobody-group=nobody
+	--with-rsyncd-conf=/opt/etc/rsyncd.conf
 
 define Package/rsyncd
   SECTION:=net
@@ -69,6 +68,7 @@ define Package/rsyncd
   SUBMENU:=File Transfer
   TITLE:=Rsync daemon
   DEPENDS:=+rsync
+  USERID:=rsyncd=976:rsyncd=976
   URL:=https://rsync.samba.org/
 endef
 
@@ -110,6 +110,8 @@ define Package/rsyncd/install
 	$(INSTALL_DATA) ./files/rsyncd.conf $(1)/opt/etc/
 	$(INSTALL_DIR) $(1)/opt/etc/init.d
 	$(INSTALL_BIN) ./files/S50rsyncd $(1)/opt/etc/init.d/
+#	$(INSTALL_DIR) $(1)/etc/capabilities
+#	$(INSTALL_DATA) ./files/rsyncd.json $(1)/etc/capabilities
 endef
 
 define Package/rrsync/description
