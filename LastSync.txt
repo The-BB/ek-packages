@@ -1,11 +1,13 @@
-commit a45c1a4fe5e3d1030f4c065d16a558b766179b98 (HEAD -> master, origin/master, origin/HEAD)
-Author: Alexander Couzens <lynxis@fe80.eu>
-Date:   Sat Jul 19 13:29:19 2025 +0200
+commit 7f3fd08a3a6a1b28deb77833bb8334b17c2b2b18 (HEAD -> master, origin/master, origin/HEAD)
+Author: Liu Yu <f78fk@live.com>
+Date:   Tue Jul 15 11:47:50 2025 +0900
 
-    libmicrohttpd: update to 1.0.2
+    kea: update to 2.6.3
     
-    Changelog:
-    * Fix double-close bugs on bind() errors reported by MC on the list.
-    * Removed MHD2 draft code, now in libmicrohttpd2.git.
+    Update Kea to the stable release 2.6.3.
+    This version brings various build and security improvements.
+    In particular, support for Boost 1.87 has been officially merged
+    upstream, so the previously required patch 020-boost-187.patch
+    has been removed.
     
-    Signed-off-by: Alexander Couzens <lynxis@fe80.eu>
+    Signed-off-by: Liu Yu <f78fk@live.com>
