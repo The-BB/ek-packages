@@ -1,13 +1,9 @@
-commit 7f3fd08a3a6a1b28deb77833bb8334b17c2b2b18 (HEAD -> master, origin/master, origin/HEAD)
-Author: Liu Yu <f78fk@live.com>
-Date:   Tue Jul 15 11:47:50 2025 +0900
+commit f931ddb99f32c495620cf11e9d2eaf3c1ab9f5bb (HEAD -> master, origin/master, origin/HEAD)
+Author: Jianhui Zhao <zhaojh329@gmail.com>
+Date:   Fri Jul 25 14:07:22 2025 +0800
 
-    kea: update to 2.6.3
+    lua-eco: update to 3.11.0
     
-    Update Kea to the stable release 2.6.3.
-    This version brings various build and security improvements.
-    In particular, support for Boost 1.87 has been officially merged
-    upstream, so the previously required patch 020-boost-187.patch
-    has been removed.
+    changelog: https://github.com/zhaojh329/lua-eco/releases/tag/v3.11.0
     
-    Signed-off-by: Liu Yu <f78fk@live.com>
+    Signed-off-by: Jianhui Zhao <zhaojh329@gmail.com>
