@@ -1,9 +1,14 @@
-commit f931ddb99f32c495620cf11e9d2eaf3c1ab9f5bb (HEAD -> master, origin/master, origin/HEAD)
-Author: Jianhui Zhao <zhaojh329@gmail.com>
-Date:   Fri Jul 25 14:07:22 2025 +0800
+commit 513e8c598c6e9e535de69ccab8857c9b11d802f1 (HEAD -> master, origin/master, origin/HEAD)
+Author: John Audia <therealgraysky@proton.me>
+Date:   Tue Jul 15 15:39:57 2025 -0400
 
-    lua-eco: update to 3.11.0
+    rngd-tools: run as unprivileged user
     
-    changelog: https://github.com/zhaojh329/lua-eco/releases/tag/v3.11.0
+    For better security and isolation, used the -D option to run as newly
+    created unprivileged user.
     
-    Signed-off-by: Jianhui Zhao <zhaojh329@gmail.com>
+    Build system: x86/64
+    Build-tested: x86/64-glibc
+    Run-tested: x86/64-glibc
+    
+    Signed-off-by: John Audia <therealgraysky@proton.me>
