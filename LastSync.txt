@@ -1,14 +1,11 @@
-commit 513e8c598c6e9e535de69ccab8857c9b11d802f1 (HEAD -> master, origin/master, origin/HEAD)
-Author: John Audia <therealgraysky@proton.me>
-Date:   Tue Jul 15 15:39:57 2025 -0400
+commit ab4b2995915d6f9f9f3d222f114652a17c585c94 (HEAD -> master, origin/master, origin/HEAD)
+Author: Tianling Shen <cnsztl@immortalwrt.org>
+Date:   Tue Jul 22 21:25:51 2025 +0800
 
-    rngd-tools: run as unprivileged user
+    microsocks: Update to 1.0.5
     
-    For better security and isolation, used the -D option to run as newly
-    created unprivileged user.
+    Release note: https://github.com/rofl0r/microsocks/releases/tag/v1.0.5
     
-    Build system: x86/64
-    Build-tested: x86/64-glibc
-    Run-tested: x86/64-glibc
+    Removed upstreamed patches.
     
-    Signed-off-by: John Audia <therealgraysky@proton.me>
+    Signed-off-by: Tianling Shen <cnsztl@immortalwrt.org>
