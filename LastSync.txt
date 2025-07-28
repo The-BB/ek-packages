@@ -1,11 +1,11 @@
-commit ab4b2995915d6f9f9f3d222f114652a17c585c94 (HEAD -> master, origin/master, origin/HEAD)
-Author: Tianling Shen <cnsztl@immortalwrt.org>
-Date:   Tue Jul 22 21:25:51 2025 +0800
+commit 90dfd41b51332e531c7e5bd2f473457d43724d40 (HEAD -> master, origin/master, origin/HEAD)
+Author: Robert Marko <robimarko@gmail.com>
+Date:   Sun Jul 27 19:56:29 2025 +0200
 
-    microsocks: Update to 1.0.5
+    atop: update to 2.12.0
     
-    Release note: https://github.com/rofl0r/microsocks/releases/tag/v1.0.5
+    2.11.0 will not compile with GCC15, so update to 2.12.0.
+    It also fixes CVE-2025-31160.
     
-    Removed upstreamed patches.
-    
-    Signed-off-by: Tianling Shen <cnsztl@immortalwrt.org>
+    Fixes: #27085
+    Signed-off-by: Robert Marko <robimarko@gmail.com>
